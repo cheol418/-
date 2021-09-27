@@ -5,6 +5,8 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.XML;
@@ -20,31 +22,16 @@ import com.google.gson.reflect.TypeToken;
 
 @Controller
 public class ConcertMainController {
-	// openApi аж╪р : http://data.seoul.go.kr/dataList/OA-2269/S/1/datasetView.do 
-	RestTemplate restT = new RestTemplate();
-	
-	final String apiUrl = "http://openapi.seoul.go.kr:8088/";
-	final String key = "757762615a746f6539337672695949/";
-	final String type = "ListPublicReservationCulture/";
-	String fullApiUrl = apiUrl+key+"xml/"+type;
-	
 	final String command = "/main.do";
 	final String getPage = "main";
 	
 	@RequestMapping(value = command)
-	public ModelAndView doAction(ModelAndView mav) throws JsonParseException, JsonMappingException, IOException {
-		Object xml = restT.getForObject(fullApiUrl+"1/5", String.class);
-		String xmlStr = xml.toString();
-		
-		// xml to json
-		JSONObject jObj = XML.toJSONObject(xmlStr);
-		JSONArray jsonarr = jObj.getJSONObject("ListPublicReservationCulture").getJSONArray("row");
-		
-		Gson gson = new Gson();
-		
-		Type listType = new TypeToken<List<Map<String,Object>>>(){}.getType();
-		List<Map<String,Object>> concertList = gson.fromJson(jsonarr.toString(), listType);
-		mav.addObject("concertList",concertList);
+	public ModelAndView doAction(ModelAndView mav,
+			HttpSession session) throws JsonParseException, JsonMappingException, IOException {
+		ConcertApi api = new ConcertApi();
+		List<Map<String,Object>> concertList = api.getCultureList(1,5);
+		session.setAttribute("concertList", concertList);
+		mav.addObject("concertList", concertList);
 		mav.setViewName(getPage);
 		return mav;
 	}
