@@ -1,36 +1,88 @@
-<%@page import="org.springframework.web.servlet.ModelAndView"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
+<script type="text/javascript" src="resources/js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
+	var slideCnt = 15;		// 가져오는 데이터 개수
+	var slideSize = 3;		// 페이지 개수
+	var activePage = 1;		// 첫 페이지
+	
+	$(function(){
+		// $(document).ready() 와 같음
+		showSlide();
+	});
+	
+	function showSlide(){
+		var maxSlideCnt = slideCnt/slideSize;	// 페이지에서 나오는 데이터 개수
+		var startSlide= maxSlideCnt*(activePage-1);	// 시작데이터 번호
+		var lastSlide= maxSlideCnt*(activePage);	// 끝데이터 번호
+		
+		for(i=0;i<slideCnt;i++){
+			var tdName = "#slide_td"+(i+1); 
+			if(i>=startSlide && i<lastSlide){
+				$(tdName).css("display","table-cell");
+			}else{
+				$(tdName).css("display","none")
+			}
+		}
+	}
+	
+	function slideLift(){
+		if(activePage==1){
+			activePage=3;
+		}else{
+			activePage--; 
+		}
+		showSlide();
+	}
+	
+	function slideRight(){
+		if(activePage==3){
+			activePage=1;
+		}else{
+			activePage++; 
+		}
+		showSlide();
+	}
+	
 	function goDetail(svc){
 		svc.submit();
 	}
 </script>
 <style>
-  #map {
-    height: 500px;
-    width: 500px;
-  }
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+	.slideImg{
+		margin: 15px;
+		width: 200px;
+		height: 170px;
+	}
+	.slide{
+		overflow: hidden;
+	}
 </style>
-<table border="1">
-	<tr>
-		<c:forEach items="${concertList}" var="concert" varStatus="status">
-				<td width="230" align="center">
-					<form name="${concert.SVCID}" method="post" action="concertDetail.do">
-						<a onclick="goDetail(${concert.SVCID})">
-							<img src="${concert.IMGURL}" width="230" height="200">
-						</a>
-						${concert.PLACENM}
-						<input type="hidden" name="svcid" value="${concert.SVCID}">
-					</form>
-				</td>
-		</c:forEach>
-	</tr>
-</table> 
+<div class="slide">
+	<table border="1">
+		<tr>
+			<td>
+				<a onclick="slideLift()">
+					<img src="resources/images/arrowLeft.png">
+				</a>
+			</td>
+			<c:forEach items="${concertList}" var="concert" varStatus="status">
+					<td width="230" align="center" id="slide_td${status.count}">
+						<form name="${concert.SVCID}" method="post" action="concertDetail.do">
+							<a onclick="goDetail(${concert.SVCID})">
+								<img src="${concert.IMGURL}" class="slideImg">
+							</a><br>
+							${concert.PLACENM}
+							<input type="hidden" name="svcid" value="${concert.SVCID}">
+						</form>
+					</td>
+			</c:forEach>
+			<td>
+				<a onclick="slideRight()">
+					<img src="resources/images/arrowRight.png">
+				</a>
+			</td>
+		</tr>
+	</table> 
+</div>

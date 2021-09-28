@@ -29,7 +29,7 @@ public class ConcertMainController {
 	public ModelAndView doAction(ModelAndView mav,
 			HttpSession session) throws JsonParseException, JsonMappingException, IOException {
 		ConcertApi api = new ConcertApi();
-		List<Map<String,Object>> concertList = api.getCultureList(1,5);
+		List<Map<String,Object>> concertList = api.getCultureList(1,15);
 		session.setAttribute("concertList", concertList);
 		mav.addObject("concertList", concertList);
 		mav.setViewName(getPage);
