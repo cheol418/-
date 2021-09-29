@@ -2,18 +2,18 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-detail<br>
+<%@ include file="../common/common.jsp" %>
 <script>
 	function initMap(){
-	var seoul = { lat: ${concert.Y} ,lng: ${concert.X} };
+	var mark = { lat: ${concert.Y} ,lng: ${concert.X} };
 	var map = new google.maps.Map(
         document.getElementById('map'), {
           zoom: 15,
-          center: seoul
+          center: mark
 	});
 	
 	new google.maps.Marker({
-		position: seoul,
+		position: mark,
 		map: map
 	});
 	}
@@ -21,17 +21,100 @@ detail<br>
 <style>
   #map {
     height: 500px;
-    width: 500px;
+    width: 1100px;
+    margin: auto;
   }
   html, body {
     height: 100%;
     margin: 0;
     padding: 0;
   }
+  .conDetailImg{
+	width: 150px;
+    margin: 10px;
+  }
+  .concertDetailTable,.concertDetailMap{
+  	width: 1200px;
+  }
 </style>
-${concert.DTLCONT}<br>
-<div id="map">
-	<script async
-	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVVvjWSIjTYymU9Xkhcmq7oJ09y_HixZc&callback=initMap">
-	</script>
-</div>
+<!-- header -->
+<table border="1" class="concertDetailTable" align="center">
+	<tr>
+		<td rowspan="6" align="center" width="200" height="200">
+			<img class="conDetailImg" src="${concert.IMGURL}">
+		</td>
+		<td width="120">제목</td>
+		<td width="500">${concert.SVCNM}</td>
+		<td width="120">지역</td>
+		<td>${concert.AREANM}</td>
+	</tr>
+	<tr>
+		<td>대분류[소분류]</td>
+		<td>${concert.MAXCLASSNM}[ ${concert.MINCLASSNM} ]</td>
+		<td>접수 상태</td>
+		<td>${concert.SVCSTATNM}</td>
+	</tr>
+	<tr>
+		<td>장소</td>
+		<td>${concert.PLACENM}</td>
+		<td>결제방법</td>
+		<td>${concert.PAYATNM}</td>
+	</tr>
+	<tr>
+		<td>접수시작일</td>
+		<td>
+			<fmt:parseDate value="${concert.RCPTBGNDT}" var="pRcptbgndt" pattern="yyyy-MM-dd"/>
+			<fmt:formatDate value="${pRcptbgndt}" var="fRcptbgndt" pattern="yyyy-MM-dd"/>
+			${fRcptbgndt}
+		</td>
+		<td>접수종료일</td>
+		<td>
+			<fmt:parseDate value="${concert.RCPTENDDT}" var="pRcptenddt" pattern="yyyy-MM-dd"/>
+			<fmt:formatDate value="${pRcptenddt}" var="fRcptenddt" pattern="yyyy-MM-dd"/>
+			${fRcptenddt}
+		</td>
+	</tr>
+	<tr>
+		<td>전화번호</td>
+		<td>${concert.TELNO}</td>
+		<td>이용시간</td>
+		<td>${concert.V_MIN}~${concert.V_MAX}</td>
+	</tr>
+	<tr>
+		<td colspan="4" align="center">
+			<a href="${concert.SVCURL}" target="_blank">
+				예약하기
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5">
+			${concert.DTLCONT}
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" align="center">
+			<a href="${concert.SVCURL}" target="_blank">
+				예약하기
+			</a>
+		</td>
+	</tr>
+</table>
+<table class="concertDetailMap" align="center" border="1">
+	<tr>
+		<td>오시는 길</td>
+		<td>
+			<div id="map">
+				<script async
+				    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVVvjWSIjTYymU9Xkhcmq7oJ09y_HixZc&callback=initMap">
+				</script>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right">
+			<a href="main.do">목록보기</a>
+		</td>
+	</tr>
+</table>
+<!-- footer --> 

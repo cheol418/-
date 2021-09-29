@@ -9,6 +9,7 @@
 	
 	$(function(){
 		// $(document).ready() 와 같음
+		$("#slideDot").attr("colspan",slideCnt);	//슬라이드 하단 점 생성,공간 생성
 		showSlide();
 	});
 	
@@ -25,6 +26,7 @@
 				$(tdName).css("display","none")
 			}
 		}
+		createDot();
 	}
 	
 	function slideLift(){
@@ -45,6 +47,24 @@
 		showSlide();
 	}
 	
+	function sildeMove(num){
+		activePage = num;
+		showSlide();
+	}
+	
+	function createDot(){
+		$("#slideDot").empty()
+		for(i=0;i<slideSize;i++){
+			var imgStr = "<img class='slideDot' src='resources/images/";
+			if(i==activePage-1){
+				imgStr += "blackCircle.png' onclick='sildeMove("+(i+1)+")'/>";
+			}else{
+				imgStr += "grayCircle.png' onclick='sildeMove("+(i+1)+")'/>";
+			}
+			$("#slideDot").append(imgStr);
+		}
+	}
+	
 	function goDetail(svc){
 		svc.submit();
 	}
@@ -58,8 +78,21 @@
 	.slide{
 		overflow: hidden;
 	}
+	#slideDot{
+		text-align: center;
+	}
+	.slideDot{
+		margin: 3px;
+		width: 15px;
+		height: 15px;
+	}
+	.slideDot, .slideImg{
+		cursor: pointer;
+	}
 </style>
-<div class="slide">
+<!-- header -->
+<div class="slide">	
+	슬라이드
 	<table border="1">
 		<tr>
 			<td>
@@ -84,5 +117,30 @@
 				</a>
 			</td>
 		</tr>
+		<tr>
+			<td id="slideDot">
+			</td>
+		</tr>
 	</table> 
 </div>
+<div>
+	공지사항
+	<table>
+		<tr>
+			<td>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+<div>
+	게시글
+	<table>
+		<tr>
+			<td>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+<!-- footer -->
