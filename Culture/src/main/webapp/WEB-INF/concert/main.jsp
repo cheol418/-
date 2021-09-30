@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
-<script type="text/javascript" src="resources/js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 	var slideCnt = 15;		// 가져오는 데이터 개수
 	var slideSize = 3;		// 페이지 개수
@@ -11,6 +10,7 @@
 		// $(document).ready() 와 같음
 		$("#slideDot").attr("colspan",slideCnt);	//슬라이드 하단 점 생성,공간 생성
 		showSlide();
+		setInterval(function(){slideRight()},5000);
 	});
 	
 	function showSlide(){
