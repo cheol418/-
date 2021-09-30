@@ -65,18 +65,4 @@
 		<servlet-name>culture</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	
-	<!-- 회원가입 부분 추가 -->
-	<servlet>
-		<servlet-name>user</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/user-servlet.xml</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>user</servlet-name>
-		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
 </web-app>
