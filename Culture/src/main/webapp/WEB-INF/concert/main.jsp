@@ -109,16 +109,16 @@
 </script>
 <style>
 	.slideImg{
-		margin: 13px;
-		width: 170px;
-		height: 150px; 
+		margin: 10px;
+		width: 135px;
+		height: 125px; 
 	}
 	.slide{
 		overflow: hidden;
 	}
 	.slideTable{
-		width: 1100px;
-		height: 300px;
+		width: 980px;
+		height: 280px;
 	}
 	#slideDot{
 		text-align: center;
@@ -138,29 +138,34 @@
 		display: table-row;
 	}
 	.mainboard{
-		width: 550px;
+		width: 430px;
 		margin: 10px;
 		float: left;
+		font-size: 13px;
 	}
 	.concertName{
-		height: 50px;
+		height: 40px;
 	}
 	.slideDotTr{
 		height: 38px;
 	}
 	.boardNum{
-		width: 50px;
+		width: 40px;
 	}
 	.boardTitle{
-		width: 150px;
+		width: 130px;
+		overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
 	}
 	.boardContent{
-	    width: 200px;
+	    width: 165px;
 	    overflow: hidden;
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
 	}
 	.boardDate{
+	    width: 65px;
 		font-size: 12px;
 	}
 	.arrowImg{

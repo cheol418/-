@@ -36,16 +36,19 @@
   .concertDetailTable,.concertDetailMap{
   	width: 1200px;
   }
+  .imgTd{
+  	vertical-align: middle !important;
+  }
 </style>
 <!-- header -->
 <table class="table table-bordered concertDetailTable" align="center">
 	<tr>
-		<td rowspan="6" align="center" width="200" height="200">
+		<td class="imgTd" rowspan="6" align="center" width="200" height="200">
 			<img class="conDetailImg" src="${concert.IMGURL}">
 		</td>
-		<td width="120">제목</td>
+		<td width="130">제목</td>
 		<td width="500">${concert.SVCNM}</td>
-		<td width="120">지역</td>
+		<td width="110">지역</td>
 		<td>${concert.AREANM}</td>
 	</tr>
 	<tr>
