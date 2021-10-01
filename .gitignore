@@ -28,3 +28,4 @@ Servers/
 .classpath
 .settings/
 .project
+pom.properties

@@ -38,7 +38,7 @@
   }
 </style>
 <!-- header -->
-<table border="1" class="concertDetailTable" align="center">
+<table class="table table-bordered concertDetailTable" align="center">
 	<tr>
 		<td rowspan="6" align="center" width="200" height="200">
 			<img class="conDetailImg" src="${concert.IMGURL}">
@@ -100,7 +100,7 @@
 		</td>
 	</tr>
 </table>
-<table class="concertDetailMap" align="center" border="1">
+<table class="table table-bordered concertDetailMap" align="center" border="1">
 	<tr>
 		<td>오시는 길</td>
 		<td>
