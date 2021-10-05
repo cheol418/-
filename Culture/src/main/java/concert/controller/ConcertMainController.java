@@ -1,6 +1,5 @@
 package concert.controller;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -10,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 
 import board.model.BoardBean;
 import concert.model.ConcertDao;
@@ -26,8 +22,7 @@ public class ConcertMainController {
 	private ConcertDao cdao;
 	
 	@RequestMapping(value = command)
-	public ModelAndView doAction(ModelAndView mav,
-			HttpSession session) throws JsonParseException, JsonMappingException, IOException {
+	public ModelAndView doAction(ModelAndView mav, HttpSession session){
 		ConcertApi api = new ConcertApi();
 		List<Map<String,Object>> concertList = api.getCultureList(1,15);
 		

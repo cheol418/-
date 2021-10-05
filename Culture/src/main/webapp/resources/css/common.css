@@ -3,70 +3,6 @@
 		font-family: 'Noto Sans KR', 'Malgun Gothic', AppleGothicNeoSD, 'Apple SD 산돌고딕 Neo',
 					 'Microsoft NeoGothic', 'Droid sans', arial, sans-serif;
 	}
-	.slideImg{
-		margin: 10px;
-		width: 135px;
-		height: 125px; 
-	}
-	.slide{
-		overflow: hidden;
-	}
-	.slideTable{
-		width: 980px;
-		height: 280px;
-		margin: auto;
-	}
-	#slideDot{
-		text-align: center;
-	}
-	.slideDot{
-		margin: 3px;
-		width: 15px;
-		height: 15px;
-	}
-	.slideDot, .slideImg{
-		cursor: pointer;
-	}
-	.mDeActive{
-		display: none;
-	}
-	.mActive{
-		display: table-row;
-	}
-	.mainboard{
-		width: 430px;
-		margin: 10px !important;
-		float: left;
-		font-size: 13px;
-	}
-	.concertName{
-		height: 40px;
-	}
-	.slideDotTr{
-		height: 38px;
-	}
-	.boardNum{
-		width: 40px;
-	}
-	.boardTitle{
-		width: 130px;
-		overflow: hidden;
-	    text-overflow: ellipsis;
-	    white-space: nowrap;
-	}
-	.boardContent{
-	    width: 165px;
-	    overflow: hidden;
-	    text-overflow: ellipsis;
-	    white-space: nowrap;
-	}
-	.boardDate{
-	    width: 65px;
-		font-size: 12px;
-	}
-	.arrowImg{
-		vertical-align: middle !important;
-	}
 	th{
 		background-color: #dddddd94;
 	}
@@ -98,7 +34,7 @@
 	.logoA{
 		text-decoration: none !important;
 	}
-	.menuNav{
+	.menuNav{ 
 		width: 900px;
 		display: contents;
 	}
@@ -107,4 +43,9 @@
 		font-weight:600;
 		text-decoration: none !important;
 		margin: 0 20px;
+	}
+	.textoverflow{
+		overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
 	}

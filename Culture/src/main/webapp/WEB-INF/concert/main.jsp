@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
 <link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/concert.css"> 
 <script type="text/javascript">
 	var slideCnt = 15;		// 가져오는 데이터 개수
 	var slideSize = 3;		// 페이지 개수

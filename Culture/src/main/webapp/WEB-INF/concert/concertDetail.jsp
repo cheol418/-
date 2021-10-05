@@ -1,8 +1,8 @@
-<%@page import="java.util.Map"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
+<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/concert.css"> 
 <script>
 	function initMap(){
 	var mark = { lat: ${concert.Y} ,lng: ${concert.X} };
@@ -19,28 +19,8 @@
 	}
 </script>
 <style>
-  #map {
-    height: 500px;
-    width: 1100px;
-    margin: auto;
-  }
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  .conDetailImg{
-	width: 150px;
-    margin: 10px;
-  }
-  .concertDetailTable,.concertDetailMap{
-  	width: 1200px;
-  }
-  .imgTd{
-  	vertical-align: middle !important;
-  }
 </style>
-<!-- header -->
+<%@ include file="../concert/header.jsp" %>
 <table class="table table-bordered concertDetailTable" align="center">
 	<tr>
 		<td class="imgTd" rowspan="6" align="center" width="200" height="200">
@@ -120,4 +100,4 @@
 		</td>
 	</tr>
 </table>
-<!-- footer --> 
+<%@ include file="../concert/footer.jsp" %>
