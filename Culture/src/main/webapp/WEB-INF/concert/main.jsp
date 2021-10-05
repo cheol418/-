@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
+<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
 <script type="text/javascript">
 	var slideCnt = 15;		// 가져오는 데이터 개수
 	var slideSize = 3;		// 페이지 개수
@@ -107,199 +108,132 @@
 		svc.submit();
 	}
 </script>
-<style>
-	.slideImg{
-		margin: 10px;
-		width: 135px;
-		height: 125px; 
-	}
-	.slide{
-		overflow: hidden;
-	}
-	.slideTable{
-		width: 980px;
-		height: 280px;
-	}
-	#slideDot{
-		text-align: center;
-	}
-	.slideDot{
-		margin: 3px;
-		width: 15px;
-		height: 15px;
-	}
-	.slideDot, .slideImg{
-		cursor: pointer;
-	}
-	.mDeActive{
-		display: none;
-	}
-	.mActive{
-		display: table-row;
-	}
-	.mainboard{
-		width: 430px;
-		margin: 10px;
-		float: left;
-		font-size: 13px;
-	}
-	.concertName{
-		height: 40px;
-	}
-	.slideDotTr{
-		height: 38px;
-	}
-	.boardNum{
-		width: 40px;
-	}
-	.boardTitle{
-		width: 130px;
-		overflow: hidden;
-	    text-overflow: ellipsis;
-	    white-space: nowrap;
-	}
-	.boardContent{
-	    width: 165px;
-	    overflow: hidden;
-	    text-overflow: ellipsis;
-	    white-space: nowrap;
-	}
-	.boardDate{
-	    width: 65px;
-		font-size: 12px;
-	}
-	.arrowImg{
-		vertical-align: middle !important;
-	}
-	th{
-		background-color: #dddddd94;
-	}
-</style>
-<!-- header -->
-<div class="slide">	
-	슬라이드
-	<table class="table table-bordered slideTable">
-		<tr>
-			<td class="arrowImg">
-				<a onclick="slideLift()">
-					<img src="resources/images/arrowLeft.png">
-				</a>
-			</td>
-			<c:forEach items="${concertList}" var="concert" varStatus="status">
-					<td width="230" align="center" id="slide_td${status.count}">
-						<form name="${concert.SVCID}" method="post" action="concertDetail.do">
-							<a onclick="goDetail(${concert.SVCID})">
-								<img src="${concert.IMGURL}" class="slideImg">
-							</a>
-							<div class="concertName">
-								${concert.PLACENM}
-							</div>
-							<input type="hidden" name="svcid" value="${concert.SVCID}">
-						</form>
+<%@ include file="../concert/header.jsp" %>
+<div class="bodyPart content">
+	<div class="slide">	
+		<table class="table table-bordered slideTable">
+			<tr>
+				<td class="arrowImg">
+					<a onclick="slideLift()">
+						<img src="resources/images/arrowLeft.png">
+					</a>
+				</td>
+				<c:forEach items="${concertList}" var="concert" varStatus="status">
+						<td width="230" align="center" id="slide_td${status.count}">
+							<form name="${concert.SVCID}" method="post" action="concertDetail.do">
+								<a onclick="goDetail(${concert.SVCID})">
+									<img src="${concert.IMGURL}" class="slideImg">
+								</a>
+								<div class="concertName">
+									${concert.PLACENM}
+								</div>
+								<input type="hidden" name="svcid" value="${concert.SVCID}">
+							</form>
+						</td>
+				</c:forEach>
+				<td class="arrowImg">
+					<a onclick="slideRight()">
+						<img src="resources/images/arrowRight.png">
+					</a>
+				</td>
+			</tr>
+			<tr class="slideDotTr">
+				<td id="slideDot">
+				</td>
+			</tr>
+		</table> 
+	</div>
+	<div class="conDiv">
+		<table class="table table-bordered table-hover mainboard">
+			<caption>공지사항</caption>
+			<tr>
+				<th>글번호</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>작성일</th>
+			</tr>
+			<c:forEach items="${noticeList}" var="notice" varStatus="status"> 
+				<tr id="noticeRow${status.count}">
+					<td>
+						<div class="boardNum">
+							${notice.num}
+						</div>
 					</td>
+					<td>
+						<div class="boardTitle">
+							${notice.title} 
+						</div>
+					</td>
+					<td>
+						<div class="boardContent">
+							${notice.content}
+						</div>
+					</td>
+					<td>
+						<fmt:parseDate value="${notice.regdate}" var="pRedDate" pattern="yy-MM-dd hh:mm"/>
+						<fmt:formatDate value="${pRedDate}" var="fRedDate" pattern="MM-dd hh:mm"/>
+						<div class="boardDate">
+							${fRedDate}
+						</div>
+					</td>
+				</tr>
 			</c:forEach>
-			<td class="arrowImg">
-				<a onclick="slideRight()">
-					<img src="resources/images/arrowRight.png">
-				</a>
-			</td>
-		</tr>
-		<tr class="slideDotTr">
-			<td id="slideDot">
-			</td>
-		</tr>
-	</table> 
-</div>
-<div>
-	<table class="table table-bordered table-hover mainboard">
-		<caption>공지사항</caption>
-		<tr>
-			<th>글번호</th>
-			<th>제목</th>
-			<th>내용</th>
-			<th>작성일</th>
-		</tr>
-		<c:forEach items="${noticeList}" var="notice" varStatus="status">
-			<tr id="noticeRow${status.count}">
-				<td>
-					<div class="boardNum">
-						${notice.num}
-					</div>
-				</td>
-				<td>
-					<div class="boardTitle">
-						${notice.title} 
-					</div>
-				</td>
-				<td>
-					<div class="boardContent">
-						${notice.content}
-					</div>
-				</td>
-				<td>
-					<fmt:parseDate value="${notice.regdate}" var="pRedDate" pattern="yy-MM-dd hh:mm"/>
-					<fmt:formatDate value="${pRedDate}" var="fRedDate" pattern="MM-dd hh:mm"/>
-					<div class="boardDate">
-						${fRedDate}
-					</div>
+			<tr id="noticeOff" class="mDeActive" onclick="nOffBoard()" >
+				<td colspan="4">
+					<div align="center">접기</div>
 				</td>
 			</tr>
-		</c:forEach>
-		<tr id="noticeOff" class="mDeActive" onclick="nOffBoard()" >
-			<td colspan="4">
-				<div align="center">접기</div>
-			</td>
-		</tr>
-		<tr id="noticeAdd" class="mActive" onclick="nAddBoard()">
-			<td colspan="4">
-				<div align="center">펼치기</div>
-			</td>
-		</tr>
-	</table>
-	<table class="table table-bordered mainboard" border="1">
-		<caption>게시글</caption>
-		<tr>
-			<th>글번호</th>
-			<th>제목</th>
-			<th>내용</th>
-			<th>작성일</th>
-		</tr>
-		<c:forEach items="${boardList}" var="board" varStatus="status">
-			<tr id="boardRow${status.count}">
-				<td>
-					<div class="boardNum">
-						${board.num}
-					</div>
-				</td>
-				<td>
-					<div class="boardTitle">
-						${board.title}
-					</div>
-				</td>
-				<td>
-					<div class="boardContent">
-						${board.content}
-					</div>
-				</td>
-				<td>
-					<fmt:parseDate value="${board.regdate}" var="pRedDate" pattern="yy-MM-dd hh:mm"/>
-					<fmt:formatDate value="${pRedDate}" var="fRedDate" pattern="MM-dd hh:mm"/>
-					<div class="boardDate">
-						${fRedDate}
-					</div>
+			<tr id="noticeAdd" class="mActive" onclick="nAddBoard()">
+				<td colspan="4">
+					<div align="center">펼치기</div>
 				</td>
 			</tr>
-		</c:forEach>
-		<tr id="boardOff" class="mDeActive" onclick="bOffBoard()" >
-			<td colspan="4">
-				<div align="center">접기</div>
-			</td>
-		</tr>
-		<tr id="boardAdd" class="mActive" onclick="bAddBoard()">
-			<td colspan="4">
-				<div align="center">펼치기</div>
-			</td>
-		</tr>
-	</table>
+		</table>
+		<table class="table table-bordered mainboard" border="1">
+			<caption>게시글</caption>
+			<tr>
+				<th>글번호</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>작성일</th>
+			</tr>
+			<c:forEach items="${boardList}" var="board" varStatus="status">
+				<tr id="boardRow${status.count}">
+					<td>
+						<div class="boardNum">
+							${board.num}
+						</div>
+					</td>
+					<td>
+						<div class="boardTitle">
+							${board.title}
+						</div>
+					</td>
+					<td>
+						<div class="boardContent">
+							${board.content}
+						</div>
+					</td>
+					<td>
+						<fmt:parseDate value="${board.regdate}" var="pRedDate" pattern="yy-MM-dd hh:mm"/>
+						<fmt:formatDate value="${pRedDate}" var="fRedDate" pattern="MM-dd hh:mm"/>
+						<div class="boardDate">
+							${fRedDate}
+						</div>
+					</td>
+				</tr>
+			</c:forEach>
+			<tr id="boardOff" class="mDeActive" onclick="bOffBoard()" >
+				<td colspan="4">
+					<div align="center">접기</div>
+				</td>
+			</tr>
+			<tr id="boardAdd" class="mActive" onclick="bAddBoard()">
+				<td colspan="4">
+					<div align="center">펼치기</div>
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
-<!-- footer -->
+<%@ include file="../concert/footer.jsp" %>
