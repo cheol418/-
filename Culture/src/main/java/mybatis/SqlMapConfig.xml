@@ -8,12 +8,7 @@
 		<typeAlias alias="MyBoard" type="board.model.BoardBean"/>
 	</typeAliases>
 	<mappers>
-<<<<<<< HEAD
 		<mapper resource="mybatis/concert.xml"/>
-=======
-		<mapper resource="concert/mybatis/concert.xml"/>
-		<mapper resource="mybatis/board.xml"/>
->>>>>>> branch 'master' of https://github.com/ghkdtpehd/Project_JHLK.git
 		<mapper resource="mybatis/board.xml"/>
 		<mapper resource="mybatis/admin.xml"/>
 		<mapper resource="mybatis/club.xml"/>

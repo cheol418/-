@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
 <link rel="stylesheet" type="text/css" href="resources/css/common.css">
+<link rel="stylesheet" type="text/css" href="resources/css/concert.css">
 <script type="text/javascript">
 	function goDetail(svc){
 		svc.submit();
