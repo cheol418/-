@@ -108,4 +108,11 @@ insert into board(num,writer,title,content,image,category,ref,restep,relevel,rea
 values(seqbrd.nextval,'noman1','thisis테스트란다A.','이것은testcontent.O','','qna','','','','','');
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
 values(seqbrd.nextval,'noman1','thisis테스트란다A.','이것은testcontent.O','','qna','','','','','');
+
+
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'freeman1','thisis테스트란다A.','이것은testcontent.O','','free','','','','','');
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'freeman2','thisis테스트란다A.','이것은testcontent.O','','free','','','','','');
+
 commit;

@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script type="text/javascript">
+	function gologin(){
+		location.href="login.ur";
+	}
+</script>
 <div class="bodyPart headerDiv">
 	<div class="userDiv">
-	사용자 바
+		<input class="btn " type="button" value="로그인" onclick="gologin()">
 	</div>
 	<div class="menuDiv">
 		<a href="main.do" class="logoA">

@@ -3,13 +3,20 @@ package board.model;
 import java.sql.Timestamp;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 public class BoardBean {
 	private int num;
 	private String writer;
 	private String title;
 	private String content;
+	
 	private String image;
+	private MultipartFile pic;
+	private String pic_old;
+	private String pic_del;
+
+	
 	private String category;
 	private int ref;
 	private int restep;
@@ -17,7 +24,54 @@ public class BoardBean {
 	private int readCount;
 	private Timestamp regdate;
 	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	
+	public String getPic_old() {
+		return pic_old;
+	}
+
+	public void setPic_old(String pic_old) {
+		this.pic_old = pic_old;
+	}
+	
+	public String getPic_del() {
+		return pic_old;
+	}
+
+	public void setPic_del(String pic_del) {
+		this.pic_del = pic_del;
+	}
+	
+
+	public void setPic(MultipartFile pic) {
+		System.out.println("setUpload upload:"+pic);
+		this.pic = pic;
+		
+		System.out.println("pic.getName():"+pic.getName());
+		System.out.println("pic.getOriginalFilename():"+pic.getOriginalFilename());  
+		
+		//if(image != pic_old) {
+		//	this.pic_del = pic_old;
+		//	this.pic_old =pic.getOriginalFilename();
+		//}		
+		
+		this.image = pic.getOriginalFilename();
+		
+		
+			
+	}
+	
+	public MultipartFile getPic() {		
+		return pic;
+	}
+	
+	
+	/*
 	public BoardBean() {
 		super();
 	}
@@ -37,6 +91,8 @@ public class BoardBean {
 		this.readCount = readCount;
 		this.regdate = regdate;
 	}
+	*/
+	
 	public int getNum() {
 		return num;
 	}
@@ -61,12 +117,7 @@ public class BoardBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+	
 	public String getCategory() {
 		return category;
 	}

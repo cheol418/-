@@ -1,0 +1,38 @@
+@charset "UTF-8";
+.loginDiv{
+	width: 440px;
+	height: 140px;
+    margin: 0px auto;
+    margin-top: 250px;
+}
+.loginInput{
+	float: right;
+    width: 70%;
+}
+.loginUl{
+	width: 435px;
+}
+.loginUl li{
+	list-style: none;
+    float: left;
+}
+.loginUl li div{
+	height: 40px;
+	float: left;
+}
+.liText{
+	width: 300px;
+}
+.liBtn{
+	width: 76px;
+}
+.loginText{
+	width: 64px;
+    height: 20px !important;
+    margin: 10px 8px;
+    float: left;
+}
+.liBtn input{
+	height: 78px;
+    border: 1px black solid;
+}
