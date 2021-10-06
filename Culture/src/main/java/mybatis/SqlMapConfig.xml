@@ -8,8 +8,7 @@
 		<typeAlias alias="MyBoard" type="board.model.BoardBean"/>
 	</typeAliases>
 	<mappers>
-		<mapper resource="concert/mybatis/concert.xml"/>
-		<mapper resource="board/mybatis/board.xml"/>
+		<mapper resource="mybatis/concert.xml"/>
 		<mapper resource="mybatis/board.xml"/>
 		<mapper resource="mybatis/admin.xml"/>
 		<mapper resource="mybatis/club.xml"/>
