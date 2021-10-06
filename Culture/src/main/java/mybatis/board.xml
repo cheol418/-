@@ -1,28 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="admin.model.BoardDao">
 
-	<select id="getTotalBoardCount" resultType="int">
-		select count(*) from board
-		<if test="whatColumn=='title'">
+<mapper namespace="board.model.Board">
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*)
+		from board
+		<if test="whatColumn=='subject'">
 		where title like '%'||#{keyword}||'%'
 		</if>
 		<if test="whatColumn=='writer'">
 		where writer like '%'||#{keyword}||'%'
 		</if>
+		order by num desc
 	</select>
 	
-	<select id="getBoardList" resultType="admin.model.BoardBean">
-		select * from board
+	<select id="getNoticeTotalCount" resultType="int">
+		select count(case when category='notice' then 1 end)
+		from board
+		<if test="whatColumn=='subject'">
+		where title like '%'||#{keyword}||'%'
+		</if>
+		<if test="whatColumn=='writer'">
+		where writer like '%'||#{keyword}||'%'
+		</if>
+		order by num desc
+	</select>
+	
+	<select id="getQnaTotalCount" resultType="int">
+		select count(case when category='qna' then 1 end)
+		from board
+		<if test="whatColumn=='subject'">
+		where title like '%'||#{keyword}||'%'
+		</if>
+		<if test="whatColumn=='writer'">
+		where writer like '%'||#{keyword}||'%'
+		</if>
+		order by num desc
+	</select>
+	
+	<select id="getFreeTotalCount" resultType="int">
+		select count(case when category='free' then 1 end)
+		from board
+		<if test="whatColumn=='subject'">
+		where title like '%'||#{keyword}||'%'
+		</if>
+		<if test="whatColumn=='writer'">
+		where writer like '%'||#{keyword}||'%'
+		</if>
+		order by num desc
+	</select>
+	
+	<select id="getNoticeBoardList" resultType="MyBoard">
+		select *
+		from board where category like 'notice'
+		<if test="whatColumn == 'subject'">
+		where title like '%'||#{keyword}||'%'
+		</if>
+		<if test="whatColumn == 'writer'">
+		where writer like '%'||#{keyword}||'%'
+		</if>
+		order by num desc
+	</select>
+	
+	<select id="getQnaBoardList" resultType="MyBoard">
+		select *
+		from board where category like 'qna'
+		<if test="whatColumn == 'subject'">
+		where title like '%'||#{keyword}||'%'
+		</if>
+		<if test="whatColumn == 'writer'">
+		where writer like '%'||#{keyword}||'%'
+		</if>
+		order by num desc
+	</select>
+	
+	<select id="getFreeBoardList" resultType="MyBoard">
+		select *
+		from board where category like 'free'
+		<if test="whatColumn == 'subject'">
+		where title like '%'||#{keyword}||'%'
+		</if>
+		<if test="whatColumn == 'writer'">
+		where writer like '%'||#{keyword}||'%'
+		</if>
+		order by num desc
+	</select>
+	
+	<select id="getTotalBoardList" resultType="MyBoard">
+		select *
+		from board
 		<if test="whatColumn == 'title'">
 		where title like '%'||#{keyword}||'%'
 		</if>
 		<if test="whatColumn == 'writer'">
 		where writer like '%'||#{keyword}||'%'
 		</if>
-		 order by ref desc, restep asc
+		 <!--  order by ref desc, restep asc-->
 	</select>
+	
+	<update id="updateReadCount">
+		update board
+		set readcount = readcount + 1
+		where num = #{num}
+	</update>
+	
+	<select id="getBoardData" resultType="MyBoard">
+		select *
+		from board
+		where num = #{num}
+	</select>
+	
+	<insert id="insertData">
+		insert into board(num, writer, title, content, image, category, regdate, ref, restep, relevel, readcount)
+		values(seqbrd.nextval, #{writer}, #{title}, #{content},#{image}, #{category}, #{regdate}, seqbrd.currval,0,0,0 )
+	</insert>
+	
+	<update id="updateBoard">
+		update board
+		set writer = #{writer},title = #{title} , image = #{image},content = #{content}
+		where num = #{num}
+	</update>
 	
 	
 </mapper>

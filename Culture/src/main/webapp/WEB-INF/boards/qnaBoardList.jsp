@@ -22,12 +22,12 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>total_board</title>
+	<title>QNA_Board</title>
 </head>
 
 <body>
-	<h2>공지 게시판 목록보기</h2>
-	<form action="totalBoardList.bd" method="post">
+	<h2>QNA 게시판 목록보기</h2>
+	<form action="qnaBoardList.bd" method="post">
 		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber}">		
 		<input type="hidden" name="CT" value="${CT}">
 		<select name="whatColumn">

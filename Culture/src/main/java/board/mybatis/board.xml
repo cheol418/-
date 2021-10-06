@@ -13,6 +13,7 @@
 		<if test="whatColumn=='writer'">
 		where writer like '%'||#{keyword}||'%'
 		</if>
+		order by num desc
 	</select>
 	
 	<select id="getNoticeBoardList" resultType="MyBoard">
@@ -24,13 +25,13 @@
 		<if test="whatColumn == 'writer'">
 		where writer like '%'||#{keyword}||'%'
 		</if>
-		 <!--  order by ref desc, restep asc-->
+		order by num desc
 	</select>
 	
 	<select id="getTotalBoardList" resultType="MyBoard">
 		select *
 		from board
-		<if test="whatColumn == 'subject'">
+		<if test="whatColumn == 'title'">
 		where title like '%'||#{keyword}||'%'
 		</if>
 		<if test="whatColumn == 'writer'">
@@ -38,6 +39,29 @@
 		</if>
 		 <!--  order by ref desc, restep asc-->
 	</select>
+	
+	<update id="updateReadCount">
+		update board
+		set readcount = readcount + 1
+		where num = #{num}
+	</update>
+	
+	<select id="getBoardData" resultType="MyBoard">
+		select *
+		from board
+		where num = #{num}
+	</select>
+	
+	<insert id="insertData">
+		insert into board(num, writer, title, content, image, category, regdate, ref, restep, relevel, readcount)
+		values(seqbrd.nextval, #{writer}, #{title}, #{content},#{image}, #{category}, #{regdate}, seqbrd.currval,0,0,0 )
+	</insert>
+	
+	<update id="updateBoard">
+		update board
+		set writer = #{writer},title = #{title} , image = #{image},content = #{content}
+		where num = #{num}
+	</update>
 	
 	
 </mapper>
