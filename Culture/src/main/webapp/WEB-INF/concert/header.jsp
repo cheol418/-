@@ -18,11 +18,11 @@
 		if(uVo != null){
 	%>
 		<%=uVo.getName()%>님 환영합니다.
-		<input class="btn " type="button" value="로그아웃" onclick="gologout()">
+		<input class="btn btn-outline-dark logBtn" type="button" value="로그아웃" onclick="gologout()">
 	<%
 		}else{
 	%>
-		<input class="btn " type="button" value="로그인" onclick="gologin()">
+		<input class="btn btn-outline-dark logBtn" type="button" value="로그인" onclick="gologin()">
 	<%
 		}
 	%>		
