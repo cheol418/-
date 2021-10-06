@@ -6,6 +6,7 @@
 	<typeAliases>
 		<typeAlias alias="MyConcert" type="concert.model.ConcertVo"/>
 		<typeAlias alias="MyBoard" type="board.model.BoardBean"/>
+		<typeAlias alias="MyUser" type="user.model.UserVo"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/concert.xml"/>
