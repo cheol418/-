@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	xsi:schemaLocation="https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	
 	<!-- 시작페이지 설정 -->
 	<welcome-file-list>
@@ -77,6 +77,35 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>user</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.ur</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 게시판 부분 추가 -->
+	<servlet>
+		<servlet-name>board</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/board-servlet.xml</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>board</servlet-name>
+		<url-pattern>*.bd</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>admin</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/admin-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>*.ad</url-pattern>
 	</servlet-mapping>
 </web-app>

@@ -9,7 +9,7 @@ CREATE TABLE grade
     cnum     NUMBER          NOT NULL, 
     grade    VARCHAR2(45)    NOT NULL, 
     gdate    DATE            NOT NULL 
-)
+);
 
 -----------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ CREATE TABLE club
     num      NUMBER         PRIMARY KEY, 
     name     VARCHAR2(45)    NOT NULL, 
     cdate    DATE            NOT NULL
-)
+);
 
 -----------------------------------------------------------------------
 
@@ -43,11 +43,11 @@ CREATE TABLE member
     phone     VARCHAR(45)    NOT NULL, 
     area      VARCHAR(45)    NOT NULL, 
     point     NUMBER         NOT NULL
-)
+);
 
 
 insert into member(num,id,passwd,name,image,gender,age,email,phone,area,point)
-values(seqmem.nextval,'admin','1234','admin','','남','20','email','00000000','서울','30');
+values(seqmem.nextval,'admin','1234','admin','','�궓','20','email','00000000','�꽌�슱','30');
 
 
 -----------------------------------------------------------------------
@@ -61,7 +61,7 @@ CREATE TABLE attend
     num      NUMBER    PRIMARY KEY, 
     adate    DATE      NOT NULL, 
     mnum     NUMBER    NOT NULL
-)
+);
 
 -----------------------------------------------------------------------
 
@@ -86,26 +86,47 @@ CREATE TABLE board
 );
 
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman','thisis테스트란다.','이것은testcontent.','','notice','','','','','');
+values(seqbrd.nextval,'okman','공지글','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman1','thisis테스트란다1.','이것은testcontent.1','','notice','','','','','');
+values(seqbrd.nextval,'okman','길다란 공지글글글글글글글글글','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman2','thisis테스트란다2.','이것은testcontent.2','','notice','','','','','');
+values(seqbrd.nextval,'okman','공지글2','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman3','thisis테스트란다3.','이것은testcontent.3','','notice','','','','','');
+values(seqbrd.nextval,'okman','공지글3','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman4','thisis테스트란다4.','이것은testcontent.4','','notice','','','','','');
+values(seqbrd.nextval,'okman','공지글4','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman5','thisis테스트란다5.','이것은testcontent.5','','notice','','','','','');
+values(seqbrd.nextval,'okman','공지글5','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman6','thisis테스트란다6.','이것은testcontent.6','','notice','','','','','');
+values(seqbrd.nextval,'okman','공지글6','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'okman','공지글7','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'okman','공지글8','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'okman','공지글9','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
 
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'noman1','thisis테스트란다A.','이것은testcontent.O','','qna','','','','','');
+values(seqbrd.nextval,'noman1','질문글1','질문내용','','qna',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'noman1','thisis테스트란다A.','이것은testcontent.O','','qna','','','','','');
+values(seqbrd.nextval,'freeman1','자유글1','자유게시판 내용','','free',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'noman1','thisis테스트란다A.','이것은testcontent.O','','qna','','','','','');
+values(seqbrd.nextval,'noman1','질문글2','질문내용','','qna',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'noman1','thisis테스트란다A.','이것은testcontent.O','','qna','','','','','');
+values(seqbrd.nextval,'freeman1','자유글','자유게시판 내용','','free',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'noman1','질문글3','질문내용','','qna',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'freeman1','자유글','자유게시판 내용','','free',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'noman1','질문글4','질문내용','','qna',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'freeman1','자유글','자유게시판 내용','','free',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'noman1','질문글5','질문내용','','qna',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'freeman1','자유글','자유게시판 내용','','free',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'noman1','질문글6','질문내용','','qna',seqbrd.currval,0,0,0,SYSDATE);
+
 commit;

@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
 <link rel="stylesheet" type="text/css" href="resources/css/common.css">
-<link rel="stylesheet" type="text/css" href="resources/css/concert.css"> 
-<%@ include file="../concert/header.jsp" %>
+<link rel="stylesheet" type="text/css" href="resources/css/concert.css">
 <script type="text/javascript">
 	function goDetail(svc){
 		svc.submit();
 	}
 </script>
+<%@ include file="../concert/header.jsp" %>
 <div class="bodyPart content">
 	<div>분류</div>
 	<div>

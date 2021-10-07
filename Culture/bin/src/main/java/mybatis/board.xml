@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.model.BoardDao">
+
+	<select id="getTotalBoardCount" resultType="int">
+		select count(*) from board
+		<if test="whatColumn=='title'">
+		where title like '%'||#{keyword}||'%'
+		</if>
+		<if test="whatColumn=='writer'">
+		where writer like '%'||#{keyword}||'%'
+		</if>
+	</select>
+	
+	<select id="getBoardList" resultType="admin.model.BoardBean">
+		select * from board
+		<if test="whatColumn == 'title'">
+		where title like '%'||#{keyword}||'%'
+		</if>
+		<if test="whatColumn == 'writer'">
+		where writer like '%'||#{keyword}||'%'
+		</if>
+		 order by ref desc, restep asc
+	</select>
+	
+	
+</mapper>

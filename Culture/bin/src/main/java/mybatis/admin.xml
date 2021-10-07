@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+  <mapper namespace="admin.model.MemberDao" >
+  
+  	<select id="getTotalCount" resultType="int">
+  		select count(*) from member
+  		
+  		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		<if test="whatColumn == 'id'">
+			where id like #{keyword}
+		</if>
+		
+  	</select>
+  
+  	<select id="getMemberList" resultType="admin.model.MemberBean">
+  		select * from member
+  		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		<if test="whatColumn == 'id'">
+			where id like #{keyword}
+		</if>
+		order by num desc	
+  	</select>
+  	
+  	<delete id="deleteMember">
+  		delete from member where num = #{num}
+  	</delete>
+  	 
+  	<select id="getMember" resultType="admin.model.MemberBean">
+  		select * from member
+  		where num = #{num}
+  	</select>
+  	
+  	<update id="updateMember">
+  		update member set id=#{id},passwd=#{passwd},gender=#{gender},name=#{name},age=#{age},image=#{image},phone=#{phone},area=#{area},point=#{point}
+  		where num=#{num}
+  	</update>
+  
+  	<insert id="insertMember">
+  		insert into member(num,id,passwd,name,image,gender,age,email,phone,area,point)
+  		values(seqmem.nextval,#{id},#{passwd},#{name},#{image},#{gender},#{age},#{email},#{phone},#{area},0)
+  	</insert>
+  
+  
+  </mapper>
