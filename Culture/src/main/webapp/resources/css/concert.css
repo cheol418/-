@@ -1,9 +1,13 @@
 @charset "UTF-8";
 	.boardContent{
-	    width: 165px;
+	    width: 155px;
 	    overflow: hidden;
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
+	}
+	.conDiv{
+		width: 1002px;
+   		margin: auto;
 	}
 	.boardDate{
 	    width: 65px;
@@ -58,7 +62,7 @@
 		width: 40px;
 	}
 	.boardTitle{
-		width: 130px;
+		width: 120px;
 		overflow: hidden;
 	    text-overflow: ellipsis;
 	    white-space: nowrap;

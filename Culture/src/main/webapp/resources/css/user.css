@@ -36,3 +36,40 @@
 	height: 78px;
     border: 1px black solid;
 }
+.loginDivTop{
+	height: 60%;
+}
+.loginDivBot{
+	height: 40%;    
+	text-align: right;
+    width: 216px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.loginDivBot a{
+	text-decoration: none;
+}
+.err{
+	color: red;
+}
+.errChk{
+    font-size: 14px;
+    font-weight: 900;
+}
+.form-control-plaintext{
+    text-indent: 20px;
+}
+.registRadio{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.regiTable{
+    width: 700px;
+    margin: auto;
+}
+.regiEmailF{
+	width: 120px !important;
+}
+.regiEmailS{
+	width: 70px !important;
+}

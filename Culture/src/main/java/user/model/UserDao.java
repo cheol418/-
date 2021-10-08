@@ -14,4 +14,16 @@ public class UserDao {
 	public UserVo getUserData(Map<String,String> map) {
 		return sqlSessionTemplate.selectOne(namespace+"getUserData",map);
 	}
+	public int checkIdDuplicate(String id) {
+		return sqlSessionTemplate.selectOne(namespace+"checkIdDuplicate",id);
+	}
+	public int insertUserData(UserVo uvo) {
+		return sqlSessionTemplate.insert(namespace+"insertUserData",uvo);
+	}
+	public UserVo findUserId(Map<String, String> map) {
+		return sqlSessionTemplate.selectOne(namespace+"findUserId",map);
+	}
+	public UserVo findUserPasswd(Map<String, String> map) {
+		return sqlSessionTemplate.selectOne(namespace+"findUserPasswd",map);
+	}
 }

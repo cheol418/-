@@ -7,4 +7,23 @@
 		from member
 		where id = #{id} and passwd = #{passwd}
 	</select>
+	<select id="checkIdDuplicate" resultType="int">
+		select count(*)
+		from member
+		where id = #{id}
+	</select>
+	<insert id="insertUserData" parameterType="MyUser">
+		insert into member(num,id,passwd,name,image,gender,age,email,phone,area,point)
+		values(seqmem.nextval,#{id},#{passwd},#{name},#{image},#{gender},#{age},#{email},#{phone},#{area},0)
+	</insert>
+	<select id="findUserId" resultType="MyUser">
+		select *
+		from member
+		where name=#{name} and email = #{email}
+	</select>
+	<select id="findUserPasswd" resultType="MyUser">
+		select *
+		from member
+		where id=#{id} and name=#{name} and email = #{email}
+	</select>
 </mapper>
