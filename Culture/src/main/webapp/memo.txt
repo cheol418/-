@@ -130,3 +130,27 @@ insert into board(num,writer,title,content,image,category,ref,restep,relevel,rea
 values(seqbrd.nextval,'noman1','질문글6','질문내용','','qna',seqbrd.currval,0,0,0,SYSDATE);
 
 commit;
+
+---------------------------
+drop table boardreply CASCADE CONSTRAINTS;
+create table boardreply (
+    bno number not null,
+    rno number not null,
+    content varchar2(1000) not null,
+    writer varchar2(50) not null,
+    regdate date default sysdate,
+    primary key(bno, rno)
+);
+
+alter table boardreply add constraint boardreply_bno foreign key(bno) references board(num);
+
+create sequence borplseq START WITH 1 MINVALUE 0;
+
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '테스트댓글', '테스트 작성자');
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, 'Fine Art!', 'replyer1');
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '구려여', 'replyer2');
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '별로에여', 'replyer3');
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '짱이에요', 'replyer4');
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '배고파여', 'replyer5');
+
+commit;
