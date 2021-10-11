@@ -33,7 +33,7 @@
 		</a>
 		<div class="menuNav">
 			<a class="menuBtn" href="main.do">메인</a> / 
-			<a class="menuBtn" href="list.do?pageNumber=1">공연목록</a> / 
+			<a class="menuBtn" href="list.do?pageNumber=1&miniclass=">공연목록</a> / 
 			<a class="menuBtn" href="">공지사항</a> / 
 			<a class="menuBtn" href="">동아리</a> / 
 			<a class="menuBtn" href="">게시판</a>
