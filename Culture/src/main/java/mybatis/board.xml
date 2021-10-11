@@ -4,18 +4,6 @@
 
 <mapper namespace="board.model.Board">
 	
-	<select id="getTotalCount" resultType="int">
-		select count(*)
-		from board
-		<if test="whatColumn=='subject'">
-		where title like '%'||#{keyword}||'%'
-		</if>
-		<if test="whatColumn=='writer'">
-		where writer like '%'||#{keyword}||'%'
-		</if>
-		order by num desc
-	</select>
-	
 	<select id="getNoticeTotalCount" resultType="int">
 		select count(case when category='notice' then 1 end)
 		from board
@@ -88,6 +76,8 @@
 		order by num desc
 	</select>
 	
+	
+	
 	<select id="getTotalBoardList" resultType="MyBoard">
 		select *
 		from board
@@ -111,6 +101,10 @@
 		from board
 		where num = #{num}
 	</select>
+	
+	<delete id="deleteBoardData">
+		delete from board where num = #{num}		
+	</delete>
 	
 	<insert id="insertData">
 		insert into board(num, writer, title, content, image, category, regdate, ref, restep, relevel, readcount)

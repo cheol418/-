@@ -82,5 +82,11 @@ public class BoardDao {
 	}
 
 
+	public void deleteBoardData(int num) {
+		sqlSessionTemplate.delete(namespace+".deleteBoardData",num);	
+		
+	}
+
+
 
 }

@@ -17,13 +17,13 @@ create table users(
 
 
 insert into users(id,passwd, name, image, gender, age, email, phone, area)
-values('kim','1234', '±è¿¬¾Æ', '»çÁøÃß°¡', '¿©ÀÚ', 27, 'kim@naver.com', '010-1234-5678', '¼­¿ï');
+values('kim','1234', 'ê¹€ì² ìˆ˜', 'ì‚¬ì§„ì—†ìŒ', 'ë‚¨ì', 27, 'kim@naver.com', '010-1234-5678', 'ì„œìš¸');
 
 insert into users(id,passwd, name, image, gender, age, email, phone, area)
-values('park','1234', '¹Ú½ÅÇı', '»çÁøÃß°¡', '¿©ÀÚ', 27, 'park@naver.com', '010-1234-5678', 'ºÎ»ê');
+values('park','1234', 'ë°•ì˜ìˆ˜', 'ì‚¬ì§„ì—†ìŒ', 'ë‚¨ì', 27, 'park@naver.com', '010-1234-5678', 'ì¸ì²œ');
 
 insert into users(id,passwd, name, image, gender, age, email, phone, area)
-values('son','1234', '¼ÕÈï¹Î', '»çÁøÃß°¡', '³²ÀÚ', 27, 'son@naver.com', '010-1234-5678', '¼­¿ï');
+values('son','1234', 'ì†ì˜í¬', 'ì‚¬ì§„ì—†ìŒ', 'ì—¬ì', 27, 'son@naver.com', '010-1234-5678', 'ê²½ê¸°ë„');
 
 
 commit ;
