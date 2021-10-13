@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 		
 		<!-- BDurl 각자 맞는것을 골라 주석처리 -->
-<!-- 		<property name="url" value="jdbc:oracle:thin:@localhost:1524:orc"/>-->		
+<!-- 		<property name="url" value="jdbc:oracle:thin:@localhost:1524:orc"/>		 -->
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
 		<property name="username" value="jspid"/>
 		<property name="password" value="jsppw"/>
 	</bean>
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="configLocation" value="classpath:/mybatis/SqlMapConfig.xml"/>
+		<property name="configLocation" value="classpath:board/mybatis/SqlMapConfig.xml"/>
 	</bean>
 	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSessionTemplate">
 		<constructor-arg ref="SqlSessionFactoryBean"/>
 	</bean>
+	<!-- 사용자지정 -->
+	<!-- java의 공통 패키지 -->
+	<context:component-scan base-package="bit.com.a"/>
+	
+	<!-- Ajax 주석문 허가 -->
+	<mvc:annotation-driven/>
+	<!-- 스프링에서 처리할 수 없는 요청은 tomcat에 위임 -->
+	<mvc:default-servlet-handler/>
 </beans>
