@@ -4,8 +4,9 @@
 <link rel="stylesheet" type="text/css" href="resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="resources/css/concert.css">
 <script type="text/javascript">
-	var pageNumber = <%=request.getParameter("pageNumber")%>
-	var miniclass = <%=request.getParameter("miniclass")%>
+	var pageNumber = <%=request.getParameter("pageNumber")%>;
+	var miniclass = "<%=request.getParameter("miniclass")%>";
+	
 	function goDetail(svc){
 		svc.submit();
 	}
@@ -81,6 +82,10 @@
 											<c:if test="${concert.SVCSTATNM eq '예약일시중지'}">
 												<dd class="svcstat3">${concert.SVCSTATNM}</dd>
 												<dd class="area3">${concert.AREANM}</dd>
+											</c:if>
+											<c:if test="${concert.SVCSTATNM eq '안내중'}">
+												<dd class="svcstat4">${concert.SVCSTATNM}</dd>
+												<dd class="area4">${concert.AREANM}</dd>
 											</c:if>
 										</dl> 
 									</a>

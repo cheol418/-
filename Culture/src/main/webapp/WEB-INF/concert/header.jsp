@@ -8,6 +8,9 @@
 	function gologout(){
 		location.href="logout.ur";
 	}
+	function goMypage(){
+		location.href="mypage.ur";
+	}
 </script>
 <%
 	UserVo uVo = (UserVo)session.getAttribute("loginInfo");
@@ -18,6 +21,7 @@
 		if(uVo != null){
 	%>
 		<%=uVo.getName()%>님 환영합니다.
+		<input class="btn btn-outline-dark logBtn" type="button" value="마이페이지" onclick="goMypage()">
 		<input class="btn btn-outline-dark logBtn" type="button" value="로그아웃" onclick="gologout()">
 	<%
 		}else{

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,13 +54,13 @@ public class UserloginController {
 		Map<String,String> map = new HashMap<String,String>();
 		
 		if(id == "" || id == null) {
-			msg = "<script type='text/javascript'> alert('¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.');</script>.";
+			msg = "<script type='text/javascript'> alert('ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.');</script>.";
 			pw.println(msg);
 			pw.flush();
 			mav.setViewName(getPage);
 			return mav;
 		}else if(passwd == "" || passwd == null) {
-			msg = "<script type='text/javascript'> alert('ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.');</script>.";
+			msg = "<script type='text/javascript'> alert('ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.');</script>.";
 			pw.println(msg);
 			pw.flush();
 			mav.setViewName(getPage);
@@ -72,7 +73,7 @@ public class UserloginController {
 		UserVo uVo = uDao.getUserData(map);
 		
 		if(uVo == null) {
-			msg = "<script type='text/javascript'> alert('ÀÏÄ¡ÇÏ´Â Á¤º¸°¡ ¾ø½À´Ï´Ù.');</script>.";
+			msg = "<script type='text/javascript'> alert('ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.');</script>.";
 			pw.println(msg);
 			pw.flush();
 			mav.setViewName(getPage);

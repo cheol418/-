@@ -185,6 +185,22 @@
 	    background-color: #1955ff;
     	color: #FFF;
 	}
+	.svcstat4, .area4{
+		float: left;
+	    height: 22px;
+	    line-height: 20px;
+	    border: 1px solid #54c5b8;
+	    padding: 0 5px;
+	    font-size: 14px;
+	}
+	.svcstat4{
+		color: #4ac4e5;
+	    font-weight: 500;
+	}
+	.area4{
+	    background-color: #4ac4e5;
+    	color: #FFF;
+	}
 	caption{
 		caption-side: top;
 		font-size: 16px;
@@ -192,6 +208,8 @@
 	}
 	.listM{
 		width: 1144px;
+		height: 1824px;
+	    margin-top: 10px;
 	}
 	.listArrowImg{
 		margin-top: 38px;
