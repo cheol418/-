@@ -9,7 +9,7 @@ CREATE TABLE grade
     cnum     NUMBER          NOT NULL, 
     grade    VARCHAR2(45)    NOT NULL, 
     gdate    DATE            NOT NULL 
-)
+);
 
 -----------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ CREATE TABLE club
     num      NUMBER         PRIMARY KEY, 
     name     VARCHAR2(45)    NOT NULL, 
     cdate    DATE            NOT NULL
-)
+);
 
 -----------------------------------------------------------------------
 
@@ -43,11 +43,11 @@ CREATE TABLE member
     phone     VARCHAR(45)    NOT NULL, 
     area      VARCHAR(45)    NOT NULL, 
     point     NUMBER         NOT NULL
-)
+);
 
 
 insert into member(num,id,passwd,name,image,gender,age,email,phone,area,point)
-values(seqmem.nextval,'admin','1234','admin','','남','20','email','00000000','서울','30');
+values(seqmem.nextval,'admin','1234','admin','','占쎄텚','20','email','00000000','占쎄퐣占쎌뒻','30');
 
 
 -----------------------------------------------------------------------
@@ -59,9 +59,9 @@ drop TABLE attend CASCADE CONSTRAINTS;
 CREATE TABLE attend
 (
     num      NUMBER    PRIMARY KEY, 
-    adate    DATE      NOT NULL, 
-    mnum     NUMBER    NOT NULL
-)
+    adate    DATE      NOT NULL default sysdate, 
+    mnum     NUMBER    NOT NULL 
+);
 
 -----------------------------------------------------------------------
 
@@ -86,26 +86,71 @@ CREATE TABLE board
 );
 
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman','thisis테스트란다.','이것은testcontent.','','notice','','','','','');
+values(seqbrd.nextval,'okman','怨듭�湲�','怨듭��궡�슜','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman1','thisis테스트란다1.','이것은testcontent.1','','notice','','','','','');
+values(seqbrd.nextval,'okman','湲몃떎�� 怨듭�湲�湲�湲�湲�湲�湲�湲�湲�湲�','怨듭��궡�슜','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman2','thisis테스트란다2.','이것은testcontent.2','','notice','','','','','');
+values(seqbrd.nextval,'okman','怨듭�湲�2','怨듭��궡�슜','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman3','thisis테스트란다3.','이것은testcontent.3','','notice','','','','','');
+values(seqbrd.nextval,'okman','怨듭�湲�3','怨듭��궡�슜','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman4','thisis테스트란다4.','이것은testcontent.4','','notice','','','','','');
+values(seqbrd.nextval,'okman','怨듭�湲�4','怨듭��궡�슜','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman5','thisis테스트란다5.','이것은testcontent.5','','notice','','','','','');
+values(seqbrd.nextval,'okman','怨듭�湲�5','怨듭��궡�슜','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'okman6','thisis테스트란다6.','이것은testcontent.6','','notice','','','','','');
+values(seqbrd.nextval,'okman','怨듭�湲�6','怨듭��궡�슜','','notice',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'okman','怨듭�湲�7','怨듭��궡�슜','','notice',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'okman','怨듭�湲�8','怨듭��궡�슜','','notice',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'okman','怨듭�湲�9','怨듭��궡�슜','','notice',seqbrd.currval,0,0,0,SYSDATE);
 
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'noman1','thisis테스트란다A.','이것은testcontent.O','','qna','','','','','');
+values(seqbrd.nextval,'noman1','吏덈Ц湲�1','吏덈Ц�궡�슜','','qna',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'noman1','thisis테스트란다A.','이것은testcontent.O','','qna','','','','','');
+values(seqbrd.nextval,'freeman1','�옄�쑀湲�1','�옄�쑀寃뚯떆�뙋 �궡�슜','','free',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'noman1','thisis테스트란다A.','이것은testcontent.O','','qna','','','','','');
+values(seqbrd.nextval,'noman1','吏덈Ц湲�2','吏덈Ц�궡�슜','','qna',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
-values(seqbrd.nextval,'noman1','thisis테스트란다A.','이것은testcontent.O','','qna','','','','','');
+values(seqbrd.nextval,'freeman1','�옄�쑀湲�','�옄�쑀寃뚯떆�뙋 �궡�슜','','free',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'noman1','吏덈Ц湲�3','吏덈Ц�궡�슜','','qna',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'freeman1','�옄�쑀湲�','�옄�쑀寃뚯떆�뙋 �궡�슜','','free',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'noman1','吏덈Ц湲�4','吏덈Ц�궡�슜','','qna',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'freeman1','�옄�쑀湲�','�옄�쑀寃뚯떆�뙋 �궡�슜','','free',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'noman1','吏덈Ц湲�5','吏덈Ц�궡�슜','','qna',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'freeman1','�옄�쑀湲�','�옄�쑀寃뚯떆�뙋 �궡�슜','','free',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'noman1','吏덈Ц湲�6','吏덈Ц�궡�슜','','qna',seqbrd.currval,0,0,0,SYSDATE);
+
+commit;
+
+---------------------------
+drop table boardreply CASCADE CONSTRAINTS;
+create table boardreply (
+    bno number not null,
+    rno number not null,
+    content varchar2(1000) not null,
+    writer varchar2(50) not null,
+    regdate date default sysdate,
+    primary key(bno, rno)
+);
+
+alter table boardreply add constraint boardreply_bno foreign key(bno) references board(num);
+
+create sequence borplseq START WITH 1 MINVALUE 0;
+
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '�뀒�뒪�듃�뙎湲�', '�뀒�뒪�듃 �옉�꽦�옄');
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, 'Fine Art!', 'replyer1');
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '援щ젮�뿬', 'replyer2');
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '蹂꾨줈�뿉�뿬', 'replyer3');
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '吏깆씠�뿉�슂', 'replyer4');
+insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '諛곌퀬�뙆�뿬', 'replyer5');
+
 commit;

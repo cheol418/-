@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+  <mapper namespace="admin.model.ClubDao" >
+  
+  	<select id="getTotalClubCount" resultType="int">
+  		select count(*) from club
+  		
+  		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		<if test="whatColumn == 'cdate'">
+			where cdate like #{keyword}
+		</if>
+		
+  	</select>
+  
+  	<select id="getClubList" resultType="admin.model.ClubBean">
+  		select * from club
+  		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		<if test="whatColumn == 'cdate'">
+			where cdate like #{keyword}
+		</if>
+		order by num desc	
+  	</select>
+  	
+  	<select id="getClub" resultType="admin.model.ClubBean">
+  	
+  	</select>
+  
+  
+  
+  </mapper>

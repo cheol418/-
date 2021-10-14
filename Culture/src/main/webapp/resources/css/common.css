@@ -6,16 +6,17 @@
 	th{
 		background-color: #dddddd94;
 	}
+	.logBtn{
+	    height: 30;
+    	font-size: 12;
+	}
 	.bodyPart{
 	    width: 1200px;
 	    margin: auto;
 	}
 	.content{
-	    min-height: 900px;
-	}
-	.conDiv{
-		width: 980px;
-   		margin: auto;
+        min-height: 700px;
+        display: flow-root;
 	}
 	.footerDiv{
 		border-top: 1px black solid;
@@ -48,4 +49,13 @@
 		overflow: hidden;
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
+	}
+	.userDiv{
+		float: right;
+	}
+	.txtCenter{
+		text-align: center;
+	}
+	.floatL{
+		float: left;
 	}

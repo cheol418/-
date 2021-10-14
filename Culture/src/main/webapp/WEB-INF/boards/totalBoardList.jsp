@@ -9,21 +9,27 @@
 	}
 </style>
 
+
 <script type="text/javascript">
+	
 	function insert(){
-		location.href="boardInsert.bd?pageNumber=${pageInfo.pageNumber}";
-	}
+		
+		//location.href="boardInsert.bd?category="+ok+"&pageNumber=${pageInfo.pageNumber}";
+		
+		location.href="boardInsert.bd?category=${CT}&pageNumber=${pageInfo.pageNumber}&writer=${board.writer}";
+	}	
 </script>
 
 <head>
 	<meta charset="UTF-8">
-	<title>Total_Board</title>
+	<title>total_board</title>
 </head>
 
 <body>
-	<h2>전체 게시판 목록보기</h2>
+	<h2>공지 게시판 목록보기</h2>
 	<form action="totalBoardList.bd" method="post">
-		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber}">
+		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber}">		
+		<input type="hidden" name="CT" value="${CT}">
 		<select name="whatColumn">
 			<option value="선택">선택
 			<option value="title">제목
@@ -56,14 +62,14 @@
 		<c:forEach items="${boardLists}" var="board">
 		<tr>
 			<td align="center">${board.num}</td>
-			<td align="center">${board.category}</td>
+			<td align="center">${board.category}</td>				
 			<td align="left">
 				<c:if test="${board.relevel > 0}">
 					<c:set value="${board.relevel * 30}" var="width"/> 
 					<img src="images/level.gif" width="${width}" height="15">  
 					<img src="<%=request.getContextPath()%>/resources/images/re.gif">
 				</c:if>
-				<a href="boardDetail.bd?num=${board.num}&pageNumber=${pageInfo.pageNumber}">
+				<a href="boardDetail.bd?num=${board.num}&category=${board.category}&pageNumber=${pageInfo.pageNumber}">
 					${board.title}
 				</a>
 			</td>
@@ -76,8 +82,7 @@
 			<td align="center">${board.readCount}</td>
 			
 		</tr>
-		</c:forEach>
-		
+		</c:forEach>		
 	</table>
 	${pageInfo.pagingHtml}
 

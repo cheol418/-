@@ -5,8 +5,14 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="MyConcert" type="concert.model.ConcertVo"/>
+		<typeAlias alias="MyBoard" type="board.model.BoardBean"/>
 	</typeAliases>
 	<mappers>
-		<mapper resource="mybatis/concert.xml"/>
+		<mapper resource="concert/mybatis/concert.xml"/>
+		<mapper resource="mybatis/board.xml"/>
+		<mapper resource="mybatis/admin.xml"/>
+		<mapper resource="mybatis/club.xml"/>
+		<mapper resource="mybatis/user.xml"/>
 	</mappers>
+	
 </configuration>

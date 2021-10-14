@@ -1,9 +1,13 @@
 @charset "UTF-8";
 	.boardContent{
-	    width: 165px;
+	    width: 155px;
 	    overflow: hidden;
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
+	}
+	.conDiv{
+		width: 1002px;
+   		margin: auto;
 	}
 	.boardDate{
 	    width: 65px;
@@ -11,6 +15,7 @@
 	}
 	.arrowImg{
 		vertical-align: middle !important;
+		height: 100%
 	}
 	.slideImg{
 		margin: 10px;
@@ -58,7 +63,7 @@
 		width: 40px;
 	}
 	.boardTitle{
-		width: 130px;
+		width: 120px;
 		overflow: hidden;
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
@@ -84,6 +89,7 @@
 	 	vertical-align: middle !important;
 	 }
 	.concertUl{
+		padding:0px;
 		list-style: none;
     	overflow: hidden;
 	}
@@ -162,4 +168,61 @@
 	.area2{
 	    background-color: #999999;
     	color: #FFF;
+	}
+	.svcstat3, .area3{
+		float: left;
+	    height: 22px;
+	    line-height: 20px;
+	    border: 1px solid #3464ff;
+	    padding: 0 5px;
+	    font-size: 14px;
+	}
+	.svcstat3{
+		color: #1955ff;
+	    font-weight: 500;
+	}
+	.area3{
+	    background-color: #1955ff;
+    	color: #FFF;
+	}
+	.svcstat4, .area4{
+		float: left;
+	    height: 22px;
+	    line-height: 20px;
+	    border: 1px solid #54c5b8;
+	    padding: 0 5px;
+	    font-size: 14px;
+	}
+	.svcstat4{
+		color: #4ac4e5;
+	    font-weight: 500;
+	}
+	.area4{
+	    background-color: #4ac4e5;
+    	color: #FFF;
+	}
+	caption{
+		caption-side: top;
+		font-size: 16px;
+		font-weight: 700;
+	}
+	.listM{
+		width: 1144px;
+		height: 1824px;
+	    margin-top: 10px;
+	}
+	.listArrowImg{
+		margin-top: 38px;
+	}
+	.listA{
+	    display: inline-block;
+	    height: 100px;
+	    border: 1px black solid;
+	    margin-top: 850px;
+	}
+	.serchBox{
+		width: 1140px;
+	}
+	.serchBox>div{
+	    margin-left: 28px;
 	}

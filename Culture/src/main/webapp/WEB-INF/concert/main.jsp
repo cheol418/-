@@ -171,8 +171,9 @@
 						</div>
 					</td>
 					<td>
-						<fmt:parseDate value="${notice.regdate}" var="pRedDate" pattern="yy-MM-dd hh:mm"/>
-						<fmt:formatDate value="${pRedDate}" var="fRedDate" pattern="MM-dd hh:mm"/>
+<%-- 						<fmt:parseDate value="${notice.regdate}" var="pRedDate" pattern="yy-MM-dd hh:mm"/> --%>
+						<fmt:formatDate value="${notice.regdate}" var="fRedDate" pattern="MM-dd hh:mm"/>
+<%-- 						<fmt:formatDate value="${pRedDate}" var="fRedDate" pattern="MM-dd hh:mm"/> --%>
 						<div class="boardDate">
 							${fRedDate}
 						</div>
@@ -216,8 +217,9 @@
 						</div>
 					</td>
 					<td>
-						<fmt:parseDate value="${board.regdate}" var="pRedDate" pattern="yy-MM-dd hh:mm"/>
-						<fmt:formatDate value="${pRedDate}" var="fRedDate" pattern="MM-dd hh:mm"/>
+<%-- 						<fmt:parseDate value="${board.regdate}" var="pRedDate" pattern="yy-MM-dd hh:mm"/> --%>
+						<fmt:formatDate value="${board.regdate}" var="fRedDate" pattern="MM-dd hh:mm"/>
+<%-- 						<fmt:formatDate value="${pRedDate}" var="fRedDate" pattern="MM-dd hh:mm"/> --%>
 						<div class="boardDate">
 							${fRedDate}
 						</div>
