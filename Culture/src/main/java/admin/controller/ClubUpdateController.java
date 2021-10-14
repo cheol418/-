@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +14,7 @@ import admin.model.ClubBean;
 import admin.model.ClubDao;
 
 @Controller
-public class clubUpdateController {
+public class ClubUpdateController {
 
 	@Autowired
 	private ClubDao cdao;
@@ -38,6 +39,22 @@ public class clubUpdateController {
 		
 		return mav;
 		
+	}
+	
+	@RequestMapping(value=command,method = RequestMethod.POST)
+	public ModelAndView updateClub(ModelAndView mav,
+			ClubBean bean,
+			@RequestParam("pageNumber") int pageNumber) {
+		
+		int cnt = -1;
+		System.out.println("num:"+bean.getNum());
+		System.out.println("name:"+bean.getName());
+		
+		cnt = cdao.updateClub(bean);
+	
+		mav.addObject("pageNumber", pageNumber);
+		mav.setViewName(gotoPage);
+		return mav;
 	}
 	
 }

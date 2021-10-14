@@ -18,14 +18,13 @@ import utility.Paging;
 
 
 @Controller
-public class memberListController {
+public class MemberListController {
 	
 	@Autowired
 	private MemberDao mdao;
 	
 	private final String command = "/memberList.ad";
 	private final String getPage = "memberList";
-	
 	
 	@RequestMapping(value=command)
 	public ModelAndView doAction(

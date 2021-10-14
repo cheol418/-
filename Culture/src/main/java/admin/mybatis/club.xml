@@ -29,9 +29,24 @@
   	</select>
   	
   	<select id="getClub" resultType="admin.model.ClubBean">
-  	
+  		select * from club
+  		where num = #{num}
   	</select>
-  
-  
+  	
+  	<update id="updateClub">
+  		update club set name=#{name}
+  		where num=#{num}
+  	</update>
+  	
+  	<delete id="deleteClub">
+  		delete from club
+  		where num = #{num}
+  	</delete>
+  	
+  	<insert id="insertClub">
+  		insert into club
+  		values(seqclb.nextval,#{name},sysdate)
+  	
+  	</insert>
   
   </mapper>

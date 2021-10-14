@@ -59,8 +59,8 @@
 	<tr>
 		<td>사진</td>
 		<td>
-		<img style="height:100px; width: 150px;" src="<%=request.getContextPath()%>/resources/${bean.image}"/><Br>
-		<input type="file" name="upload">
+		<img style="height:100px; width: 150px;" src="<%=request.getContextPath()%>/resources/member/${bean.image}"/><Br>
+		<input type="file" name="upload" value="">
 		<input type="hidden" name="upload_old" value=${bean.image }>
 		</td>
 	</tr>

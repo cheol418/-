@@ -11,7 +11,6 @@
 
 <body>
 
-
 	<h2 align="center">관리자 - 동아리 리스트 화면</h2>
 
 	<center>
@@ -26,8 +25,8 @@
 	</center>
 	<br>
 
-	<table border="1" align="center">
-		<tr>
+	<table border="1" align="center" width=400>
+		<tr >
 			<td colspan="5" align="right"><input type="button"
 				value="동아리 추가" onclick="insert()"></td>
 		</tr>

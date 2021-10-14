@@ -22,7 +22,7 @@ import admin.model.MemberBean;
 import admin.model.MemberDao;
 
 @Controller
-public class memberUpdateController {
+public class MemberUpdateController {
 	
 	@Autowired
 	private MemberDao mdao;
@@ -59,7 +59,6 @@ public class memberUpdateController {
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류입니다.");
 			
-			//mav.addObject("player", bean);
 			mav.setViewName(getPage);
 		}
 		else {
@@ -68,7 +67,7 @@ public class memberUpdateController {
 			
 			if(cnt != -1) {
 				
-				String dataPath =  servletContext.getRealPath("/resources"); 
+				String dataPath =  servletContext.getRealPath("/resources/member"); 
 				MultipartFile multi = bean.getUpload();
 
 				File upFile = new File(dataPath+ File.separator + bean.getImage()); 

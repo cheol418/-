@@ -22,6 +22,4 @@
 	</bean>
 	
 	<context:component-scan base-package="board" />
-	
-
 </beans>

@@ -16,20 +16,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import admin.model.BoardBean;
+import admin.model.BoardDao;
 import admin.model.MemberBean;
 import admin.model.MemberDao;
 
 @Controller
-public class MemberInsertController {
+public class BoardWriteController {
 
 	@Autowired
-	private MemberDao mdao;
+	private BoardDao bdao;
 	@Autowired 
 	ServletContext servletContext; //웹서버 프로젝트 경로 접근하기 위해 사용
 
-	private final String command = "memberInsert.ad";
-	private final String getPage = "memberInsertForm";
-	private final String gotoPage = "redirect:memberList.ad";
+	private final String command = "boardWrite.ad";
+	private final String getPage = "boardWriteForm";
+	private final String gotoPage = "redirect:boardList.ad";
 
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public ModelAndView insertForm(
@@ -42,15 +44,10 @@ public class MemberInsertController {
 	}
 
 	@RequestMapping(value=command,method = RequestMethod.POST)
-	public ModelAndView updateMember(ModelAndView mav,
-			@Valid MemberBean bean, BindingResult result) {
-
-		System.out.println("getRealPath(/):"+servletContext.getRealPath("/resources/member"));
-		System.out.println("선택한 화일이름: "+ bean.getImage()); //화일이 아닌 화일명 문자
+	public ModelAndView boardWrite(ModelAndView mav,
+			@Valid BoardBean bean, BindingResult result) {
 		
-		String uploadPath = servletContext.getRealPath("/resources/member");
-		
-		System.out.println("upload:"+uploadPath);
+		String uploadPath = servletContext.getRealPath("/resources/board");
 		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류입니다.");
@@ -60,9 +57,8 @@ public class MemberInsertController {
 		}//유효성검사 오류
 		else {
 
-
 			int cnt = -1;
-			cnt = mdao.insertMember(bean);
+			cnt = bdao.write(bean);
 			MultipartFile multi =  bean.getUpload();
 
 			if(cnt!=-1) { //sql삽입 성공
@@ -80,12 +76,8 @@ public class MemberInsertController {
 
 				mav.setViewName(gotoPage);
 			}else { //삽입실패
-
 				mav.setViewName(getPage);
-
 			}
-
-
 		}//유효성 검사 성공
 		
 		return mav;

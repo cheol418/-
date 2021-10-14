@@ -17,7 +17,7 @@ import admin.model.ClubDao;
 import utility.Paging;
 
 @Controller
-public class clubListController {
+public class ClubListController {
 
 	@Autowired
 	private ClubDao cdao;
