@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="./../common/common.jsp"%>
+<%@ include file="adminTop.jsp"%>
+<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css"> 
+
+<Script type="text/javascript"> 
+	function insert() {
+		location.href = "memberInsert.ad";
+	}
+</Script>
+
+<div class="bodyPart content" align="center">
+
+	<h2 align="center">회원 목록</h2>
+
+		<Form action="memberList.ad" method="get">
+			<select name="whatColumn">
+				<option value="all">전체검색</option>
+				<option value="id">ID</option>
+				<option value="name">이름</option>
+			</select> <input type="text" name="keyword" value="검색어"> <input
+				class="btn btn-outline-dark logBtn" type="submit" value="검색">
+		</Form>
+
+	<div class="conDiv">
+		<table class="table table-bordered table-hover mainboard">
+			<tr>
+				<td colspan="6" align="right"><input class="btn btn-outline-dark logBtn" type="button"
+					value="회원 추가" onclick="insert()"></td>
+			</tr>
+			<tr>
+				<th>회원번호</th>
+				<th>아이디</th>
+				<th>비밀번호</th>
+				<th>이름</th>
+				<th>회원삭제</th>
+				<th>정보수정</th>
+			</tr>
+			<c:forEach var="member" items="${lists}">
+
+				<tr>
+					<td>${member.num }</td>
+					<td><a
+						href="memberDetail.ad?num=${member.num }&pageNumber=${pageInfo.pageNumber}">${member.id }</a></td>
+					<td>${member.passwd }</td>
+					<td>${member.name }</td>
+					<td ><a
+						href="memberDelete.ad?num=${member.num}&pageNumber=${pageInfo.pageNumber}">삭제</a></td>
+					<td ><a
+						href="memberUpdate.ad?num=${member.num}&pageNumber=${pageInfo.pageNumber}">수정</a></td>
+
+				</tr>
+			</c:forEach>
+
+
+		</table>
+
+		${pageInfo.pagingHtml }
+	</div>
+</div>
+<%@ include file="../concert/footer.jsp"%>
