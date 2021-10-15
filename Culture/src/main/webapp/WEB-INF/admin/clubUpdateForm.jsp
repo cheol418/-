@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp"%>
+<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css"> 
+
 <style>
 .err {
 	font-size: 9pt;
@@ -9,29 +12,24 @@
 }
 </style>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<div class="bodyPart content" align="center">
+	<div class="formDiv">
 
-	<h2>동아리 정보 수정</h2>
 	<form action="clubUpdate.ad" method="post">
 		<input type="hidden" name=pageNumber value="${pageNumber }">
 		<input type="hidden" name=num value="${bean.num }">
-		<table border="1">
+		<table class="table table-bordered table-hover wform">
+		<caption style="font-size: 24" >동아리 수정</caption>
 			<tr>
-				<td>동아리번호</td>
+				<th>동아리번호</th>
 				<td><input type="text" name="num" value=${bean.num } disabled="disabled"></td>
 			</tr>
 			<tr>
-				<td>동아리이름</td>
+				<th>동아리이름</th>
 				<td><input type="text" name="name" value=${bean.name }></td>
 			</tr>
 			<tr>
-				<td>생성일</td>
+				<th>생성일</th>
 				<td><fmt:parseDate value="${bean.cdate}" pattern="yyyy-MM-dd"
 						var="pRegDate" /> <fmt:formatDate value="${pRegDate}"
 						pattern="yyyy/MM/dd" var="fRegDate" />
@@ -47,6 +45,3 @@
 			</tr>
 		</table>
 	</form>
-
-</body>
-</html>

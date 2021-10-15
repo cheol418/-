@@ -2,12 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp"%>
 <%@ include file="adminTop.jsp"%>
+<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css"> 
+
 
 <style type="text/css">
-body {
-	align: center;
-	text-align: center;
-}
+	
 </style>
 
 <script type="text/javascript">
@@ -16,7 +16,9 @@ body {
 	}
 </script>
 
-<h2 align="center">관리자 - 게시판 리스트</h2>
+<div class="bodyPart content" align="center">
+
+<h2 align="center">게시판 목록</h2>
 
 			
 				<a href="boardList.ad?">전체보기 </a> &nbsp;
@@ -37,17 +39,18 @@ body {
 					<option value="writer">작성자
 				</select> <input type="text" name="keyword"> 
 				
-				<input type="submit"
+				<input  class="btn btn-outline-dark logBtn" type="submit"
 					value="검색">
 			</form>
-
-			<table border="1" width="700" align="center">
+			
+<div class="conDiv">
+		<table class="table table-bordered table-hover mainboard">
 				<tr>
 					<td colspan="7" align="right">
-					<input type="button" value="글쓰기" onclick="boardWrite()"></td>
+					<input  class="btn btn-outline-dark logBtn" type="button" value="글쓰기" onclick="boardWrite()"></td>
 				</tr>
 				<tr>
-					<th>제목</th>
+					<th width=20%>제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
 					<th>조회수</th>
@@ -57,7 +60,7 @@ body {
 				</tr>
 				<c:forEach var="board" items="${boardLists}">
 					<tr>
-						<td><c:if test="${board.relevel > 0}">
+						<td ><c:if test="${board.relevel > 0}">
 								<c:set value="${board.relevel * 30}" var="width" />
 								<img
 									src="<%=request.getContextPath()%>/resources/images/level.gif"
@@ -79,3 +82,6 @@ body {
 </table>
 
 	<center>${pageInfo.pagingHtml }</center>
+		</div>
+	</div>
+<%@ include file="../concert/footer.jsp"%>

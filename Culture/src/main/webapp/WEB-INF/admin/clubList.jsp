@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="./../common/common.jsp"%>
 <%@ include file="adminTop.jsp"%>
+<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css"> 
 
 <Script type="text/javascript">
 	function insert() {
@@ -9,25 +11,24 @@
 	}
 </Script>
 
-<body>
+<div class="bodyPart content" align="center">
 
-	<h2 align="center">관리자 - 동아리 리스트 화면</h2>
+	<h2 align="center">동아리 목록</h2>
 
-	<center>
 		<Form action="clubList.ad" method="get">
 			<select name="whatColumn">
 				<option value="all">전체검색</option>
 				<option value="name">동아리명</option>
 				<option value="cdate">생성일</option>
-			</select> <input type="text" name="keyword" value="검색어를 입력하세요"> <input
-				type="submit" value="검색">
+			</select> 
+			<input type="text" name="keyword" value="검색어를 입력하세요"> <input
+				 class="btn btn-outline-dark logBtn" type="submit" value="검색">
 		</Form>
-	</center>
-	<br>
-
-	<table border="1" align="center" width=400>
+		
+	<div class="conDiv">
+		<table class="table table-bordered table-hover mainboard">
 		<tr >
-			<td colspan="5" align="right"><input type="button"
+			<td colspan="5" align="right"><input class="btn btn-outline-dark logBtn" type="button"
 				value="동아리 추가" onclick="insert()"></td>
 		</tr>
 		<tr>
@@ -45,9 +46,9 @@
 				<td><fmt:parseDate value="${club.cdate }" pattern="yyyy-MM-dd"
 						var="RegDate" /> <fmt:formatDate value="${RegDate}"
 						pattern="yyyy-MM-dd" var="RegDate" /> ${RegDate}</td>
-				<td align="center"><a
+				<td ><a
 					href="clubDelete.ad?num=${club.num}&pageNumber=${pageInfo.pageNumber}">삭제</a></td>
-				<td align="center"><a
+				<td ><a
 					href="clubUpdate.ad?num=${club.num}&pageNumber=${pageInfo.pageNumber}">수정</a></td>
 
 			</tr>
@@ -55,6 +56,7 @@
 
 	</table>
 
-	<center>${pageInfo.pagingHtml }</center>
-</body>
-</html>
+	${pageInfo.pagingHtml }	
+	</div>
+</div>
+<%@ include file="../concert/footer.jsp"%>

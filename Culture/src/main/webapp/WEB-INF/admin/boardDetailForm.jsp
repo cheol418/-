@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp"%>
-<link rel="stylesheet" type="text/css" href="resources/css/common.css">
+<%@ include file="adminTop.jsp"%>
+<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css"> 
 
-<body>
-	<div align="center" width="600">
+<div class="bodyPart content" align="center">
 
-		boardDetailForm.jsp<br>
+	<div class="formDiv">
+	
 		<form action="boardReply.ad" method="get" >
 			<input type="hidden" name="num" value=${bean.num }> 
 			<input type="hidden" name="pageNumber" value=${pageNumber }> 
@@ -15,43 +17,46 @@
 			<input type="hidden" name="restep" value=${bean.restep }>
 			<input type="hidden" name="relevel" value=${bean.relevel }>
 
-			<h2>게시판 글 세부정보</h2>
-			<table border=1 width=400>
+			<h2>게시판 세부정보</h2>
+			<table class="table table-bordered table-hover wform">
 				<tr>
-					<td>게시판 카테고리</td>
-					<td>${bean.category }</td>
+					<th width=25%>게시판 카테고리</th>
+					<td width=75%>${bean.category }</td>
 				</tr>
 				<tr>
-					<td>글번호</td>
+					<th>글번호</th>
 					<td>${bean.num }</td>
 				</tr>
 				<tr>
-					<td>작성자ID</td>
+					<th>작성자ID</th>
 					<td>${bean.writer }</td>
 				</tr>
 				<tr>
-					<td>제목</td>
+					<th>제목</th>
 					<td>${bean.title }</td>
 				</tr>
 				<tr>
-					<td>사진</td>
+					<th>사진</th>
 					<td><img style="height: 150px; width: 240px;"
 						src="<%=request.getContextPath()%>/resources/board/${bean.image}" /><Br>
 					</td>
 				</tr>
 				<tr>
-					<td>글 내용</td>
+					<th>글 내용</th>
 					<td>${bean.content }</td>
 				</tr>
 
 				<tr>
 					<td colspan="2" align="center">
 					<input type="submit" value="답글달기">
+					<input type="button" value="수정하기" onclick="location.href='boardUpdate.ad?pageNumber=${pageNumber}&num=${bean.num }'">
 					<input type="button" value="돌아가기" onclick="location.href='boardList.ad?pageNumber=${pageNumber}'">
 					</td>
 				</tr>
 			</table>
 		</form>
 
+		</div>
 	</div>
-</body>
+<%@ include file="../concert/footer.jsp"%>
+	

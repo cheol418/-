@@ -2,42 +2,51 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp"%>
 <%@ include file="adminTop.jsp"%>
+<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css"> 
 
-<body align=center>
-	<h2 align="center">관리자 - 게시판 글쓰기</h2>
+<div class="bodyPart content" align="center">
+	<div class="formDiv">
 	<form action="boardWrite.ad" method="post" enctype="multipart/form-data">
-	
-		<p>
-			카테고리 
+		<table class="table table-bordered table-hover wform">
+		<caption style="font-size: 24" >게시판 글쓰기</caption>
+		<tr>
+			<th>
+			카테고리</th>
+			<td> 
 			<select name="category">
 				<option value="notice">공지사항
 				<option value="qna">QnA
 				<option value="club">동아리
 			</select>
-		</p>
+			</td>
+		</tr>
 		
-		<p>
-			작성자ID <input type="text" name="writer" value="">
+		<tr>
+			<th>작성자ID</th> 
+			<td><input type="text" name="writer" value="" size="20"></td>
 			<!-- 로그인시 아이디 session 받아와서 사용 -->
-		</p>
-		<p>
-			제목 <input type="text" name="title">
-		</p>
-		<p>
-			사진 	
-			<input type="file" name="upload" value="${boardBean.image }" >
-		</p>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td> <input type="text" name="title" size="20"> </td>
+		</tr>
+		<tr>
+			<th>사진 </th>	
+			<Td><input type="file" name="upload" value="${boardBean.image }" ></Td>
+		</tr>
 
-		<p>
-			글내용 <textarea name="content" rows="15" cols="50"></textarea>
-		</p>
-		<p>
-			<input type="submit" value="작성하기"> &nbsp;
-			<input type="reset" value="돌아가기">
-		</p>
-
-
-
-
+		<tr>
+			<th>글내용</th> 
+			<td><textarea name="content" rows="15" cols="60"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan=2 align="center">
+			<input class="btn btn-outline-dark logBtn" type="submit" value="작성하기"> 
+			<input class="btn btn-outline-dark logBtn" type="reset" value="돌아가기"> </td>
+		</tr>
+	</table>
 	</form>
-</body>
+	</div>
+</div>
+<%@ include file="../concert/footer.jsp"%>
