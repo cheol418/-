@@ -103,3 +103,13 @@
 .delHover{
     cursor: default !important;
 }
+.userPageConDiv>div{
+	margin-top: 50px;
+}
+.userPageConDiv>div>.floatR{
+    margin-bottom: 10px;
+}
+.userPageConDiv>div>.floatR>input{
+    font-size: 14px;
+    height: 34px;
+}
