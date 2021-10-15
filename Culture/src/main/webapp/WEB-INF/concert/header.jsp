@@ -16,7 +16,7 @@
 	UserVo uVo = (UserVo)session.getAttribute("loginInfo");
 %>
 <div class="bodyPart headerDiv">
-	<div class="userDiv">
+	<div class="floatR">
 	<%
 		if(uVo != null){
 	%>
