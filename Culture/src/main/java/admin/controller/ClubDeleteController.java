@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import admin.model.ClubDao;
 
 @Controller
-public class clubDeleteController {
+public class ClubDeleteController {
 
 	@Autowired
 	private ClubDao cdao;
@@ -26,12 +26,6 @@ public class clubDeleteController {
 		
 		int cnt = -1;
 		cnt=cdao.deleteClub(num);
-		
-		if(cnt!=-1) {
-			
-		}else {
-			
-		}
 		
 		mav.setViewName(gotoPage);
 		mav.addObject("pageNumber",pageNumber);

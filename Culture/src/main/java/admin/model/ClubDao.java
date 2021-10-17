@@ -40,6 +40,15 @@ public class ClubDao {
 		return sqlSessionTemplate.selectOne(namespace+".getClub",num);
 	}
 
+	public int updateClub(ClubBean bean) {
+		return sqlSessionTemplate.update(namespace+".updateClub",bean);
+	}
+
+	public int insertClub(ClubBean bean) {
+	
+		return sqlSessionTemplate.insert(namespace+".insertClub",bean);
+	}
+
 		
 	
 }

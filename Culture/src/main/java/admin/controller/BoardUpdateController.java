@@ -10,7 +10,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,57 +17,59 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import admin.model.BoardBean;
+import admin.model.BoardDao;
 import admin.model.MemberBean;
 import admin.model.MemberDao;
 
 @Controller
-public class memberUpdateController {
-	
+public class BoardUpdateController {
+
 	@Autowired
-	private MemberDao mdao;
-	@Autowired //객체주입
-	ServletContext servletContext;
-	
-	private final String command = "memberUpdate.ad";
-	private final String getPage = "memberUpdateForm";
-	private final String gotoPage = "redirect:memberList.ad";
-	
+	private BoardDao bdao;
+	@Autowired 
+	ServletContext servletContext; //웹서버 프로젝트 경로 접근하기 위해 사용
+
+	private final String command = "boardUpdate.ad";
+	private final String getPage = "boardUpdateForm";
+	private final String gotoPage = "redirect:boardList.ad";
+
 	@RequestMapping(value=command,method = RequestMethod.GET)
-	public ModelAndView updateForm(
+	public  @ResponseBody ModelAndView updateForm(
 			ModelAndView mav,
-			@RequestParam("num") int num,
-			@RequestParam("pageNumber") int pageNumber,
-			HttpServletRequest request) {
-				
-		
-		MemberBean bean = mdao.getMember(num);
-		
-		mav.addObject("pageNumber", pageNumber);
-		mav.addObject("bean", bean);
-		mav.setViewName(getPage);
-		
-		return mav;
-		
-	}
-	
-	@RequestMapping(value=command,method = RequestMethod.POST)
-	public @ResponseBody ModelAndView updateMember(ModelAndView mav,
 			@RequestParam(value = "pageNumber") String pageNumber,
-			@ModelAttribute("bean") @Valid MemberBean bean ,BindingResult result) {
+			@RequestParam("num") int num,
+			HttpServletRequest request) {
+
+		BoardBean bean = bdao.getBoard(num);
+		
+		mav.addObject("bean",bean);
+		mav.setViewName(getPage);
+		return mav;
+
+	}
+
+	@RequestMapping(value=command,method = RequestMethod.POST)
+	public ModelAndView updateBoard(ModelAndView mav,
+			@Valid BoardBean bean, BindingResult result) {
+		
+		String uploadPath = servletContext.getRealPath("/resources/member");
 		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류입니다.");
-			
-			//mav.addObject("player", bean);
+
 			mav.setViewName(getPage);
-		}
+
+		}//유효성검사 오류
 		else {
+			System.out.println("유효성 검사 통과.");
+
 			int cnt = -1;
-			cnt = mdao.updateMember(bean);
+			cnt = bdao.updateBoard(bean); 
 			
-			if(cnt != -1) {
-				
-				String dataPath =  servletContext.getRealPath("/resources"); 
+			if(cnt!=-1) { 
+
+				String dataPath =  servletContext.getRealPath("/resources/board"); 
 				MultipartFile multi = bean.getUpload();
 
 				File upFile = new File(dataPath+ File.separator + bean.getImage()); 
@@ -84,20 +85,19 @@ public class memberUpdateController {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-
-				mav.setViewName(gotoPage);
-				
-			}
-			else {
-				mav.setViewName(getPage);
-			}
-			
-		}
 		
-		mav.addObject("pageNumber", pageNumber);
+				System.out.println("삽입성공");
+				mav.setViewName(gotoPage);
+			}else { //삽입실패
+				System.out.println("삽입실패");
+				mav.setViewName(getPage);
+
+			}
+
+		}//유효성 검사 성공
+		
 		return mav;
-	}
 
-
+	}//post
 	
-}
+}//class

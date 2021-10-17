@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: k2fnt
 Build-Jdk: 11.0.11
+=======
+Built-By: lmc
+Build-Jdk: 15.0.2
+>>>>>>> 7c3de26f4f32a630a6c26a5ad5cfba28764bcc25
 Created-By: Maven Integration for Eclipse
 

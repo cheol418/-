@@ -26,4 +26,16 @@ public class UserDao {
 	public UserVo findUserPasswd(Map<String, String> map) {
 		return sqlSessionTemplate.selectOne(namespace+"findUserPasswd",map);
 	}
+	public int updateUserData(UserVo uvo) {
+		return sqlSessionTemplate.update(namespace+"updateUserData",uvo);
+	}
+	public int checkAttend(int num) {
+		return sqlSessionTemplate.selectOne(namespace+"checkAttend",num);
+	}
+	public int insertAttend(int num) {
+		return sqlSessionTemplate.insert(namespace+"insertAttend",num);
+	}
+	public void updateUserPoint(int num) {
+		sqlSessionTemplate.update(namespace+"updateUserPoint",num);
+	}
 }

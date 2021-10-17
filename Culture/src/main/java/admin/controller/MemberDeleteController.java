@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import admin.model.MemberDao;
 
 @Controller
-public class memberDeleteController {
+public class MemberDeleteController {
 
 	@Autowired
 	private MemberDao mdao;
@@ -22,7 +22,7 @@ public class memberDeleteController {
 	@Autowired //객체주입
 	ServletContext servletContext; //웹서버 프로젝트 경로 접근하기 위해 사용 ->자바에서 사용
 
-	private final String command = "/memberDelete.ad";
+	private final String command = "memberDelete.ad";
 	private final String gotoPage = "redirect:memberList.ad";
 
 	@RequestMapping(value=command)
@@ -34,7 +34,7 @@ public class memberDeleteController {
 			) {
 
 
-		String deletePath = servletContext.getRealPath("/resources"); 
+		String deletePath = servletContext.getRealPath("/resources/member"); 
 		System.out.println("Path:"+deletePath);
 
 		File delFile = new File(deletePath+"\\"+mdao.getMember(num).getImage()); 
