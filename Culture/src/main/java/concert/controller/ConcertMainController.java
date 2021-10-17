@@ -26,14 +26,14 @@ public class ConcertMainController {
 		ConcertApi api = new ConcertApi();
 		List<Map<String,Object>> concertList = api.getCultureList(1,15);
 		
-		List<BoardBean> noticeList = cdao.getBoardNotice();
-		List<BoardBean> boardList = cdao.getBoard();
+		//List<BoardBean> noticeList = cdao.getBoardNotice();
+		//List<BoardBean> boardList = cdao.getBoard();
 		
 		session.setAttribute("concertList", concertList);
-		mav.addObject("noticeList", noticeList);
-		mav.addObject("boardList", boardList);
+		//mav.addObject("noticeList", noticeList);
+		//mav.addObject("boardList", boardList);
 		mav.addObject("concertList", concertList);
-		mav.setViewName(getPage);
+		//mav.setViewName(getPage);
 		return mav;
 	}
 }

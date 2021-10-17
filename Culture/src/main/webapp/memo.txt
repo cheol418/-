@@ -65,6 +65,17 @@ CREATE TABLE attend
 
 -----------------------------------------------------------------------
 
+col id for a6
+col writer for a3
+col title for a8
+col content for a8
+col image for a2
+col category for a8
+col ref for a2
+col restep for a2
+col relevel for a2
+col relevel for a2
+col relevel for a6
 
 drop sequence seqbrd;
 create sequence seqbrd start with 1 increment by 1 nocache ;
@@ -84,6 +95,7 @@ CREATE TABLE board
     readcount    NUMBER         NULL, 
     regdate      DATE           NULL
 );
+
 
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
 values(seqbrd.nextval,'okman','공지글','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
@@ -105,6 +117,7 @@ insert into board(num,writer,title,content,image,category,ref,restep,relevel,rea
 values(seqbrd.nextval,'okman','공지글8','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
 values(seqbrd.nextval,'okman','공지글9','공지내용','','notice',seqbrd.currval,0,0,0,SYSDATE);
+
 
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
 values(seqbrd.nextval,'noman1','질문글1','질문내용','','qna',seqbrd.currval,0,0,0,SYSDATE);
@@ -129,9 +142,20 @@ values(seqbrd.nextval,'freeman1','자유글','자유게시판 내용','','free',
 insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
 values(seqbrd.nextval,'noman1','질문글6','질문내용','','qna',seqbrd.currval,0,0,0,SYSDATE);
 
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'kim','같이가테스트1','여기같이가요','','kim_S210225111540649667',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'park','같이가테스트2','요기같이가요','','park_S210806130717454089',seqbrd.currval,0,0,0,SYSDATE);
+insert into board(num,writer,title,content,image,category,ref,restep,relevel,readcount,regdate)
+values(seqbrd.nextval,'son','같이가테스트3','우리같이가요','','son_S210814091347364537',seqbrd.currval,0,0,0,SYSDATE);
+
 commit;
 
+22/23/24
 ---------------------------
+drop sequence borplseq;
+create sequence borplseq START WITH 1 MINVALUE 0;
+
 drop table boardreply CASCADE CONSTRAINTS;
 create table boardreply (
     bno number not null,
@@ -144,7 +168,8 @@ create table boardreply (
 
 alter table boardreply add constraint boardreply_bno foreign key(bno) references board(num);
 
-create sequence borplseq START WITH 1 MINVALUE 0;
+
+
 
 insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '테스트댓글', '테스트 작성자');
 insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, 'Fine Art!', 'replyer1');
@@ -152,5 +177,19 @@ insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '
 insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '별로에여', 'replyer3');
 insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '짱이에요', 'replyer4');
 insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '배고파여', 'replyer5');
+
+insert into boardreply(bno, rno, content, writer) values(1, borplseq.nextval, 'kim의 같이가입니다.', 'kim');
+insert into boardreply(bno, rno, content, writer) values(2, borplseq.nextval, 'kim이 참여한 같이가입니다', 'kim');
+insert into boardreply(bno, rno, content, writer) values(2, borplseq.nextval, 'Park의 같이가입니다.', 'park');
+insert into boardreply(bno, rno, content, writer) values(3, borplseq.nextval, 'Park이 참여한 같이가입니다.', 'park');
+insert into boardreply(bno, rno, content, writer) values(3, borplseq.nextval, 'Son의 같이가입니다', 'son');
+insert into boardreply(bno, rno, content, writer) values(1, borplseq.nextval, 'Son이 참여한 같이가입니다.', 'son');
+
+col writer for a3
+col bno for a4
+col rno for a4
+col content for a6
+col regdate for a4
+
 
 commit;

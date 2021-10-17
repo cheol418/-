@@ -67,7 +67,8 @@
 		<td colspan="4" align="center">
 			<a href="${concert.SVCURL}" target="_blank">
 				예약하기
-			</a>
+			</a><br/>
+			<input type="button" value="같이가 모집하기" onClick="location.href='<%=request.getContextPath()%>/clubBoardMakeForm.bd?uid=son&SVCID=${concert.SVCID}'"><br/>
 		</td>
 	</tr>
 	<tr>

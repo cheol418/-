@@ -3,7 +3,12 @@
 <%
 	//String url = request.getContextPath()+"/totalBoardList.bd";
 	//String url = request.getContextPath()+"/noticeBoardList.bd";
-	String url = request.getContextPath()+"/qnaBoardList.bd";
+	//String url = request.getContextPath()+"/qnaBoardList.bd";
 	//String url = request.getContextPath()+"/freeBoardList.bd";
-	response.sendRedirect(url);	
+	//String url = request.getContextPath()+"/clubBoardList.bd";
+	String url = request.getContextPath()+"/clubBoardList.bd?uid=son";
+	response.sendRedirect(url);
+	
+	
+	
 %>

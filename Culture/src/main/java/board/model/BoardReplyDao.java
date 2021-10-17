@@ -32,6 +32,10 @@ public class BoardReplyDao {
 		sqlSessionTemplate.delete(namespace+".deleteBoardReplyData",num);
 		
 	}
+
+	public List<BoardReplyBean> getClubBoardChatLists() {
+		return sqlSessionTemplate.selectList(namespace+".getClubBoardChatLists");
+	}
 	
 	
 }
