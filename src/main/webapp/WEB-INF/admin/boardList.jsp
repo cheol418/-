@@ -24,24 +24,24 @@
 <div class="bodyPart content" align="center">
 
 <h2 align="center">게시판 목록</h2>
-
-			<form action="boardList.ad" method="get">
+	<div class="input-group ">	
+			<form action="boardList.ad" method="get"  style="margin: auto">
 				<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber}"> 
 				
 				<c:if test="${category != null }" >
 				<input type="hidden" name="category" value="${category}"> 
 				</c:if>
-				
-				<select name="whatColumn">
+				<div class="input-group-prepend">
+					<select name="whatColumn" class="custom-select selectMinBox">
 					<option value="all">선택
 					<option value="title">제목
 					<option value="writer">작성자
-				</select> <input type="text" name="keyword"> 
-				
-				<input  class="btn btn-outline-dark logBtn" type="submit"
-					value="검색">
+				</select> 
+				<input type="text" class="form-control adminTopInput" name="keyword"> 
+				<input class="btn btn-outline-dark logBtn adminTopInput" type="submit" value="검색">
+				</div>
 			</form>
-			
+			</div>
 <div class="list-group box1">
   <a href="boardList.ad" class="list-group-item list-group-item-action">전체보기</a>
   <a href="boardList.ad?category=notice" class="list-group-item list-group-item-action">공지사항</a>
