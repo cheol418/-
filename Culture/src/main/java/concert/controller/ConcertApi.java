@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class ConcertApi {
-	// openApi ÁÖ¼Ò : http://data.seoul.go.kr/dataList/OA-2269/S/1/datasetView.do 
+	// openApi ì£¼ì†Œ : http://data.seoul.go.kr/dataList/OA-2269/S/1/datasetView.do 
 	// http://openapi.seoul.go.kr:8088/757762615a746f6539337672695949/xml/ListPublicReservationCulture/1/5
 	RestTemplate restT = new RestTemplate();
 	
@@ -22,7 +22,7 @@ public class ConcertApi {
 	final String type = "ListPublicReservationCulture/";
 	String fullApiUrl = apiUrl+key+"xml/"+type;
 	
-	//¼ÒºÐ·ù¸í ¹ÌÆ÷ÇÔ
+	//ï¿½ÒºÐ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public List<Map<String,Object>> getCultureList(int first,int last) {
 		Object xml = restT.getForObject(fullApiUrl+first+"/"+last, String.class);
 		List<Map<String,Object>> concertList = null;
@@ -43,7 +43,7 @@ public class ConcertApi {
 		return concertList;
 	}
 	
-	//¼ÒºÐ·ù¸í Æ÷ÇÔ
+	//ï¿½ÒºÐ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public List<Map<String,Object>> getCultureList(int first,int last,String sub) {
 		Object xml = restT.getForObject(fullApiUrl+first+"/"+last+"/"+sub, String.class);
 		List<Map<String,Object>> concertList = null;

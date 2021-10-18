@@ -21,7 +21,7 @@ import user.model.UserDao;
 import user.model.UserVo;
 
 @Controller
-public class UserloginController {
+public class UserLoginController {
 	final String command = "/login.ur";
 	final String command2 = "/logout.ur";
 	final String getPage = "login";
@@ -54,13 +54,13 @@ public class UserloginController {
 		Map<String,String> map = new HashMap<String,String>();
 		
 		if(id == "" || id == null) {
-			msg = "<script type='text/javascript'> alert('���̵� �Է����ּ���.');</script>.";
+			msg = "<script type='text/javascript'> alert('아이디를 입력해주세요.');";
 			pw.println(msg);
 			pw.flush();
 			mav.setViewName(getPage);
 			return mav;
 		}else if(passwd == "" || passwd == null) {
-			msg = "<script type='text/javascript'> alert('��й�ȣ�� �Է����ּ���.');</script>.";
+			msg = "<script type='text/javascript'> alert('비밀번호를 입력해주세요.');</script>.";
 			pw.println(msg);
 			pw.flush();
 			mav.setViewName(getPage);
@@ -73,7 +73,7 @@ public class UserloginController {
 		UserVo uVo = uDao.getUserData(map);
 		
 		if(uVo == null) {
-			msg = "<script type='text/javascript'> alert('��ġ�ϴ� ������ �����ϴ�.');</script>.";
+			msg = "<script type='text/javascript'> alert('일치하는 정보가 없습니다.');</script>.";
 			pw.println(msg);
 			pw.flush();
 			mav.setViewName(getPage);

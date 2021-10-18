@@ -32,7 +32,7 @@ public class ConcertListController {
 		if(pageNumber == 1) {
 			startNum = 1;
 		}else {
-			//한줄 5개 , 4줄 출력
+			//5 post , 4 line 
 			startNum = pageNumber*20+1;
 		}
 		List<Map<String,Object>> concertList = null;

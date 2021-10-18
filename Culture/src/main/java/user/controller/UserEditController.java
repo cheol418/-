@@ -32,7 +32,7 @@ public class UserEditController {
 	ServletContext servletContext;
 	@Autowired
 	private UserDao uDao;
-	UserloginController loginC = new UserloginController();
+	UserLoginController loginC = new UserLoginController();
 	
 	@RequestMapping(value = command,method = RequestMethod.GET)
 	public ModelAndView doAction(ModelAndView mav, HttpSession session){

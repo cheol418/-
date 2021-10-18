@@ -9,26 +9,26 @@ import org.springframework.web.multipart.MultipartFile;
 @Component("uVo")
 public class UserVo {
 	private int num;
-	@NotEmpty(message = "¾ÆÀÌµğ´Â ÇÊ¼öÀÔ´Ï´Ù.")
+	@NotEmpty(message = "ì•„ì´ë””ëŠ” í•„ìˆ˜ì…ë ¥ì…ë‹ˆë‹¤.")
 	private String id;
-	@NotEmpty(message = "ºñ¹Ğ¹øÈ£´Â ÇÊ¼öÀÔ´Ï´Ù.")
+	@NotEmpty(message = "ë¹„ë°€ë²ˆí˜¸ëŠ” í•„ìˆ˜ì…ë ¥ì…ë‹ˆë‹¤.")
 	private String passwd;
-	@NotEmpty(message = "ÀÌ¸§Àº ÇÊ¼öÀÔ´Ï´Ù.")
+	@NotEmpty(message = "ì´ë¦„ì€ í•„ìˆ˜ì…ë ¥ì…ë‹ˆë‹¤.")
 	private String name;
 	
 	private String image;
 	private String oldImage;
 	private MultipartFile imgFile;
 	
-	@NotEmpty(message = "¼ºº°À» ¼±ÅÃÇØÁÖ¼¼¿ä.")
+	@NotEmpty(message = "ì„±ë³„ì„ ì„ íƒí•´ì£¼ì„¸ìš”.")
 	private String gender;
-	@NotNull(message = "³ªÀÌ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.")
+	@NotNull(message = "ë‚˜ì´ëŠ” í•„ìˆ˜ì…ë ¥ì…ë‹ˆë‹¤.")
 	private int age;
-	@NotEmpty(message = "ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.")
+	@NotEmpty(message = "ì´ë©”ì¼ì€ í•„ìˆ˜ì…ë ¥ì…ë‹ˆë‹¤.")
 	private String email;
-	@NotEmpty(message = "ÇÚµåÆù ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.")
+	@NotEmpty(message = "ì „í™”ë²ˆí˜¸ëŠ” í•„ìˆ˜ì…ë ¥ì…ë‹ˆë‹¤.")
 	private String phone;
-	@NotEmpty(message = "Áö¿ªÀº ÇÊ¼öÀÔ´Ï´Ù.")
+	@NotEmpty(message = "ì§€ì—­ì€ í•„ìˆ˜ì…ë ¥ì…ë‹ˆë‹¤.")
 	private String area;
 	private int point;
 	

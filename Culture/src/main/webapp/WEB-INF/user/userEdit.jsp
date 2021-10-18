@@ -5,15 +5,23 @@
 <link rel="stylesheet" type="text/css" href="resources/css/user.css"> 
 <%
 	UserVo userInfo = (UserVo)session.getAttribute("loginInfo");
+	String[] tempArr = {"",""};
 	String[] emailArr = userInfo.getEmail().split("@");
 	if(emailArr.length<=1){
-		emailArr[1] = "";
+		emailArr = tempArr;
 	}
 %>
 <script type="text/javascript">
 	var passChk = false;
 	var repassChk = false;
 	var emailChk = false;
+
+	$(document).ready(function(){ 
+		$('#imgFile').on('change',function(){
+			var fileName = $(this).val();
+			$(this).next('.custom-file-label').html(fileName);
+		});
+	});
 	
 	function passwdChk(){
 		$("#errPassWd").html("");

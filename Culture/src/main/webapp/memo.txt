@@ -47,7 +47,7 @@ CREATE TABLE member
 
 
 insert into member(num,id,passwd,name,image,gender,age,email,phone,area,point)
-values(seqmem.nextval,'admin','1234','admin','','占쎄텚','20','email','00000000','占쎄퐣占쎌뒻','30');
+values(seqmem.nextval,'admin','1234','관리자','','남자','20','email','00000000','서울','30');
 
 
 -----------------------------------------------------------------------
