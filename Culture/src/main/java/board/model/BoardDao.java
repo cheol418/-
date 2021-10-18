@@ -82,5 +82,23 @@ public class BoardDao {
 	}
 
 
+	public void deleteBoardData(int num) {
+		sqlSessionTemplate.delete(namespace+".deleteBoardData",num);	
+		
+	}
 
+
+	public int insertClubData(BoardBean bean) {
+		int cnt = sqlSessionTemplate.insert(namespace+".insertClubData", bean);
+		return cnt;
+	}
+
+
+	
+	
 }
+
+
+
+
+
