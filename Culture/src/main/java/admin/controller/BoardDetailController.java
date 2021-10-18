@@ -1,7 +1,5 @@
 package admin.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,35 +7,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import admin.model.ClubBean;
-import admin.model.ClubDao;
+import admin.model.BoardBean;
+import admin.model.BoardDao;
+import admin.model.MemberBean;
+import admin.model.MemberDao;
 
 @Controller
-public class clubUpdateController {
-
-	@Autowired
-	private ClubDao cdao;
+public class BoardDetailController {
 	
-	private final String command = "clubUpdate.ad";
-	private final String getPage = "clubUpdateForm";
-	private final String gotoPage = "redirect:clubList.ad";
+	@Autowired
+	private BoardDao bdao;
+	
+	private final String command = "boardDetail.ad";
+	private final String getPage = "boardDetailForm";
 	
 	@RequestMapping(value=command,method = RequestMethod.GET)
-	public ModelAndView updateForm(
+	public ModelAndView detailForm(
 			ModelAndView mav,
 			@RequestParam("num") int num,
-			@RequestParam("pageNumber") int pageNumber,
-			HttpServletRequest request) {
-				
+			@RequestParam("pageNumber") int pageNumber) {
 		
-		ClubBean bean = cdao.getClub(num);
 		
+		BoardBean bean = bdao.getBoard(num);
+		
+		System.out.println("cate:"+bean.getCategory());
+		
+		bdao.updateReadCount(num);
+
 		mav.addObject("pageNumber", pageNumber);
 		mav.addObject("bean", bean);
 		mav.setViewName(getPage);
 		
 		return mav;
-		
 	}
-	
 }

@@ -50,6 +50,12 @@
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
 	}
+<<<<<<< HEAD
+=======
+	.floatR{
+		float: right;
+	}
+>>>>>>> branch 'master' of https://github.com/ghkdtpehd/Project_JHLK.git
 	.txtCenter{
 		text-align: center;
 	}

@@ -20,7 +20,7 @@ import admin.model.MemberBean;
 import admin.model.MemberDao;
 
 @Controller
-public class memberInsertController {
+public class MemberInsertController {
 
 	@Autowired
 	private MemberDao mdao;
@@ -45,15 +45,16 @@ public class memberInsertController {
 	public ModelAndView updateMember(ModelAndView mav,
 			@Valid MemberBean bean, BindingResult result) {
 
-		System.out.println("getRealPath(/):"+servletContext.getRealPath("/resources"));
+		System.out.println("getRealPath(/):"+servletContext.getRealPath("/resources/member"));
 		System.out.println("선택한 화일이름: "+ bean.getImage()); //화일이 아닌 화일명 문자
 		
-		String uploadPath = servletContext.getRealPath("/resources");
-
+		String uploadPath = servletContext.getRealPath("/resources/member");
+		
+		System.out.println("upload:"+uploadPath);
+		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류입니다.");
 
-			//mav.addObject("player", bean);
 			mav.setViewName(getPage);
 
 		}//유효성검사 오류

@@ -6,6 +6,10 @@
 <script type="text/javascript">
 	var pageNumber = <%=request.getParameter("pageNumber")%>;
 	var miniclass = "<%=request.getParameter("miniclass")%>";
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'master' of https://github.com/ghkdtpehd/Project_JHLK.git
 	function goDetail(svc){
 		svc.submit();
 	}

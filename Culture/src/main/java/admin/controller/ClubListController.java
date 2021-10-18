@@ -12,41 +12,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import admin.model.MemberBean;
-import admin.model.MemberDao;
+import admin.model.ClubBean;
+import admin.model.ClubDao;
 import utility.Paging;
 
-
 @Controller
-public class memberListController {
-	
+public class ClubListController {
+
 	@Autowired
-	private MemberDao mdao;
+	private ClubDao cdao;
 	
-	private final String command = "/memberList.ad";
-	private final String getPage = "memberList";
-	
+	private final String command = "/clubList.ad";
+	private final String getPage = "clubList";
 	
 	@RequestMapping(value=command)
 	public ModelAndView doAction(
 			@RequestParam(value="whatColumn",required = false) String whatColumn,
 			@RequestParam(value="keyword",required = false) String keyword,
 			@RequestParam(value="pageNumber",required = false) String pageNumber,
-			ModelAndView mav,
-			HttpServletRequest request) {
+			ModelAndView mav,HttpServletRequest request) {
 		
 		Map<String,String> map = new HashMap<String, String>();
 		map.put("whatColumn", whatColumn); 
 		map.put("keyword", "%"+keyword+"%");
 		
-		int totalCount = mdao.getTotalCount(map);
+		int totalClubCount = cdao.getTotalClubCount(map);
 		String url = request.getContextPath() + command ;
 
-		Paging pageInfo = new Paging(pageNumber,null,totalCount,url,whatColumn,keyword, null );
+		Paging pageInfo = new Paging(pageNumber,null,totalClubCount,url,whatColumn,keyword, null );
 
-		List<MemberBean> lists = mdao.getMemberList(pageInfo, map);
+		List<ClubBean> lists = cdao.getClubList(pageInfo, map);
 		mav.addObject("lists", lists);
-		mav.addObject("totalCount", totalCount);
+		mav.addObject("totalCount", totalClubCount);
 		mav.addObject("pageInfo", pageInfo);
 		
 		mav.setViewName(getPage);
