@@ -122,6 +122,8 @@
 				<c:forEach items="${concertList}" var="concert" varStatus="status">
 						<td width="230" align="center" id="slide_td${status.count}">
 							<form name="${concert.SVCID}" method="post" action="concertDetail.do">
+								<input type="hidden" name="pageNumber" value="1">
+								<input type="hidden" name="miniclass" value="">
 								<a onclick="goDetail(${concert.SVCID})">
 									<img src="${concert.IMGURL}" class="slideImg">
 								</a>
