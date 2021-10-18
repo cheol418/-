@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="./../common/common.jsp"%>
 <%@ include file="adminTop.jsp"%>
-<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
-<link rel="stylesheet" type="text/css" href="resources/css/admin.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/common.css">
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css">
 
 <Script type="text/javascript"> 
 	function insert() {
@@ -14,25 +14,27 @@
 <div class="bodyPart content" align="center">
 
 	<h2 align="center">회원 목록</h2>
-		 
-		<div class="input-group ">
-			<Form action="memberList.ad" method="get" style="margin: auto">
-				<div class="input-group-prepend">
-					<select name="whatColumn" class="custom-select selectMinBox">
-						<option value="all">선택</option>
-						<option value="id">ID</option>
-						<option value="name">이름</option>
-					</select>
-				<input type="text" class="form-control adminTopInput" name="keyword"> 
-				<input class="btn btn-outline-dark logBtn adminTopInput" type="submit" value="검색">
-				</div>
-			</Form>
-		</div>
+
+	<div class="input-group ">
+		<Form action="memberList.ad" method="get" style="margin: auto">
+			<div class="input-group-prepend">
+				<select name="whatColumn" class="custom-select selectMinBox">
+					<option value="all">선택</option>
+					<option value="id">ID</option>
+					<option value="name">이름</option>
+				</select> <input type="text" class="form-control adminTopInput"
+					name="keyword"> <input
+					class="btn btn-outline-dark logBtn adminTopInput" type="submit"
+					value="검색">
+			</div>
+		</Form>
+	</div>
 	<div class="conDiv">
 		<table class="table table-bordered table-hover mainboard">
 			<tr>
-				<td colspan="6" align="right"><input class="btn btn-outline-dark logBtn" type="button"
-					value="회원 추가" onclick="insert()"></td>
+				<td colspan="6" align="right"><input
+					class="btn btn-outline-dark logBtn" type="button" value="회원 추가"
+					onclick="insert()"></td>
 			</tr>
 			<tr>
 				<th>회원번호</th>
@@ -50,9 +52,9 @@
 						href="memberDetail.ad?num=${member.num }&pageNumber=${pageInfo.pageNumber}">${member.id }</a></td>
 					<td>${member.passwd }</td>
 					<td>${member.name }</td>
-					<td ><a
+					<td><a
 						href="memberDelete.ad?num=${member.num}&pageNumber=${pageInfo.pageNumber}">삭제</a></td>
-					<td ><a
+					<td><a
 						href="memberUpdate.ad?num=${member.num}&pageNumber=${pageInfo.pageNumber}">수정</a></td>
 
 				</tr>

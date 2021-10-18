@@ -15,7 +15,7 @@
 <div class="bodyPart content" align="center">
 	<div class="formDiv">
 
-	<form action="clubUpdate.ad" method="post">
+	<form action="clubDetail.ad" method="post">
 		<input type="hidden" name=pageNumber value="${pageNumber }">
 		<input type="hidden" name=num value="${bean.num }">
 		<table class="table table-bordered table-hover wform">
@@ -26,7 +26,7 @@
 			</tr>
 			<tr>
 				<th>동아리이름</th>
-				<td><input type="text" name="name" value=${bean.name }></td>
+				<td><input type="text" name="name" value=${bean.name } disabled="disabled"></td>
 			</tr>
 			<tr>
 				<th>생성일</th>
@@ -45,3 +45,16 @@
 			</tr>
 		</table>
 	</form>
+			
+			<div class="formDiv">
+		
+		<table class="table table-bordered table-hover mainboard">
+			<tr>
+			<td>댓글창</td>
+			
+			</tr>
+		</table>
+		</div>
+		
+	</div>
+	</div>
