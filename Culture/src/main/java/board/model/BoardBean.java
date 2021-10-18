@@ -7,10 +7,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class BoardBean {
 	private int num;
+	
 	private String writer;
 	private String title;
 	private String content;
-	
+		
 	private String image;
 	private MultipartFile pic;
 	private String pic_old;
@@ -18,6 +19,8 @@ public class BoardBean {
 
 	
 	private String category;
+	
+
 	private int ref;
 	private int restep;
 	private int relevel;
@@ -35,6 +38,8 @@ public class BoardBean {
 		return pic_old;
 	}
 
+	
+	
 	public void setPic_old(String pic_old) {
 		this.pic_old = pic_old;
 	}
@@ -46,6 +51,7 @@ public class BoardBean {
 	public void setPic_del(String pic_del) {
 		this.pic_del = pic_del;
 	}
+	
 	
 
 	public void setPic(MultipartFile pic) {
@@ -61,38 +67,45 @@ public class BoardBean {
 		//}		
 		
 		this.image = pic.getOriginalFilename();
-		
-		
 			
 	}
+
+	
 	
 	public MultipartFile getPic() {		
 		return pic;
 	}
 	
 	
-	/*
+	
 	public BoardBean() {
 		super();
 	}
 	
-	public BoardBean(int num, String writer, String title, String content, String image, String category, int ref,
-			int restep, int relevel, int readCount, Timestamp regdate) {
+	
+	
+	
+	public BoardBean(int num, String writer, String title, String content, String image, MultipartFile pic,
+			String pic_old, String pic_del, String category, int ref, int restep, int relevel,
+			int readCount, Timestamp regdate) {
 		super();
 		this.num = num;
+		
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
 		this.image = image;
+		this.pic = pic;
+		this.pic_old = pic_old;
+		this.pic_del = pic_del;
 		this.category = category;
+		
 		this.ref = ref;
 		this.restep = restep;
 		this.relevel = relevel;
 		this.readCount = readCount;
 		this.regdate = regdate;
 	}
-	*/
-	
 	public int getNum() {
 		return num;
 	}

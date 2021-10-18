@@ -1,68 +1,82 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="./../common/common.jsp" %>
+<%@ include file="adminTop.jsp"%>
+<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/admin.css"> 
  <style>
 	.err{
 		font-size:9pt;
 		color:red;
 		font-weight: bold;
 	}
-</style>  
-	
-memberInsertForm.jsp<br>
-
-<h1>회원 추가 화면</h1>
+</style> 
+<div class="bodyPart content" align="center">
+	<div class="formDiv">
 <form:form commandName="memberBean" action="memberInsert.ad" method="post" name="myform" enctype="multipart/form-data">
+	<table class="table table-bordered table-hover wform">
+		<caption style="font-size: 24" >회원 추가</caption>
 
-<p>
-	*ID <input type="text" name="id" value="${memberBean.id }">
-	<form:errors cssClass="err" path="id"/>
+<tr>
+	<th>ID</th>
+	<td> <input type="text" name="id" value="${memberBean.id }">
+	<form:errors cssClass="err" path="id"/></td>
 	
-</p>
+</tr>
 
-<p>
-	*비밀번호 <input type="text" name="passwd" value="${memberBean.passwd }">
-	<form:errors cssClass="err" path="passwd"/>
+<tr>
+	<th>비밀번호</th>
+	<td> <input type="text" name="passwd" value="${memberBean.passwd }">
+	<form:errors cssClass="err" path="passwd"/> </td>
 	
-</p>
+</tr>
 
-<p>
-	*이름 <input type="text" name="name" value="${memberBean.name }">
+<tr>
+	<th>이름</th>
+	<td> <input type="text" name="name" value="${memberBean.name }"> </td>
 	
-</p>
+</tr>
 
-<p>
-	*사진 
-	<input type="file" name="upload" value="${memberBean.image }" >
+<tr>
+	<th>사진 </th>
+	<td><input type="file" name="upload" value="${memberBean.image }" ></td>
 	
-</p>
+</tr>
 
-<p>
-	<input type="radio" name="gender" value="남자">남자
-	<input type="radio" name="gender" value="여자">여자
-</p>
+<tr>
+	<th>성별</th>
+	<td><input type="radio" name="gender" value="남자">남자
+	<input type="radio" name="gender" value="여자">여자</td>
+</tr>
 
-<p>
-	*나이 <input type="text" name="age" value="${memberBean.age}">
+<tr>
+	<th>나이</th>
+	<td> <input type="text" name="age" value="${memberBean.age}"></td>
 	
-</p>
+</tr>
 
-<p>
-	*이메일 <input type="text" name="email" value="${memberBean.email }">
+<tr>
+	<th>이메일</th>
+	<td> <input type="text" name="email" value="${memberBean.email }"> </td>
 	
-</p>
-<p>
-	*전화번호 <input type="text" name="phone" value="${memberBean.phone }">
+</tr>
+<tr>
+	<th>전화번호</th>
+	<td> <input type="text" name="phone" value="${memberBean.phone }"></td>
 	
-</p>
+</tr>
 
-<p>
-	*지역 <input type="text" name="area" value="${memberBean.area }">
+<tr>
+	<th>지역 </th>
+	<td> <input type="text" name="area" value="${memberBean.area }"> </td>
 	
-</p>
-	
-<input type="submit" value="추가하기">
-
-</form:form>
-
+</tr>
+	<tr>
+	<td colspan=2 align="center">
+<input type="submit" value="추가하기"></td>
+	</tr>
+</table>
+	</form:form>
+	</div>
+</div>
 

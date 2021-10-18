@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="concert.model">
+<mapper namespace="user.model.User">
+	<select id="getUserData" resultType="MyUser">
+		select *
+		from member
+		where id = #{id} and passwd = #{passwd}
+	</select>
+	<select id="checkIdDuplicate" resultType="int">
+		select count(*)
+		from member
+		where id = #{id}
+	</select>
+	<insert id="insertUserData" parameterType="MyUser">
+		insert into member(num,id,passwd,name,image,gender,age,email,phone,area,point)
+		values(seqmem.nextval,#{id},#{passwd},#{name},#{image},#{gender},#{age},#{email},#{phone},#{area},0)
+	</insert>
+	<select id="findUserId" resultType="MyUser">
+		select *
+		from member
+		where name=#{name} and email = #{email}
+	</select>
+	<select id="findUserPasswd" resultType="MyUser">
+		select *
+		from member
+		where id=#{id} and name=#{name} and email = #{email}
+	</select>
+	<update id="updateUserData" parameterType="MyUser">
+		update member
+		set passwd=#{passwd} , age=#{age} ,email=#{email} ,phone=#{phone}
+			 ,area=#{area} 
+			 <if test="image != ''">
+				 ,image=#{image}
+			 </if>
+		where num = #{num}
+	</update>
+	<select id="checkAttend" resultType="int">
+		select count(*)
+		from attend
+		where mnum = #{num} and adate like to_char(sysdate,'yy/mm/dd')||'%'
+	</select>
+	<insert id="insertAttend">
+		insert into attend
+		values(seqatd.nextval,sysdate,#{num})
+	</insert>
+	<update id="updateUserPoint">
+		update member
+		set point = point+5
+		where num = #{num}
+	</update>
 </mapper>

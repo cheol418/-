@@ -6,13 +6,19 @@
 	<typeAliases>
 		<typeAlias alias="MyConcert" type="concert.model.ConcertVo"/>
 		<typeAlias alias="MyBoard" type="board.model.BoardBean"/>
+		<typeAlias type="board.model.BoardReplyBean" alias="MyBoardReply" />
+		<typeAlias alias="MyUser" type="user.model.UserVo"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/concert.xml"/>
 		<mapper resource="mybatis/board.xml"/>
-		<mapper resource="mybatis/admin.xml"/>
-		<mapper resource="mybatis/club.xml"/>
+		<mapper resource="mybatis/boardreply.xml"/>
 		<mapper resource="mybatis/user.xml"/>
+		
+		<mapper resource="mybatis/adminBoard.xml"/>
+		<mapper resource="mybatis/adminMember.xml"/>
+		<mapper resource="mybatis/adminClub.xml"/>
+	
 	</mappers>
 	
 </configuration>

@@ -6,6 +6,10 @@
 	th{
 		background-color: #dddddd94;
 	}
+	.logBtn{
+	    height: 30;
+    	font-size: 12;
+	}
 	.bodyPart{
 	    width: 1200px;
 	    margin: auto;
@@ -13,10 +17,6 @@
 	.content{
         min-height: 700px;
         display: flow-root;
-	}
-	.conDiv{
-		width: 980px;
-   		margin: auto;
 	}
 	.footerDiv{
 		border-top: 1px black solid;
@@ -26,7 +26,7 @@
 	.footerContent{
 		margin-left: 180px;
 		margin-top: 20px;
-		width: 490px;
+		width: 600px;
 	}
 	.headerDiv{
 		border-bottom: 1px black solid;
@@ -50,6 +50,18 @@
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
 	}
-	.userDiv{
+<<<<<<< HEAD
+=======
+	.floatR{
 		float: right;
+	}
+>>>>>>> branch 'master' of https://github.com/ghkdtpehd/Project_JHLK.git
+	.txtCenter{
+		text-align: center;
+	}
+	.floatR{
+		float: right;
+	}
+	.floatL{
+		float: left;
 	}

@@ -3,6 +3,7 @@ package admin.model;
 import java.sql.Timestamp;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 public class BoardBean {
 	
@@ -11,12 +12,42 @@ public class BoardBean {
 	private String title;
 	private String content;
 	private String image;
+	
+	private MultipartFile upload;
+	private String upload_old;
+	
 	private String category;
 	private int ref;
 	private int restep;
 	private int relevel;
 	private int readcount;
 	private Timestamp regdate;
+	
+	
+	public void setUpload(MultipartFile upload) {
+		System.out.println("upload:"+upload);
+		this.upload = upload;
+		System.out.println(upload.getName());
+		System.out.println(upload.getOriginalFilename());
+		
+		this.image = upload.getOriginalFilename();
+		
+		//System.out.println(image==null);
+		System.out.println(image.equals("")); //선택한 파일이 없으면 image = ""
+	}
+	
+	public String getUpload_old() {
+		return upload_old;
+	}
+
+	public void setUpload_old(String upload_old) {
+		this.upload_old = upload_old;
+	}
+
+	public MultipartFile getUpload() {
+		return upload;
+	}
+	
 	
 	public int getNum() {
 		return num;

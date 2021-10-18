@@ -22,9 +22,10 @@ public class ConcertListController {
 	@Autowired
 	private ConcertDao cdao;
 	
-	@RequestMapping(value = command, method = RequestMethod.GET)
+	@RequestMapping(value = command)
 	public ModelAndView doAction(ModelAndView mav, HttpSession session, 
-								@RequestParam(value = "pageNumber")int pageNumber)  {
+								@RequestParam(value = "pageNumber")int pageNumber,
+								@RequestParam(value = "miniclass",required = false)String miniclass)  {
 		ConcertApi api = new ConcertApi();
 		int startNum;
 		
@@ -34,8 +35,13 @@ public class ConcertListController {
 			//한줄 5개 , 4줄 출력
 			startNum = pageNumber*20+1;
 		}
-		
-		List<Map<String,Object>> concertList = api.getCultureList(startNum,startNum+19);
+		List<Map<String,Object>> concertList = null;
+		String sub = miniclass;
+		if(sub.isEmpty()) {
+			concertList = api.getCultureList(startNum,startNum+19);
+		}else {
+			concertList = api.getCultureList(startNum,startNum+19,miniclass);
+		}
 		
 		session.setAttribute("concertList", concertList);
 		mav.addObject("concertList", concertList);

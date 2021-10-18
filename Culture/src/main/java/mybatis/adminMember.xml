@@ -47,5 +47,4 @@
   		values(seqmem.nextval,#{id},#{passwd},#{name},#{image},#{gender},#{age},#{email},#{phone},#{area},0)
   	</insert>
   
-  
   </mapper>

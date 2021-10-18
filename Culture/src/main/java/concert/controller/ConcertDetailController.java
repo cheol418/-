@@ -18,6 +18,8 @@ public class ConcertDetailController {
 	
 	@RequestMapping(value = command)
 	public ModelAndView doAction(ModelAndView mav,@RequestParam(value = "svcid") String svcid,
+								@RequestParam(value = "pageNumber") String pageNumber,
+								@RequestParam(value = "miniclass") String miniclass,
 								HttpSession session){
 		List<Map<String,Object>> concertList = (List<Map<String,Object>>)session.getAttribute("concertList");
 		Map<String,Object> concert = new HashMap<String,Object>();
@@ -29,6 +31,8 @@ public class ConcertDetailController {
 			}
 		}
 		
+		mav.addObject("pageNumber",pageNumber);
+		mav.addObject("miniclass",miniclass);
 		mav.addObject("concert",concert);
 		mav.setViewName(getPage);
 		return mav;
