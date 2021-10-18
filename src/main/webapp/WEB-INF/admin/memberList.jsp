@@ -14,16 +14,20 @@
 <div class="bodyPart content" align="center">
 
 	<h2 align="center">회원 목록</h2>
-
-		<Form action="memberList.ad" method="get">
-			<select name="whatColumn">
-				<option value="all">선택</option>
-				<option value="id">ID</option>
-				<option value="name">이름</option>
-			</select> <input type="text" name="keyword" value=""> <input
-				class="btn btn-outline-dark logBtn" type="submit" value="검색">
-		</Form>
-
+		 
+		<div class="input-group ">
+			<Form action="memberList.ad" method="get" style="margin: auto">
+				<div class="input-group-prepend">
+					<select name="whatColumn" class="custom-select selectMinBox">
+						<option value="all">선택</option>
+						<option value="id">ID</option>
+						<option value="name">이름</option>
+					</select>
+				<input type="text" class="form-control adminTopInput" name="keyword"> 
+				<input class="btn btn-outline-dark logBtn adminTopInput" type="submit" value="검색">
+				</div>
+			</Form>
+		</div>
 	<div class="conDiv">
 		<table class="table table-bordered table-hover mainboard">
 			<tr>

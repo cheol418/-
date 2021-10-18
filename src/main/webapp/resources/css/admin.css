@@ -157,3 +157,12 @@
 	.serchBox>div{
 	    margin-left: 28px;
 	}
+	.selectMinBox{
+	    width: 90px;
+	    height: 34px;
+	    margin-top: 0px;
+	    font-size: 13px;
+	}
+	.adminTopInput{
+		height: 34px;
+	}
