@@ -18,6 +18,7 @@
 				<option value="notice">공지사항
 				<option value="qna">QnA
 				<option value="club">동아리
+				<option value="free">자유게시판
 			</select>
 			</td>
 		</tr>

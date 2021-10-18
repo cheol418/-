@@ -17,10 +17,10 @@
 
 		<Form action="memberList.ad" method="get">
 			<select name="whatColumn">
-				<option value="all">전체검색</option>
+				<option value="all">선택</option>
 				<option value="id">ID</option>
 				<option value="name">이름</option>
-			</select> <input type="text" name="keyword" value="검색어"> <input
+			</select> <input type="text" name="keyword" value=""> <input
 				class="btn btn-outline-dark logBtn" type="submit" value="검색">
 		</Form>
 

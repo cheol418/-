@@ -12,7 +12,7 @@
     
 <%@ include file="../common/common.jsp" %>
 <div class="bodyPart headerDiv">
-	<div class="userDiv">
+	<div class="floatR">
 
 <%-- <%
 	UserVo uVo = (UserVo)session.getAttribute("loginInfo");

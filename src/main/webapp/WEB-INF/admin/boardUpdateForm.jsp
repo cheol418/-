@@ -20,6 +20,7 @@
 				<option value="notice">공지사항
 				<option value="qna">QnA
 				<option value="club">동아리
+				<option value="free">자유게시판
 			</select>
 		</td>
 		</tr>
@@ -55,7 +56,7 @@
 		
 		<tr>
 		<td colspan="2" align="center">
-			<input type="submit" value="작성하기"> &nbsp;
+			<input type="submit" value="수정하기"> &nbsp;
 			<input type="reset" value="돌아가기" onclick="history.go(-1)">
 		</td>
 		</tr>

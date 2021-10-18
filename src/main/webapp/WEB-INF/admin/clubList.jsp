@@ -17,11 +17,11 @@
 
 		<Form action="clubList.ad" method="get">
 			<select name="whatColumn">
-				<option value="all">전체검색</option>
+				<option value="all">선택</option>
 				<option value="name">동아리명</option>
 				<option value="cdate">생성일</option>
 			</select> 
-			<input type="text" name="keyword" value="검색어를 입력하세요"> <input
+			<input type="text" name="keyword" value=""> <input
 				 class="btn btn-outline-dark logBtn" type="submit" value="검색">
 		</Form>
 		
