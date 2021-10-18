@@ -5,6 +5,18 @@
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
 	}
+	.btn{
+		margin: 3px;
+	    border: 1px solid #b5b5b5;
+	    height: 35px;
+	}
+	.input-group-text{
+		height: 38px;
+	}
+	.input-group-append>input[type='button']{
+		height: 38px;
+    	margin-top: 0px;
+	}
 	.conDiv{
 		width: 1002px;
    		margin: auto;
@@ -70,7 +82,7 @@
 	}
 	 #map {
 		height: 500px;
-		width: 1100px;
+		width: 1000px;
 		margin: auto;
 	 }
 	 html, body {
@@ -84,6 +96,11 @@
 	 }
 	 .concertDetailTable,.concertDetailMap{
 	 	width: 1200px;
+	    font-size: 14px;
+	    font-weight: 600;
+	 }
+	 .concertDetailMap td{
+	 	vertical-align: middle;
 	 }
 	 .imgTd{
 	 	vertical-align: middle !important;
@@ -185,6 +202,22 @@
 	    background-color: #1955ff;
     	color: #FFF;
 	}
+	.svcstat4, .area4{
+		float: left;
+	    height: 22px;
+	    line-height: 20px;
+	    border: 1px solid #54c5b8;
+	    padding: 0 5px;
+	    font-size: 14px;
+	}
+	.svcstat4{
+		color: #4ac4e5;
+	    font-weight: 500;
+	}
+	.area4{
+	    background-color: #4ac4e5;
+    	color: #FFF;
+	}
 	caption{
 		caption-side: top;
 		font-size: 16px;
@@ -192,6 +225,8 @@
 	}
 	.listM{
 		width: 1144px;
+		height: 1824px;
+	    margin-top: 10px;
 	}
 	.listArrowImg{
 		margin-top: 38px;
@@ -201,6 +236,7 @@
 	    height: 100px;
 	    border: 1px black solid;
 	    margin-top: 850px;
+	    cursor: pointer;
 	}
 	.serchBox{
 		width: 1140px;

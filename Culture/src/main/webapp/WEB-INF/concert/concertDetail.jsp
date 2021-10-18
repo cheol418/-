@@ -65,10 +65,8 @@
 	</tr>
 	<tr>
 		<td colspan="4" align="center">
-			<a href="${concert.SVCURL}" target="_blank">
-				예약하기
-			</a><br/>
-			<input type="button" value="같이가 모집하기" onClick="location.href='<%=request.getContextPath()%>/clubBoardMakeForm.bd?uid=son&SVCID=${concert.SVCID}'"><br/>
+			<input class="btn btn-light" type="button" value="예약하기" onClick="window.open('${concert.SVCURL}','_blank')">
+			<input class="btn btn-info" type="button" value="같이가 모집하기" onClick="location.href='<%=request.getContextPath()%>/clubBoardMakeForm.bd?uid=son&SVCID=${concert.SVCID}'"><br/>
 		</td>
 	</tr>
 	<tr>
@@ -78,9 +76,7 @@
 	</tr>
 	<tr>
 		<td colspan="5" align="center">
-			<a href="${concert.SVCURL}" target="_blank">
-				예약하기
-			</a>
+			<input class="btn btn-light" type="button" value="예약하기" onClick="window.open('${concert.SVCURL}','_blank')">
 		</td>
 	</tr>
 </table>
@@ -97,7 +93,8 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="right">
-			<a href="main.do">목록보기</a>
+			<input class="btn btn-light" type="button" value="뒤로가기" onClick="javascript:history.back()">
+			<input class="btn btn-light" type="button" value="목록보기" onClick="location.href='list.do?pageNumber=${pageNumber}&miniclass=${miniclass}'">
 		</td>
 	</tr>
 </table>
