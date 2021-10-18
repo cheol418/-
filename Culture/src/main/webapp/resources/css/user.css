@@ -1,0 +1,115 @@
+@charset "UTF-8";
+.loginDiv{
+	width: 440px;
+	height: 140px;
+    margin: 0px auto;
+    margin-top: 250px;
+}
+.loginInput{
+	float: right;
+    width: 70%;
+}
+.loginUl{
+	width: 435px;
+}
+.loginUl li{
+	list-style: none;
+    float: left;
+}
+.loginUl li div{
+	height: 40px;
+	float: left;
+}
+.liText{
+	width: 300px;
+}
+.liBtn{
+	width: 76px;
+}
+.loginText{
+	width: 64px;
+    height: 20px !important;
+    margin: 10px 8px;
+    float: left;
+}
+.liBtn input{
+	height: 78px;
+    border: 1px black solid;
+}
+.loginDivTop{
+	height: 60%;
+}
+.loginDivBot{
+	height: 40%;    
+	text-align: right;
+    width: 216px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.loginDivBot a{
+	text-decoration: none;
+}
+.err{
+	color: red;
+}
+.errChk{
+    font-size: 14px;
+    font-weight: 900;
+}
+.form-control-plaintext{
+    text-indent: 20px;
+}
+.registRadio{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.regiTable{
+    width: 700px;
+    margin: auto;
+}
+.regiEmailF{
+	width: 120px !important;
+}
+.regiEmailS{
+	width: 70px !important;
+}
+.userPageConDiv{
+	width: 900px;
+	margin: auto;
+}
+.mpTable{
+    text-align: center;
+	margin-top: 30px;
+}
+.mpTable td{
+	width: 25%;
+	vertical-align: middle;
+}
+.mpImg{
+    max-height: 200px;
+    max-width: 170px;
+    min-height: 150px;
+    min-width: 120px;
+}
+.btnAttend{
+	float: right;
+	font-size: 13px;
+	padding: .1rem .75rem;
+}
+.delHover:hover{
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.delHover{
+    cursor: default !important;
+}
+.userPageConDiv>div{
+	margin-top: 50px;
+}
+.userPageConDiv>div>.floatR{
+    margin-bottom: 10px;
+}
+.userPageConDiv>div>.floatR>input{
+    font-size: 14px;
+    height: 34px;
+}

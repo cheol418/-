@@ -1,0 +1,40 @@
+drop sequence userseq;
+create sequence userseq start with 1 increment by 1 nocache ;
+
+DROP TABLE users CASCADE CONSTRAINTS;
+create table users(
+	id varchar2(10) primary key,
+	passwd varchar2(30),
+	name varchar2(30),
+	image varchar2(20),
+	gender varchar2(10),
+	age number,
+	email varchar2(30),
+	phone varchar2(20),
+	area varchar2(50),
+	point number default 0
+) ;
+
+
+insert into users(id,passwd, name, image, gender, age, email, phone, area)
+values('kim','1234', '김철수', '사진없음', '남자', 27, 'kim@naver.com', '010-1234-5678', '서울');
+
+insert into users(id,passwd, name, image, gender, age, email, phone, area)
+values('park','1234', '박영수', '사진없음', '남자', 27, 'park@naver.com', '010-1234-5678', '인천');
+
+insert into users(id,passwd, name, image, gender, age, email, phone, area)
+values('son','1234', '손영희', '사진없음', '여자', 27, 'son@naver.com', '010-1234-5678', '경기도');
+
+
+commit ;
+
+col id for a6
+col passwd for a8
+col name for a8
+col image for a15
+col gender for a6
+col email for a15
+col phone for a10
+col area for a10
+
+select * from users;

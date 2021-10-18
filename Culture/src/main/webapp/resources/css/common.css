@@ -1,0 +1,67 @@
+@charset "UTF-8";
+	body{
+		font-family: 'Noto Sans KR', 'Malgun Gothic', AppleGothicNeoSD, 'Apple SD 산돌고딕 Neo',
+					 'Microsoft NeoGothic', 'Droid sans', arial, sans-serif;
+	}
+	th{
+		background-color: #dddddd94;
+	}
+	.logBtn{
+	    height: 30;
+    	font-size: 12;
+	}
+	.bodyPart{
+	    width: 1200px;
+	    margin: auto;
+	}
+	.content{
+        min-height: 700px;
+        display: flow-root;
+	}
+	.footerDiv{
+		border-top: 1px black solid;
+		min-height: 120px;
+    	background-color: #ebebeb80;
+	}
+	.footerContent{
+		margin-left: 180px;
+		margin-top: 20px;
+		width: 600px;
+	}
+	.headerDiv{
+		border-bottom: 1px black solid;
+    	margin-bottom: 10px;
+	}
+	.logoA{
+		text-decoration: none !important;
+	}
+	.menuNav{ 
+		width: 900px;
+		display: contents;
+	}
+	.menuBtn{
+		font-size:18px;
+		font-weight:600;
+		text-decoration: none !important;
+		margin: 0 20px;
+	}
+	.textoverflow{
+		overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+<<<<<<< HEAD
+=======
+	.floatR{
+		float: right;
+	}
+>>>>>>> branch 'master' of https://github.com/ghkdtpehd/Project_JHLK.git
+	.txtCenter{
+		text-align: center;
+	}
+	.floatR{
+		float: right;
+	}
+	.floatL{
+		float: left;
+	}
