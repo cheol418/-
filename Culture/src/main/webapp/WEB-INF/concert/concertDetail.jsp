@@ -71,7 +71,7 @@
 	</tr>
 	<tr>
 		<td colspan="5">
-			${concert.DTLCONT}
+			${concert.DTLCONT} 
 		</td>
 	</tr>
 	<tr>
