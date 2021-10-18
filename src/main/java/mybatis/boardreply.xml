@@ -18,4 +18,33 @@
 		delete from boardreply where bno = #{num}		
 	</delete>
 
+	<select id="getClubBoardChatLists" resultType="MyBoardReply">
+		select u.id, u.name, b.num, b.title, b.category, b.content from users u
+		left outer join board b
+			on u.id = b.writer		
+		<if test="whatColumn == 'uid'">
+		where u.id like '%'||#{keyword}||'%'
+		</if>
+		<if test="whatColumn == 'svcid'">
+		where writer like '%'||#{keyword}||'%'
+		</if>				
+	</select>
+
+
+<!-- 
+	<select id="getClubBoardChatLists" resultType="MyBoardReply">
+		select u.id, u.name, b.num, b.title, b.category, r.writer, r.bno, r.rno, r.content, r.regdate from users u
+		left outer join board b
+			on u.id = b.writer
+		left outer join boardreply r
+			on u.id = r.writer
+		<if test="whatColumn == 'uid'">
+		where u.id like '%'||#{keyword}||'%'
+		</if>
+		<if test="whatColumn == 'svcid'">
+		where writer like '%'||#{keyword}||'%'
+		</if>				
+	</select>
+ -->
+
 </mapper>

@@ -88,5 +88,17 @@ public class BoardDao {
 	}
 
 
+	public int insertClubData(BoardBean bean) {
+		int cnt = sqlSessionTemplate.insert(namespace+".insertClubData", bean);
+		return cnt;
+	}
 
+
+	
+	
 }
+
+
+
+
+

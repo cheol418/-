@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
-
 <style type="text/css">
+	body{
+		align:center;
+		text-align: center;
+	}
 	.err{
 		font-size:9pt;
 		color:red;
@@ -16,7 +19,6 @@
 	}
  	
 </script>
-
 <b>글쓰기</b> <br>
 <form:form commandName="board" method="post" action="boardInsert.bd" enctype="multipart/form-data" >
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
