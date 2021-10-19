@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
-
-<style type="text/css">
-	body{
-		align:center;
-		text-align: center;
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/board.css"> 
 
 
 <script type="text/javascript">
@@ -20,36 +15,29 @@
 	}	
 </script>
 
-<head>
-	<meta charset="UTF-8">
-	<title>QNA_Board</title>
-</head>
+<%@ include file="../concert/header.jsp" %>
+<div class="body bodypart">
 
-<body>
-	<h2>QNA 게시판 목록보기</h2>
-	<form action="qnaBoardList.bd" method="post">
-		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber}">		
-		<input type="hidden" name="CT" value="${CT}">
-		<select name="whatColumn">
-			<option value="선택">선택
-			<option value="title">제목
-			<option value="writer">작성자
-		</select>
-		<input type="text" name="keyword">
-		<input type="submit" value="검색">
-	</form>
+
+	<h2 align="center">QnA 게시판 </h2>
+		<form align="center" action="qnaBoardList.bd" method="post">
+				<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber}">		
+				<input type="hidden" name="CT" value="${CT}">
+				<select name="whatColumn">
+					<option value="선택">선택
+					<option value="title">제목
+					<option value="writer">작성자
+				</select>
+				<input type="text" name="keyword">
+				<input type="submit" value="검색">
+		</form>				
 	
-	<div>
+	<div align="center">
 		글목록(전체 글:${pageInfo.totalCount})
 	</div>
 	
-	<table border="1" width="700" align="center">
+	<table align="center" class="table table-bordered table-hover mainboard">
 	
-		<tr>
-			<td colspan="6" align="right"> 
-				<input type="button" value="추가하기" onclick="insert()">
-			</td>
-		</tr>
 		<tr align="center">			
 			<td>번호</td>
 			<td>카테고리</td>
@@ -58,12 +46,17 @@
 			<td>작성일</td>
 			<td>조회수</td>			
 		</tr>
-		
+	
 		<c:forEach items="${boardLists}" var="board">
 		<tr>
-			<td align="center">${board.num}</td>
-			<td align="center">${board.category}</td>				
-			<td align="left">
+			<td align="center" class="nboardNum">
+					${board.num}
+				
+			</td>
+			<td class="nboardCT">				
+					${board.category}				
+			</td>							
+			<td align="left" class="nboardTitle">
 				<c:if test="${board.relevel > 0}">
 					<c:set value="${board.relevel * 30}" var="width"/> 
 					<img src="images/level.gif" width="${width}" height="15">  
@@ -73,19 +66,46 @@
 					${board.title}
 				</a>
 			</td>
-			<td align="center">${board.writer}</td>
-			<td align="center">
+			<td align="center" class="nboardWriter">${board.writer}</td>
+			<td align="center" class="nboardRegdate">
 				<fmt:parseDate value="${board.regdate}" pattern="yyyy-MM-dd" var="pRegDate"/>
 				<fmt:formatDate value="${pRegDate}" pattern="yyyy/MM/dd" var="fRegDate"/>
 				${fRegDate}
 			</td>
-			<td align="center">${board.readCount}</td>
-			
+			<td align="center" class="nboardCount">${board.readCount}</td>			
 		</tr>
-		</c:forEach>		
+		</c:forEach>				
 	</table>
-	${pageInfo.pagingHtml}
+	
+	<div class="tailBoardSearch">
+		<div style="float:left" >		
+		<form  action="qnaBoardList.bd" method="post">
+				<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber}">		
+				<input type="hidden" name="CT" value="${CT}">
+				<select name="whatColumn">
+					<option value="선택">선택
+					<option value="title">제목
+					<option value="writer">작성자
+				</select>
+				<input type="text" name="keyword">
+				<input type="submit" value="검색">
+		</form>				
+		
+		</div>
+		<div style="float:right; margin-right=50px;">
+			<input type="button" value="글쓰기" onclick="insert()">
+		</div>		
+	</div>
+	
+	
+	
+	<div class="tailBoardPaging">
+		<div align="center">
+			${pageInfo.pagingHtml}
+		</div>
+	</div>
+</div>
 
-</body>
+	
 
-</html>
+<%@ include file="../concert/footer.jsp" %>

@@ -66,7 +66,7 @@
 			<td align="left">
 				<c:if test="${board.relevel > 0}">
 					<c:set value="${board.relevel * 30}" var="width"/> 
-					<img src="images/level.gif" width="${width}" height="15">  
+					<img src="<%=request.getContextPath()%>/resources/images/level.gif" width="${width}" height="15">  
 					<img src="<%=request.getContextPath()%>/resources/images/re.gif">
 				</c:if>
 				<a href="boardDetail.bd?num=${board.num}&category=${board.category}&pageNumber=${pageInfo.pageNumber}">
