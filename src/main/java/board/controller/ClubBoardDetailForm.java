@@ -63,7 +63,7 @@ public class ClubBoardDetailForm {
 	
 	@RequestMapping(value="/replyClubWrite.bd", method = RequestMethod.POST)
 	public ModelAndView replyWrite(							
-									@RequestParam(value="bno",required=false) int chatnum,
+									@RequestParam(value="bno",required=false) int chatnum,									
 									BoardReplyBean replybean,		
 									BoardBean bean,
 									ModelAndView mav,	

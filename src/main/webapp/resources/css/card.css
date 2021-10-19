@@ -1,0 +1,58 @@
+@charset "UTF-8";
+.CardContainer{
+	text-align: center;
+	width: 575px;
+	
+	
+}
+
+.ClubCardBody{
+	display: inline-block;
+	width: 500px;
+	height: 500px;
+	padding: 20px;
+	border: 1px solid #999999;
+	margin: 10 10 10 10;	
+}
+
+
+.CardChatContainer{
+	text-align: center;
+	width: 575px;
+	
+	
+}
+
+.ownerChat{
+	text-align: center;
+	width: 575px;		
+}
+
+.ownerPosition{
+	display: inline-block;
+	width: 500px;
+	height: 100px; 
+	padding: 20px;
+	border: 1px solid #999999;
+	margin: 20 20 20 20;	
+}
+
+.ownBubble{
+	 background-color:green;
+	 font-size:22px;
+}
+
+.guestPosition{
+	display: inline-block;
+	width: 500px;
+	height: 100px;
+	padding: 20px;
+	border: 1px solid #999999;
+	margin: 20 20 20 20;	
+}
+
+.guestBubble{
+	 background-color:blue;
+	 font-size:22px;
+}
+

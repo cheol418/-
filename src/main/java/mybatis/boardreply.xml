@@ -27,7 +27,8 @@
 		</if>
 		<if test="whatColumn == 'svcid'">
 		where writer like '%'||#{keyword}||'%'
-		</if>				
+		</if>	
+		order by num desc			
 	</select>
 
 

@@ -25,7 +25,7 @@
 					콘서트 장소: ${concert.PLACENM}<br/>	
 					테스트: ${uid}_${concert.SVCID}<br/>					
 					같이가 모집 추죄자: <input type="text" name="writer" value="${uid}" readonly/></br>					
-					같이가 모집 제목: <input type="text" name="title" value="공연 제목 넣기"/></br>
+					같이가 모집 제목: <input type="text" name="title" value="이 공연 같이봐요"/></br>
 					같이가 모집 한마디: <input type="text" name="content" value="${board.content}"/></br>
 					<input type="hidden" name="category" value="${uid}_${concert.SVCID}"/></br>		
 					<button type="submit">작성</button>
