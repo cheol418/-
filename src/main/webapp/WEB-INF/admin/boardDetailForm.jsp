@@ -38,7 +38,7 @@
 				<tr>
 					<th class="txtCenter">사진</th>
 					<td><img style="height: 150px; width: 240px;"
-						src="<%=request.getContextPath()%>/resources/board/${bean.image}" /><Br>
+						src="<%=request.getContextPath()%>/resources/images/${bean.image}" /><Br>
 					</td>
 				</tr>
 				<tr>
@@ -55,7 +55,31 @@
 				</tr>
 			</table>
 		</form>
-
+		
+		<form action="boardReply.ad" method="get" >
+		
+		<table class="table table-bordered table-hover wform	">
+			<caption style="font-size: 24" >댓글</caption>
+			
+			<tr>
+			<th colspan="2">댓글창</th>
+			</tr>
+			<tr>
+			<th width="30%">작성자1</th>
+			<td>댓글1</td>
+			</tr>
+			<tr>
+			<th>작성자2</th>
+			<td>댓글2</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input class="btn btn-outline-dark logBtn" type="submit"
+					value="댓글달기"> <input class="btn btn-outline-dark logBtn" type="button" value="돌아가기"
+					onclick="location.href='memberList.ad?pageNumber=${pageNumber}'">
+				</td>
+			</tr>
+		</table>
+		</form>
 		</div>
 	</div>
 <%@ include file="../concert/footer.jsp"%>

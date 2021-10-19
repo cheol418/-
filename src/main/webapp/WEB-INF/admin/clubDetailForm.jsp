@@ -50,21 +50,6 @@
 	</form>
 			
 		
-		<table class="table table-bordered table-hover wform	">
-			<caption style="font-size: 24" >댓글</caption>
-			
-			<tr>
-			<th colspan="2">댓글창</th>
-			</tr>
-			<tr>
-			<th width="30%">작성자1</th>
-			<td>댓글1</td>
-			</tr>
-			<tr>
-			<th>작성자2</th>
-			<td>댓글2</td>
-			</tr>
-		</table>
 		
 	</div>
 	</div>

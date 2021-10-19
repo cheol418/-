@@ -39,20 +39,14 @@ public class BoardDeleteController {
 			@RequestParam("pageNumber") int pageNumber,
 			HttpServletRequest request) {
 
-		String deletePath = servletContext.getRealPath("/resources/board"); 
+		String deletePath = servletContext.getRealPath("/resources/images"); 
 		File delFile = new File(deletePath+"\\"+bdao.getBoard(num).getImage()); 
 		delFile.delete(); //파일 삭제
 
 		int cnt=-1;
 		cnt=bdao.deleteBoard(num);
 		
-		if(cnt!=-1) {
-			System.out.println("회원삭제성공");
-			
-		}else {
-			System.out.println("회원삭제실패");
-			
-		}
+	
 		
 		mav.addObject("pageNumber",pageNumber);
 		mav.setViewName(gotoPage);

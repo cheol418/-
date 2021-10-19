@@ -41,7 +41,7 @@ public class BoardListController {
 		int totalCount = bDao.getTotalBoardCount(map);
 		String url = request.getContextPath()+command;
 
-		Paging pageInfo = new Paging(pageNumber,null,totalCount,url,whatColumn,keyword,null); 
+		Paging pageInfo = new Paging(pageNumber,null,totalCount,url,whatColumn,keyword,null,category); 
 		
 		
 		System.out.println("cate:"+category);

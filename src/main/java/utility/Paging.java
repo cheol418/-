@@ -19,6 +19,7 @@ public class Paging {
 	//검색을 위한 변수 추가
 	private String whatColumn = "" ; //검색 모드(작성자, 글제목, 전체 검색은 all) 등등
 	private String keyword = "" ; //검색할 단어 
+	private String category = "" ; //카테고리
 
 	public int getTotalCount() {
 		return totalCount;
@@ -174,7 +175,15 @@ public class Paging {
 		this.keyword = keyword;
 	}
 
+	public String getCategory() {
+		return category;
+	}
 
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	
 	public Paging(
 			String _pageNumber, 
 			String _pageSize,  
@@ -239,13 +248,90 @@ public class Paging {
 	
 	}
 	
+	public Paging(
+			String _pageNumber, 
+			String _pageSize,  
+			int totalCount,
+			String url, 
+			String whatColumn, 
+			String keyword,
+			String whologin,
+			String category) {		
+
+		if(  _pageNumber == null || _pageNumber.equals("null") || _pageNumber.equals("")  ){
+			
+			System.out.println("_pageNumber:"+_pageNumber); // null
+			_pageNumber = "1" ;
+		}
+		this.pageNumber = Integer.parseInt( _pageNumber ) ; 
+
+		if( _pageSize == null || _pageSize.equals("null") || _pageSize.equals("") ){
+			_pageSize = "5" ; // 한 페이지에 보여줄 레코드 갯수
+		}		
+		this.pageSize = Integer.parseInt( _pageSize ) ;
+		
+		this.limit = pageSize ;
+
+		this.totalCount = totalCount ; 
+
+		this.totalPage = (int)Math.ceil((double)this.totalCount / this.pageSize) ;
+		//  ceil(6/5) => 2의 값이 totalPage에 들어간다.
+		
+		this.beginRow = ( this.pageNumber - 1 )  * this.pageSize  + 1 ;
+		this.endRow =  this.pageNumber * this.pageSize ;
+		// pageNumber가 2이면 beginRow=6, endRow=10
+		
+		if( this.pageNumber > this.totalPage ){
+			this.pageNumber = this.totalPage ;
+		}
+		
+		this.offset = ( pageNumber - 1 ) * pageSize ;  
+		//건너띄워야할 레코드수
+		//1페이지 -> (1 - 1) * 2 = 0
+		//2페이지 -> (2 - 1) * 2 = 2
+		
+		if( this.endRow > this.totalCount ){
+			this.endRow = this.totalCount  ;
+		}
+
+		this.beginPage = ( this.pageNumber - 1 ) / this.pageCount * this.pageCount + 1  ;
+		this.endPage = this.beginPage + this.pageCount - 1 ;
+		
+		System.out.println("pageNumber:"+pageNumber+"/totalPage:"+totalPage);	
+		
+		if( this.endPage > this.totalPage ){
+			this.endPage = this.totalPage ;
+		}
+		
+		System.out.println("pageNumber2:"+pageNumber+"/totalPage2:"+totalPage);	
+		this.url = url ; //  /ex/list.ab
+		this.whatColumn = whatColumn ;
+		this.keyword = keyword ;
+		this.category = category ;
+		System.out.println("whatColumn:"+whatColumn+"/keyword:"+keyword+"/category:"+category);
+		
+		this.pagingHtml = getPagingHtml(url) ;
+	
+	}//category 포함 생성자
 	
 	private String getPagingHtml( String url ){ //페이징 문자열을 만든다.
 		System.out.println("getPagingHtml url:"+url); 
 		
 		String result = "" ;
 		//added_param 변수 : 검색 관련하여 추가되는 파라미터 리스트
-		String added_param = "&whatColumn=" + whatColumn + "&keyword=" + keyword ; // &whatColumn=singer&keyword=아
+		
+		String added_param="";
+		
+		if(category == null) {
+			added_param = "&whatColumn=" + whatColumn + "&keyword=" + keyword;// &whatColumn=singer&keyword=아
+			
+		}else if(category == "") {
+			added_param = "&whatColumn=" + whatColumn + "&keyword=" + keyword;
+		}
+		else {
+			added_param = "&whatColumn=" + whatColumn + "&keyword=" + keyword + "&category=" + category;// &whatColumn=singer&keyword=아
+
+		}
 		
 		if (this.beginPage != 1) { // 앞쪽, pageSize:한 화면에 보이는 레코드 수
 			// 처음 목록보기를 하면 pageNumber는 1이 되고 beginPage도 1이 된다. 

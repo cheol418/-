@@ -34,7 +34,7 @@ public class MemberDeleteController {
 			) {
 
 
-		String deletePath = servletContext.getRealPath("/resources/member"); 
+		String deletePath = servletContext.getRealPath("/resources/images"); 
 		System.out.println("Path:"+deletePath);
 
 		File delFile = new File(deletePath+"\\"+mdao.getMember(num).getImage()); 

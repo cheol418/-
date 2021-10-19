@@ -45,10 +45,10 @@ public class MemberInsertController {
 	public ModelAndView updateMember(ModelAndView mav,
 			@Valid MemberBean bean, BindingResult result) {
 
-		System.out.println("getRealPath(/):"+servletContext.getRealPath("/resources/member"));
+		System.out.println("getRealPath(/):"+servletContext.getRealPath("/resources/images"));
 		System.out.println("선택한 화일이름: "+ bean.getImage()); //화일이 아닌 화일명 문자
 		
-		String uploadPath = servletContext.getRealPath("/resources/member");
+		String uploadPath = servletContext.getRealPath("/resources/images");
 		
 		System.out.println("upload:"+uploadPath);
 		

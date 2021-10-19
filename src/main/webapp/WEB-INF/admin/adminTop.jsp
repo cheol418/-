@@ -25,7 +25,7 @@
 	
 	<div class="menuDiv">
 		<a href="main.do" class="logoA">
-			<img src="resources/images/temp_logo.png"/>
+			<img src="resources/images/logo.png"/>
 		</a>
 		<div class="menuNav">
 			<a class="menuBtn" href="memberList.ad">회원 관리</a> / 

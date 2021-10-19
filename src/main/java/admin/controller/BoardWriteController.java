@@ -47,7 +47,7 @@ public class BoardWriteController {
 	public ModelAndView boardWrite(ModelAndView mav,
 			@Valid BoardBean bean, BindingResult result) {
 		
-		String uploadPath = servletContext.getRealPath("/resources/board");
+		String uploadPath = servletContext.getRealPath("/resources/images");
 		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류입니다.");

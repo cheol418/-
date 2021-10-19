@@ -30,6 +30,7 @@
 			<c:if test="${category != null }" >
 			<input type="hidden" name="category" value="${category}"> 
 			</c:if>
+			<input type="hidden" name="category" value=""> 
 			<div class="input-group-prepend">
 				<select name="whatColumn" class="custom-select selectMinBox">
 				<option value="all">선택

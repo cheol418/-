@@ -67,7 +67,7 @@ public class MemberUpdateController {
 			
 			if(cnt != -1) {
 				
-				String dataPath =  servletContext.getRealPath("/resources/member"); 
+				String dataPath =  servletContext.getRealPath("/resources/images"); 
 				MultipartFile multi = bean.getUpload();
 
 				File upFile = new File(dataPath+ File.separator + bean.getImage()); 

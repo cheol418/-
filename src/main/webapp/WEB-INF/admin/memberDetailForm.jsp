@@ -50,7 +50,7 @@
 	<tr>
 		<th class="txtCenter">사진</th>
 		<td>
-		<img style="height:150px; width: 240px;" src="<%=request.getContextPath()%>/resources/member/${bean.image}"/><Br>
+		<img style="height:150px; width: 240px;" src="<%=request.getContextPath()%>/resources/images/${bean.image}"/><Br>
 		</td>
 	</tr>
 	<tr>
