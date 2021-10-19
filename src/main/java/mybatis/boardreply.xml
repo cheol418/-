@@ -19,7 +19,7 @@
 	</delete>
 
 	<select id="getClubBoardChatLists" resultType="MyBoardReply">
-		select u.id, u.name, b.num, b.title, b.category, b.content from users u
+		select u.id, u.name, b.num, b.title, b.category, b.content from member u
 		left outer join board b
 			on u.id = b.writer		
 		<if test="whatColumn == 'uid'">
