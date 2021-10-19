@@ -70,10 +70,10 @@ public class BoardInsertController {
 								ModelAndView mav, HttpServletRequest request,
 								@ModelAttribute("board") @Valid BoardBean bean,BindingResult result) {
 		
-		System.out.println("getRealPath(/)"+servletContext.getRealPath("/resources"));
+		System.out.println("getRealPath(/)"+servletContext.getRealPath("/resources/images"));
 		// H:\000_GetTheJob\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\making_board\resources
 		
-		String uploadPath = servletContext.getRealPath("/resources");
+		String uploadPath = servletContext.getRealPath("/resources/images");
 
 		System.out.println(bean.getImage()); // 여기서 Null값이 터지는 중... 뭐지? 왜지?
 		

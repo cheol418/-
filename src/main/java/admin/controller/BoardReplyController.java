@@ -61,7 +61,7 @@ public class BoardReplyController {
 		 mav.setViewName(getPage);
 		 
 	 }else {
-		 String uploadPath = servletContext.getRealPath("/resources/board");
+		 String uploadPath = servletContext.getRealPath("/resources/images");
 		
 		 bdao.writeReplyBoard(bean);
 		 MultipartFile multi =  bean.getUpload();
