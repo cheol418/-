@@ -18,39 +18,39 @@
 			<input type="hidden" name="relevel" value=${bean.relevel }>
 
 			<h2>게시판 세부정보</h2>
-			<table class="table table-bordered table-hover wform">
+			<table class="table table-bordered table-hover wform tableThdMidle">
 				<tr>
-					<th width=25%>게시판 카테고리</th>
+					<th class="txtCenter" width=25%>게시판 카테고리</th>
 					<td width=75%>${bean.category }</td>
 				</tr>
 				<tr>
-					<th>글번호</th>
+					<th class="txtCenter">글번호</th>
 					<td>${bean.num }</td>
 				</tr>
 				<tr>
-					<th>작성자ID</th>
+					<th class="txtCenter">작성자ID</th>
 					<td>${bean.writer }</td>
 				</tr>
 				<tr>
-					<th>제목</th>
+					<th class="txtCenter">제목</th>
 					<td>${bean.title }</td>
 				</tr>
 				<tr>
-					<th>사진</th>
+					<th class="txtCenter">사진</th>
 					<td><img style="height: 150px; width: 240px;"
 						src="<%=request.getContextPath()%>/resources/board/${bean.image}" /><Br>
 					</td>
 				</tr>
 				<tr>
-					<th>글 내용</th>
+					<th class="txtCenter">글 내용</th>
 					<td>${bean.content }</td>
 				</tr>
 
 				<tr>
 					<td colspan="2" align="center">
-					<input type="submit" value="답글달기">
-					<input type="button" value="수정하기" onclick="location.href='boardUpdate.ad?pageNumber=${pageNumber}&num=${bean.num }'">
-					<input type="button" value="돌아가기" onclick="location.href='boardList.ad?pageNumber=${pageNumber}'">
+					<input class="btn btn-outline-dark logBtn" type="submit" value="답글달기">
+					<input class="btn btn-outline-dark logBtn" type="button" value="수정하기" onclick="location.href='boardUpdate.ad?pageNumber=${pageNumber}&num=${bean.num }'">
+					<input class="btn btn-outline-dark logBtn" type="button" value="돌아가기" onclick="location.href='boardList.ad?pageNumber=${pageNumber}'">
 					</td>
 				</tr>
 			</table>

@@ -74,7 +74,8 @@
 </script>
 <%@ include file="../concert/header.jsp" %>
 <div class="bodyPart content">
-	<div>
+	<div class="editForm">
+	<h4>정보 수정</h4>
 		<form:form commandName="user" name="uForm" action="userEdit.ur" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="num" value="<%=userInfo.getNum()%>">
 		<table class="table table-bordered regiTable">

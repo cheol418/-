@@ -10,7 +10,7 @@
    		margin: auto;
 	}
 	.formDiv{
-		width: 600px;
+		width: 700px;
    		margin: auto;
 	}
 	.boardDate{
@@ -25,14 +25,11 @@
 		font-size: 14px;
 	}
 	.wform{
-		width: 600px;
+		width: 700px;
 		margin: 10px !important;
 		float: center;
 		font-size: 14px;
-	
 	}
-	
-	
 	.boardNum{
 		width: 40px;
 	}
@@ -158,11 +155,14 @@
 	    margin-left: 28px;
 	}
 	.selectMinBox{
-	    width: 90px;
+	    width: 140px;
 	    height: 34px;
 	    margin-top: 0px;
 	    font-size: 13px;
 	}
 	.adminTopInput{
 		height: 34px;
+	}
+	.tableThdMidle th{
+		vertical-align: middle;
 	}
