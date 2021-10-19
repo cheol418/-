@@ -3,9 +3,12 @@ package board.controller;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -22,6 +25,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import board.model.BoardBean;
 import board.model.BoardDao;
+import user.model.UserDao;
+import user.model.UserVo;
 
 @Controller
 public class BoardInsertController {
@@ -31,7 +36,8 @@ public class BoardInsertController {
 	ServletContext servletContext;
 	
 	@Autowired
-	private BoardDao bDao; 
+	private BoardDao bDao;
+	
 	
 	/* 나중에 회원 가입 부분 추가할 때를 대비해서 미리 넣어둠.
 	@RequestMapping(value="/boardInsert.bd", method=RequestMethod.GET)
@@ -53,14 +59,25 @@ public class BoardInsertController {
 	public ModelAndView doActionGet(@RequestParam(value = "pageNumber") int pageNumber,
 								@RequestParam(value = "category") String category,								
 								@RequestParam(value = "writer") String writer,
-								ModelAndView mav) {
+								HttpSession session,
+								HttpServletResponse response,
+								HttpServletRequest request,
+								ModelAndView mav) throws Exception {
+		if(session.getAttribute("loginInfo")==null) {
+			session.setAttribute("destination", "/boardInsert.bd"); // session설정해두면 아무데서나 쓸 수 있다. 목적지 설정해둔것.			
+			mav.setViewName("redirect:/login.ur"); // login.ur
+			return mav;
+		}
+		else { //loing 했었다.			
+			System.out.println("페이지넘버..."+pageNumber);
+			UserVo uVo =  (UserVo)session.getAttribute("loginInfo");
+			mav.addObject("uVoID",uVo.getId());
+			mav.addObject("pageNumber",pageNumber);			
+			mav.addObject("fCategory",category);
+			mav.setViewName("boardInsertForm");
+			return mav;						
+		}		
 		
-		System.out.println("페이지넘버..."+pageNumber);
-		
-		mav.addObject("pageNumber",pageNumber);
-		mav.addObject("fCategory",category);
-		mav.setViewName("boardInsertForm");
-		return mav;
 	}
 	
 	
@@ -68,8 +85,11 @@ public class BoardInsertController {
 	public ModelAndView doActionPost(@RequestParam(value = "pageNumber") int pageNumber,
 								@RequestParam(value = "category") String category,
 								ModelAndView mav, HttpServletRequest request,
+								HttpSession session,
 								@ModelAttribute("board") @Valid BoardBean bean,BindingResult result) {
 		
+		
+	
 		System.out.println("getRealPath(/)"+servletContext.getRealPath("/resources/images"));
 		// H:\000_GetTheJob\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\making_board\resources
 		

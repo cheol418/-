@@ -27,6 +27,7 @@ import board.model.BoardReplyDao;
 import concert.controller.ConcertApi;
 import concert.controller.ConcertMainController;
 import concert.model.*;
+import user.model.UserVo;
 
 
 
@@ -45,7 +46,13 @@ public class CboardMakeController {
 								Model model, 
 								HttpSession session,								
 								@Valid BoardBean bean,BindingResult result) throws IOException {
-		
+		if(session.getAttribute("loginInfo")==null) {
+			session.setAttribute("destination", "/clubBoardMakeForm.bd"); // session설정해두면 아무데서나 쓸 수 있다. 목적지 설정해둔것.			
+			mav.setViewName("redirect:/login.ur"); // login.ur
+			return mav;
+		}else {
+		UserVo uVo =  (UserVo)session.getAttribute("loginInfo");
+		mav.addObject("uid",uVo.getId());
 		ConcertApi api = new ConcertApi();
 		List<Map<String,Object>> concertList = api.getCultureList(1,15);
 		session.setAttribute("concertList", concertList);
@@ -54,6 +61,7 @@ public class CboardMakeController {
 		mav.addObject("SVCID", svcid);		
 		mav.setViewName("clubBoardMakeForm");
 		return mav;
+		}
 	}
 	
 	@RequestMapping(value = "/clubBoardMakeForm.bd",method = RequestMethod.POST)

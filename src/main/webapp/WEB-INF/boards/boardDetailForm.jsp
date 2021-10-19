@@ -10,8 +10,8 @@
 		location.href="boardDelete.bd?num="+num+"&pageNumber="+pn;
 	}
 	
-	function goUpdate(num,pn){
-		location.href="boardUpdate.bd?num="+num+"&pageNumber="+pn;
+	function goUpdate(id,num,pn){
+		location.href="boardUpdate.bd?id="+id+"&num="+num+"&pageNumber="+pn;
 	}
 	
 	$(".replyWriteBtn").on("click", function(){	  
@@ -68,16 +68,23 @@
 	
 		<tr height="50">
 			<td align="center">글내용</td>
-			<td colspan="3"><div align="center"><image src="<%=request.getContextPath()%>/resources/${board.image}"/></div><br clear="left">${board.content}</td>
+			<td colspan="3"><div align="center"><image src="<%=request.getContextPath()%>/resources/images/${board.image}"/></div><br clear="left">${board.content}</td>
 		</tr>
 	
 		<tr>
 			<td colspan="4" align="center">
 				<form name="deleteForm" action="delete.bd" method="post">
+			  		<!--
 			  		<input type="hidden" id="bno" name="bno" value="${board.num}" />
-			  		<input type="hidden" id="pageNumber" name="pageNumber" value="${pageNumber}">		
-					<input type="button" value="글수정" onClick="goUpdate(${board.num},${pageNumber})">
+			  		<input type="hidden" id="wid" name="wid" value="${board.writer}" />			  		
+			  		<input type="hidden" id="pageNumber" name="pageNumber" value="${pageNumber}">
+			  		
+			  		 		
+					<input type="button" value="글수정" onClick="goUpdate(${board.writer},${board.num},${pageNumber})">
+					 -->
 					
+					<input type="button" value="글수정" onClick="location.href='<%=request.getContextPath()%>/boardUpdate.bd?wid=${board.writer}&num=${board.num}&pageNumber=${pageNumber}'">
+					 										
 					<input type="button" value="글삭제" onClick="location.href='<%=request.getContextPath()%>/boardDelete.bd?num=${board.num}&category=${board.category}&pageNumber=${pageNumber}'">				
 					
 					<input type="button" value="글목록" onClick="location.href='<%=request.getContextPath()%>/noticeBoardList.bd?pageNumber=${pageNumber}'">
@@ -107,7 +114,10 @@
 	</table>
 	<form name="replyForm" action="replyWrite.bd" method="post">
 		  <input type="hidden" id="bno" name="bno" value="${board.num}" />
+		  <input type="hidden" id="wid" name="wid" value="${board.writer}" />
+		  <input type="hidden" id="category" name="category" value="${board.category}" />
 		  <input type="hidden" id="pageNumber" name="pageNumber" value="${pageNumber}">		
+		  
 		  <div>
 		    <label for="writer">댓글 작성자</label><input type="text" id="writer" name="writer" />
 		    <br/>

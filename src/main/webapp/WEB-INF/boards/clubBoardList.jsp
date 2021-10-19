@@ -34,7 +34,7 @@
 </br></br></br>-------------------</br></br></br>
 
 <div id="Myclub">
-<h1>My List</h1>
+<h1>My List(${uid})</h1>
 <c:forEach var="concert" items="${concertList}" varStatus="statusClist">			
 	<c:forEach var="chats" items="${clubBoardChatLists}" varStatus="statusChats">
 		<c:if test="${concert.SVCID eq fn:substringAfter(chats.category, '_')}">

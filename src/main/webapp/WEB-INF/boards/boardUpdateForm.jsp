@@ -31,7 +31,7 @@
 		<tr>
 			<td width="100">이름</td>
 			<td width="350">
-				<input type="text" name="writer" value="${board.writer}">
+				<input type="text" name="writer" value="${board.writer}" readonly>
 				<form:errors cssClass="err" path="writer"/>
 			</td>
 		</tr>
@@ -56,7 +56,7 @@
 			<td align="center">삽입된 그림</td>
 			<td colspan="3">
 				<div align="center">
-					<image src="<%=request.getContextPath()%>/resources/${board.image}"/>
+					<image src="<%=request.getContextPath()%>/resources/images/${board.image}"/>
 				</div>
 				<br clear="left">
 				<input type="file" name="pic">

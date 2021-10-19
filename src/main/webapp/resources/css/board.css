@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.bcontent{
+        min-height: 1200px;
+        display: flow-root;
+	}
+	
+.mainboard{
+		width: 1000px;		
+		margin-top: 10px !important;		
+		font-size: 13px;
+	}
+	
+.tailBoardSerch{		
+		margin-top: 10px !important;		
+		margin-down: 10px !important;
+		font-size: 13px;
+}
+
+.tailBoardWrite{	
+		margin-right:110px;
+		margin-top: 4px !important;		
+		margin-down: 10px !important;
+		font-size: 13px;
+}
+
+.tailBoardPaging{
+		margin-top: 4px !important;		
+		margin-bottom: 20px !important;
+		font-size: 13px;
+}
+
+.nboardNum{
+		width: 60px;
+	}
+	
+.nboardCT{
+		width: 100px;
+	}
+
+.nboardTitle{
+		width: 400px;
+		overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	
+.nboardWriter{
+		width: 120px;
+		overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	
+.nboardRegDate{
+		width: 120px;
+		overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	
+.nboardCount{
+		width: 60px;
+		overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	

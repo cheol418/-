@@ -31,7 +31,7 @@
 		<tr>
 			<td width="100">이름</td>
 			<td width="350">
-				<input type="text" name="writer" value="${board.writer}">
+				<input type="text" name="writer" value="${uVoID}" readonly/>
 				<form:errors cssClass="err" path="writer"/>
 			</td>
 		</tr>

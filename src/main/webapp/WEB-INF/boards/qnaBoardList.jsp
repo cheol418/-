@@ -62,7 +62,7 @@
 					<img src="images/level.gif" width="${width}" height="15">  
 					<img src="<%=request.getContextPath()%>/resources/images/re.gif">
 				</c:if>
-				<a href="boardDetail.bd?num=${board.num}&category=${board.category}&pageNumber=${pageInfo.pageNumber}">
+				<a href="boardDetail.bd?num=${board.num}&wid=${board.writer}&category=${board.category}&pageNumber=${pageInfo.pageNumber}">
 					${board.title}
 				</a>
 			</td>

@@ -24,6 +24,7 @@ import board.model.BoardReplyDao;
 import concert.controller.ConcertApi;
 import concert.controller.ConcertMainController;
 import concert.model.*;
+import user.model.UserVo;
 
 
 
@@ -35,13 +36,16 @@ public class CboardListController {
 	
 	@Autowired
 	private BoardReplyDao brDao;		
-		
+		 
 	@RequestMapping(value= "/clubBoardList.bd")
 	public ModelAndView doActionList(
 						Model model,
 						ModelAndView mav,		
 						@RequestParam(value="uid",required=false) String uid,
 						HttpSession session){
+		
+		UserVo uVo =  (UserVo)session.getAttribute("loginInfo");
+		mav.addObject("uid",uVo.getId());
 		
 		ConcertApi api = new ConcertApi();
 		List<Map<String,Object>> concertList = api.getCultureList(1,15);
