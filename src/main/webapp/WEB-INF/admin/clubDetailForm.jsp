@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp"%>
+<%@ include file="adminTop.jsp"%>
+
 <link rel="stylesheet" type="text/css" href="resources/css/common.css"> 
 <link rel="stylesheet" type="text/css" href="resources/css/admin.css"> 
 
@@ -18,10 +20,11 @@
 	<form action="clubDetail.ad" method="post">
 		<input type="hidden" name=pageNumber value="${pageNumber }">
 		<input type="hidden" name=num value="${bean.num }">
+		
 		<table class="table table-bordered table-hover wform">
 		<caption style="font-size: 24" >동아리 수정</caption>
 			<tr>
-				<th>동아리번호</th>
+				<th width="30%">동아리번호</th>
 				<td><input type="text" name="num" value=${bean.num } disabled="disabled"></td>
 			</tr>
 			<tr>
@@ -46,15 +49,23 @@
 		</table>
 	</form>
 			
-			<div class="formDiv">
 		
-		<table class="table table-bordered table-hover mainboard">
-			<tr>
-			<td>댓글창</td>
+		<table class="table table-bordered table-hover wform	">
+			<caption style="font-size: 24" >댓글</caption>
 			
+			<tr>
+			<th colspan="2">댓글창</th>
+			</tr>
+			<tr>
+			<th width="30%">작성자1</th>
+			<td>댓글1</td>
+			</tr>
+			<tr>
+			<th>작성자2</th>
+			<td>댓글2</td>
 			</tr>
 		</table>
-		</div>
 		
 	</div>
 	</div>
+<%@ include file="../concert/footer.jsp"%>
