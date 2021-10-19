@@ -75,13 +75,17 @@ public class CboardMakeController {
 								HttpServletRequest request,								
 								@ModelAttribute("board") @Valid BoardBean bean,BindingResult result) 
 								throws IOException {
+		UserVo uVo =  (UserVo)session.getAttribute("loginInfo");
+		mav.addObject("uid",uVo.getId());
+		String uid = uVo.getId();
+		System.out.println("kkkkkkkkkk:"+uid);
 		
 		bean.setRegdate(new Timestamp(System.currentTimeMillis()));
 		
 		int cnt = -1;
 		cnt = bDao.insertClubData(bean);
 
-				
+		mav.addObject("uid",uid);		
 		mav.setViewName("redirect:/clubBoardList.bd");							
 		return mav;
 	}
