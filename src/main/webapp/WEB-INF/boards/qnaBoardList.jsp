@@ -20,17 +20,7 @@
 
 
 	<h2 align="center">QnA 게시판 </h2>
-		<form align="center" action="qnaBoardList.bd" method="post">
-				<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber}">		
-				<input type="hidden" name="CT" value="${CT}">
-				<select name="whatColumn">
-					<option value="선택">선택
-					<option value="title">제목
-					<option value="writer">작성자
-				</select>
-				<input type="text" name="keyword">
-				<input type="submit" value="검색">
-		</form>				
+		
 	
 	<div align="center">
 		글목록(전체 글:${pageInfo.totalCount})

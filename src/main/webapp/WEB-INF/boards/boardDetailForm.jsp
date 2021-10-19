@@ -74,12 +74,12 @@
 		<tr>
 			<td colspan="4" align="center">
 				<form name="deleteForm" action="delete.bd" method="post">
-			  		<!--
+			  		
 			  		<input type="hidden" id="bno" name="bno" value="${board.num}" />
 			  		<input type="hidden" id="wid" name="wid" value="${board.writer}" />			  		
 			  		<input type="hidden" id="pageNumber" name="pageNumber" value="${pageNumber}">
 			  		
-			  		 		
+			  		<!-- 		
 					<input type="button" value="글수정" onClick="goUpdate(${board.writer},${board.num},${pageNumber})">
 					 -->
 					
@@ -87,7 +87,7 @@
 					 										
 					<input type="button" value="글삭제" onClick="location.href='<%=request.getContextPath()%>/boardDelete.bd?num=${board.num}&category=${board.category}&pageNumber=${pageNumber}'">				
 					
-					<input type="button" value="글목록" onClick="location.href='<%=request.getContextPath()%>/noticeBoardList.bd?pageNumber=${pageNumber}'">
+					<input type="button" value="글목록" onClick="location.href='<%=request.getContextPath()%>/${board.category}BoardList.bd?pageNumber=${pageNumber}'">
 				</form>				 
 			</td>
 		</tr>

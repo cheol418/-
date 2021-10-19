@@ -103,13 +103,13 @@ public class BoardDetailController {
 		
 		System.out.println("bdasdjklasjdlks");
 			
-				
-		//mav.addObject("category",CT);		
-		//mav.addObject("pageNumber",pageNumber);
-		//mav.addObject("wid", wid);
-		//mav.addObject("num", bno);		
 			
-		mav.setViewName("redirect:/boardDetail.bd?num="+replybean.getBno()+"&category="+CT+"&pageNumber"+pageNumber);		
+		//mav.addObject("category",CT);		
+		mav.addObject("pageNumber",pageNumber);
+		mav.addObject("wid", wid);
+		mav.addObject("num", bno);		
+			
+		mav.setViewName("redirect:/boardDetail.bd?num="+bno+"&wid="+wid+"&category="+CT+"&pageNumber"+pageNumber);		
 		return mav;
 		
 		
