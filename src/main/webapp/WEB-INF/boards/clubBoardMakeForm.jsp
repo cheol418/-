@@ -17,7 +17,7 @@
     
     <c:forEach var="concert" items="${concertList}" varStatus="statusClist">
     	<c:if test="${concert.SVCID eq SVCID}">
-    	<h3>모집 개시 카드 - 나중에 팝업/모달/아무튼 위에 띄우는 창 형식으로.</h3>    	
+    	<h3>모집 개시 카드</h3>    	
 	    	<form name="board" action="clubBoardMakeForm.bd" method="post">
 		    		콘서트 SVCID: <input type="text" name="svcid" value="${concert.SVCID}" readonly/></br>
 					콘서트 Image: <img width="100" height="100" src="${concert.IMGURL}"></br>

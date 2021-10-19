@@ -40,7 +40,7 @@ public class CboardMakeController {
 	private BoardReplyDao brDao;		
 	
 	@RequestMapping(value = "/clubBoardMakeForm.bd",method = RequestMethod.GET)
-	public ModelAndView doActionMakeFormGet(@RequestParam(value = "uid") String uid,
+	public ModelAndView doActionMakeFormGet(
 								@RequestParam(value = "SVCID") String svcid,
 								ModelAndView mav, 
 								Model model, 
@@ -53,6 +53,9 @@ public class CboardMakeController {
 		}else {
 		UserVo uVo =  (UserVo)session.getAttribute("loginInfo");
 		mav.addObject("uid",uVo.getId());
+		String uid = uVo.getId();
+		System.out.println("duqidhwqiudhqw:"+uid);
+		
 		ConcertApi api = new ConcertApi();
 		List<Map<String,Object>> concertList = api.getCultureList(1,15);
 		session.setAttribute("concertList", concertList);
@@ -69,7 +72,7 @@ public class CboardMakeController {
 								ModelAndView mav, 
 								Model model, 
 								HttpSession session,	
-								HttpServletRequest request,
+								HttpServletRequest request,								
 								@ModelAttribute("board") @Valid BoardBean bean,BindingResult result) 
 								throws IOException {
 		
@@ -77,10 +80,8 @@ public class CboardMakeController {
 		
 		int cnt = -1;
 		cnt = bDao.insertClubData(bean);
-		
-		
-		
-		
+
+				
 		mav.setViewName("redirect:/clubBoardList.bd");							
 		return mav;
 	}

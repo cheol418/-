@@ -66,7 +66,7 @@
 	<tr class="bold6">
 		<td colspan="4" align="center" class="btnArea">
 			<input type="button" class="btn btn-light" value="예약하기" onclick="window.open('${concert.SVCURL}','_blank')">
-			<input type="button" class="btn btn-info" value="같이가!" onClick="location.href='<%=request.getContextPath()%>/clubBoardMakeForm.bd?uid=son&SVCID=${concert.SVCID}'">
+			<input type="button" class="btn btn-info" value="같이가!" onClick="location.href='<%=request.getContextPath()%>/clubBoardMakeForm.bd?SVCID=${concert.SVCID}'">
 		</td>
 	</tr>
 	<tr>
