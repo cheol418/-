@@ -32,7 +32,7 @@
 
 
 <center>	  
-	<h2>글내용 보기</h2>
+	<h2>게시물 확인</h2>
 	<table border="1" width="500" align="center"> 
 		<tr>
 			<td align="center">카테고리</td> 
@@ -47,7 +47,7 @@
 			<td align="center">작성자</td>
 			<td align="center">${board.writer}</td>
 			<td align="center">작성일</td>
-			<td align="center">
+			<td colspan="3"align="center">
 				<fmt:parseDate value="${board.regdate}" pattern="yyyy-MM-dd" var="pRegDate"/>
 				<fmt:formatDate value="${pRegDate}" pattern="yyyy/MM/dd" var="fRegDate"/>
 				${fRegDate}
@@ -55,8 +55,8 @@
 		</tr>
 	
 		<tr>
-			<td align="center">글제목</td>
-			<td align="center" colspan="3">${board.title}</td>
+			<td width="100" align="center">글제목</td>
+			<td align="center" colspan="5">${board.title}</td>
 		</tr>
 		
 		<!-- 
@@ -67,12 +67,12 @@
 		 -->
 	
 		<tr height="50">
-			<td align="center">글내용</td>
-			<td colspan="3"><div align="center"><image src="<%=request.getContextPath()%>/resources/images/${board.image}"/></div><br clear="left">${board.content}</td>
+			<td width="100" align="center">글내용</td>
+			<td colspan="5"><div align="center"><image src="<%=request.getContextPath()%>/resources/images/${board.image}"/></div><br clear="left">${board.content}</td>
 		</tr>
 	
 		<tr>
-			<td colspan="4" align="center">
+			<td colspan="6" align="center">
 				<form name="deleteForm" action="delete.bd" method="post">
 			  		
 			  		<input type="hidden" id="bno" name="bno" value="${board.num}" />
@@ -93,7 +93,7 @@
 		</tr>
 		
 		<tr>
-			<td colspan="4" align="center">
+			<td colspan="6" align="center">
 				<!-- 댓글 -->
 				<div id="reply">
 				  <ol class="replyList">
