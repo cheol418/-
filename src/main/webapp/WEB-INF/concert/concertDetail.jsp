@@ -94,7 +94,7 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="right">
-			<input type="button" class="btn btn-secondary" value="목록보기" onclick="javascript:history.back()">
+			<input type="button" class="btn btn-secondary" value="뒤로가기" onclick="javascript:history.back()">
 			<input type="button" class="btn btn-secondary" value="목록보기" onclick="location.href='list.do?pageNumber=1&miniclass=${miniclass}'">
 		</td>
 	</tr>

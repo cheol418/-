@@ -15,6 +15,13 @@
 	var repassChk = false;
 	var emailChk = false;
 	
+	$(document).ready(function(){
+		 $('#imgFile').on('change',function(){
+             var fileName = $(this).val();
+             $(this).next('.custom-file-label').html(fileName);
+         })
+	})
+	
 	function passwdChk(){
 		$("#errPassWd").html("");
 		passChk = false;
