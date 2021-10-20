@@ -85,7 +85,7 @@
 					
 					<input type="button" value="글수정" onClick="location.href='<%=request.getContextPath()%>/boardUpdate.bd?wid=${board.writer}&num=${board.num}&pageNumber=${pageNumber}'">
 					 										
-					<input type="button" value="글삭제" onClick="location.href='<%=request.getContextPath()%>/boardDelete.bd?num=${board.num}&category=${board.category}&pageNumber=${pageNumber}'">				
+					<input type="button" value="글삭제" onClick="location.href='<%=request.getContextPath()%>/boardDelete.bd?wid=${board.writer}&num=${board.num}&category=${board.category}&pageNumber=${pageNumber}'">				
 					
 					<input type="button" value="글목록" onClick="location.href='<%=request.getContextPath()%>/${board.category}BoardList.bd?pageNumber=${pageNumber}'">
 				</form>				 
