@@ -82,6 +82,11 @@ public class UserRegisterController {
 		if(cnt > 0) {
 			File destination = new File(uploadPath+"\\"+uvo.getImage());
 			try {
+				File dir = new File(uploadPath);
+				if(!dir.exists()) {
+					dir.mkdir();
+				}
+				
 				multi.transferTo(destination);
 			} catch (IllegalStateException e) {
 				e.printStackTrace();

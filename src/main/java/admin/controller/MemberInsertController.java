@@ -44,29 +44,19 @@ public class MemberInsertController {
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public ModelAndView updateMember(ModelAndView mav,
 			@Valid MemberBean bean, BindingResult result) {
-
-		System.out.println("getRealPath(/):"+servletContext.getRealPath("/resources/images"));
-		System.out.println("선택한 화일이름: "+ bean.getImage()); //화일이 아닌 화일명 문자
-		
-		String uploadPath = servletContext.getRealPath("/resources/images");
-		
-		System.out.println("upload:"+uploadPath);
+		String uploadPath = servletContext.getRealPath("/resources/userImg");
 		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류입니다.");
 
 			mav.setViewName(getPage);
-
 		}//유효성검사 오류
 		else {
-
-
 			int cnt = -1;
 			cnt = mdao.insertMember(bean);
 			MultipartFile multi =  bean.getUpload();
 
 			if(cnt!=-1) { //sql삽입 성공
-
 				File destination = new File(uploadPath+"\\"+bean.getImage()); // uploadPath가 화일경로 문자가 아닌 실제 폴더가 된다.
 
 				try {
@@ -80,12 +70,8 @@ public class MemberInsertController {
 
 				mav.setViewName(gotoPage);
 			}else { //삽입실패
-
 				mav.setViewName(getPage);
-
 			}
-
-
 		}//유효성 검사 성공
 		
 		return mav;
