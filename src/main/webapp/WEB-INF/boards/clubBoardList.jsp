@@ -21,7 +21,8 @@
 				콘서트 이름: ${concert.SVCNM}</br>
 				<img width="100" height="100" src="${concert.IMGURL}"></br>				
 				같이가 주최자 이름(ID): ${chats.id}(${chats.name})</br>				
-				같이가 모임 이름: ${chats.title}</br>				
+				같이가 모임 이름: ${chats.title}</br>
+				같이가 한마디!: ${chats.content}<br/>			
 				
 				<input type="button" value="상세보기" onClick="location.href='<%=request.getContextPath()%>/clubBoardDetailForm.bd?uid=${chats.id}&chatnum=${chats.num}'"><br/><br/><br/>													
 			</c:if>
