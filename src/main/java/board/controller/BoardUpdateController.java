@@ -13,6 +13,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,9 +46,10 @@ public class BoardUpdateController {
 			HttpSession session,
 			HttpServletResponse response,
 			HttpServletRequest request,
+			Model model,
 			ModelAndView mav)throws Exception {
 		
-		System.out.println("야발!");
+		System.out.println("왜 안되냐고 진짜.");
 		
 		if(session.getAttribute("loginInfo")==null) {
 			session.setAttribute("destination", "/boardInsert.bd"); // session설정해두면 아무데서나 쓸 수 있다. 목적지 설정해둔것.			
@@ -62,31 +64,33 @@ public class BoardUpdateController {
 			String pid = wid;
 			System.out.println(pid + "   " + uVo.getId() + "   " + board.getWriter());
 			
-			if(wid == uVo.getId()){
-				System.out.println("제발 좀");				
-			}else {
-				System.out.println("족 같네");				
+			if(wid.equals(uVo.getId())){
+				mav.addObject("wid",wid);
+				mav.addObject("uVoID",uVo.getId());
+				mav.addObject("board",board);
+				mav.addObject("pageNumber",pageNumber);
+				mav.setViewName("boardUpdateForm");
+				
+				return mav;			
+			}else {							
+				mav.setViewName("redirect:/main.do"); // login.ur
+				return mav;				
 			}
-			mav.addObject("wid",wid);
-			mav.addObject("uVoID",uVo.getId());
-			mav.addObject("board",board);
-			mav.addObject("pageNumber",pageNumber);
-			mav.setViewName("boardUpdateForm");
-			return mav;
+			
+			
 			/*
-			if(pid == uid) {
+			if(pid == uVo.getId()) {
 				
 				System.out.println("헐랭");
+			
 				
-				m
 				return mav;
 			}// wid == uVo.getId
 			else {
 				System.out.println("헐랭2");
-				//mav.setViewName("redirect:/login.ur"); // login.ur
-				return mav;
+				
 			}// wid == uVo.getId else
-			*/			
+			*/		
 		}//login null else
 		
 	}//doAction
