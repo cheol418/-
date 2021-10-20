@@ -39,13 +39,8 @@
 	
 		<c:forEach items="${boardLists}" var="board">
 		<tr>
-			<td align="center" class="nboardNum">
-					${board.num}
-				
-			</td>
-			<td class="nboardCT">				
-					${board.category}				
-			</td>							
+			<td align="center" class="nboardNum">${board.num}</td>
+			<td class="nboardCT">${board.category}</td>							
 			<td align="left" class="nboardTitle">
 				<c:if test="${board.relevel > 0}">
 					<c:set value="${board.relevel * 30}" var="width"/> 
