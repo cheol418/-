@@ -64,6 +64,7 @@ public class ClubBoardDetailForm {
 	@RequestMapping(value="/replyClubWrite.bd", method = RequestMethod.POST)
 	public ModelAndView replyWrite(							
 									@RequestParam(value="bno",required=false) int chatnum,									
+									@RequestParam(value="oid",required=false) String chatid,									
 									BoardReplyBean replybean,		
 									BoardBean bean,
 									ModelAndView mav,	
@@ -81,8 +82,9 @@ public class ClubBoardDetailForm {
 		
 		
 		mav.addObject("bno",chatnum);
+		mav.addObject("oid",chatid);
 		
-		mav.setViewName("redirect:/clubBoardDetailForm.bd?uid="+replybean.getWriter()+"&chatnum="+replybean.getBno());	
+		mav.setViewName("redirect:/clubBoardDetailForm.bd?uid="+chatid+"&chatnum="+replybean.getBno());	
 				
 		return mav;
 	}

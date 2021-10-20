@@ -47,7 +47,7 @@ CREATE TABLE member
 
 
 insert into member(num,id,passwd,name,image,gender,age,email,phone,area,point)
-values(seqmem.nextval,'admin','1234','admin','','占쎄텚','20','email','00000000','占쎄퐣占쎌뒻','30');
+values(seqmem.nextval,'admin','1234','admin','','남자','20','email','00000000','서울','30');
 
 insert into member(num,id,passwd, name, image, gender, age, email, phone, area,point)
 values(seqmem.nextval,'kim','1234', '김철수', '', '남자', 27, 'kim@naver.com', '010-1234-5678', '서울','30');
@@ -66,9 +66,10 @@ drop TABLE attend CASCADE CONSTRAINTS;
 CREATE TABLE attend
 (
     num      NUMBER    PRIMARY KEY, 
-    adate    DATE      NOT NULL default sysdate, 
+    adate    DATE      default sysdate, 
     mnum     NUMBER    NOT NULL 
 );
+
 
 -----------------------------------------------------------------------
 
@@ -151,6 +152,7 @@ create table boardreply (
 
 alter table boardreply add constraint boardreply_bno foreign key(bno) references board(num);
 
+drop sequence borplseq;
 create sequence borplseq START WITH 1 MINVALUE 0;
 
 insert into boardreply(bno, rno, content, writer) values(10, borplseq.nextval, '�뀒�뒪�듃�뙎湲�', '�뀒�뒪�듃 �옉�꽦�옄');

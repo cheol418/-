@@ -72,6 +72,7 @@
 				</c:forEach>  
 					<form name="replyClubForm" action="replyClubWrite.bd" method="post">
 						<input type="hidden" id="bno" name="bno" value="${chats.num}" />
+						<input type="hidden" id="oid" name="oid" value="${chats.id}" />
 			  		<div>			  			
 			    		<label for="writer">채팅 작성자</label><input type="text" id="writer" name="writer" /><br/>
 			    		<label for="content">채팅 내용</label><input type="text" id="content" name="content" />
