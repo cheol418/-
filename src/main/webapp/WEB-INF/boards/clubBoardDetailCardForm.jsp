@@ -12,7 +12,10 @@
 	});
 </script>
 
-<div id="MyClubDetailCard">
+
+
+
+
 <c:forEach var="concert" items="${concertList}" varStatus="statusClist">			
 	<c:forEach var="chats" items="${clubBoardChatLists}" varStatus="statusChats">
 		<c:if test="${concert.SVCID eq fn:substringAfter(chats.category, '_')}">
@@ -20,10 +23,10 @@
 				<c:if test="${chatnum eq chats.num}">
 					<input type="hidden" name="svcid" value="${concert.SVCID}">					
 				
-			<div class="body">
-				<div class="CardContainer">
+
+
 					<h2 align="center">같이가 모집 Card</h2>
-					<div class="ClubCardBody">
+
 						<table class="table table-bordered table-hover wform">
 							 
 							</tr>
@@ -47,29 +50,23 @@
 								</td>
 							</tr>									
 						</table>
-					</div>
-				</div>
-			</div>
+		
 			
-			<div id="reply" class="CardChatContainer">			  
-			    <c:forEach var="boardReply" items="${boardReplyLists}">
-			      	<div class="ownerChat"> 
-			      	<c:if test="${uid eq chats.id}">				        
-				        	<div class="ownerPosition">
-								<table>
-					        		<tr>					        			
-					        			<td class="ownBubble" width="300px">[${boardReply.content}}: </td>					        		
-					        			<td align="right">작성자 : ${boardReply.writer}</td>
-					        		</tr>
-				        		</table>
-				        		<div>
-				        		작성 날짜 :  <fmt:formatDate value="${boardReply.regdate}" pattern="yyyy-MM-dd" />
-				        		</div>
-				        	</div>				        
+			
+			<div id="reply">			  
+			    <c:forEach var="boardReply" items="${boardReplyLists}">			      	 
+			      	<c:if test="${uid eq chats.id}">			        				
+					    <table>  
+					    	<tr>
+					  			<td><div class="speech-bubble">${boardReply.content} // <fmt:formatDate value="${boardReply.regdate}" pattern="yyyy-MM-dd" /></div></td>					  							  							        		
+					  			<td align="right"><div align="center" class="speech-box">${boardReply.writer}</div></td>
+					  		</tr>					  		
+					   	</table>				        					        
 					</c:if>					
-					</div>		
-								  
-				</c:forEach>  
+							
+			</div>				  
+				</c:forEach>
+			<div>  
 					<form name="replyClubForm" action="replyClubWrite.bd" method="post">
 						<input type="hidden" id="bno" name="bno" value="${chats.num}" />
 						<input type="hidden" id="oid" name="oid" value="${chats.id}" />
@@ -91,7 +88,7 @@
 		</c:if>						
 	</c:forEach>
 </c:forEach>
-</div>
+
 
 <!-- 
 
@@ -175,3 +172,94 @@
 </c:forEach>
 </div>
  -->
+ 
+ 
+ <!-- 
+ 
+
+<div class="speech-bubble">와우</div>
+
+<div id="MyClubDetailCard">
+<c:forEach var="concert" items="${concertList}" varStatus="statusClist">			
+	<c:forEach var="chats" items="${clubBoardChatLists}" varStatus="statusChats">
+		<c:if test="${concert.SVCID eq fn:substringAfter(chats.category, '_')}">
+			<c:if test="${uid eq fn:substringBefore(chats.category, '_')}">
+				<c:if test="${chatnum eq chats.num}">
+					<input type="hidden" name="svcid" value="${concert.SVCID}">					
+				
+			<div class="body">
+				<div class="CardContainer">
+					<h2 align="center">같이가 모집 Card</h2>
+					<div class="ClubCardBody">
+						<table class="table table-bordered table-hover wform">
+							 
+							</tr>
+								<td>								
+									<h5>${concert.SVCNM}</h5>
+								</td>
+							</tr>
+							<tr>	 
+								<td>		 					
+									<img width="150" height="150" src="${concert.IMGURL}">
+								</td>
+							</tr> 
+							<tr>
+								<td>
+									<h5>모임 주최자: ${chats.name}(ID[${chats.id}])</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>								
+									<h5>주최자의 한마디: ${chats.title}</h5>
+								</td>
+							</tr>									
+						</table>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<div id="reply">			  
+			    <c:forEach var="boardReply" items="${boardReplyLists}">
+			      	<div class="ownerChat"> 
+			      	<c:if test="${uid eq chats.id}">				        
+				        	<div class="ownerPosition">
+								<table>
+					        		<tr>					        			
+					        			<td class="ownBubble" width="300px">[${boardReply.content}}: </td>					        		
+					        			<td align="right">작성자 : ${boardReply.writer}</td>
+					        		</tr>
+				        		</table>
+				        		<div>
+				        		작성 날짜 :  <fmt:formatDate value="${boardReply.regdate}" pattern="yyyy-MM-dd" />
+				        		</div>
+				        	</div>				        
+					</c:if>					
+					</div>		
+								  
+				</c:forEach>  
+					<form name="replyClubForm" action="replyClubWrite.bd" method="post">
+						<input type="hidden" id="bno" name="bno" value="${chats.num}" />
+						<input type="hidden" id="oid" name="oid" value="${chats.id}" />
+			  		<div>			  			
+			    		<label for="writer">채팅 작성자</label><input type="text" id="writer" name="writer" /><br/>
+			    		<label for="content">채팅 내용</label><input type="text" id="content" name="content" />
+			  		</div>
+			  		<div>
+			 	 		<button type="submit">작성</button>
+			  		</div>
+					</form> 				  
+			</div>
+			
+			
+		
+					
+				</c:if>
+			</c:if>
+		</c:if>						
+	</c:forEach>
+</c:forEach>
+</div>
+ 
+  -->
