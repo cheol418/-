@@ -16,7 +16,7 @@
 						</div>
 						<div>
 							<div class="loginText">비밀번호</div>
-							<input class="form-control loginInput" type="text" name="passwd">
+							<input class="form-control loginInput" type="password" name="passwd">
 						</div>
 				</li>
 				<li class="liBtn">
