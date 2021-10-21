@@ -37,7 +37,7 @@
 
 .ownBubble{
 	 background-color:green;
-	 font-size:22px;
+	 font-size:25px;
 }
 
 .guestPosition{
@@ -79,7 +79,7 @@
  	margin: 50px;
  	width:400px;
  	height:100px;
-  	background:#d0fdd2;
+  	background:#d0fdd2;  
   	border-radius: 10px;
 }
 
@@ -102,3 +102,4 @@
   	background:#ecfbd2;
   	border-radius: 10px;
 }
+ 
